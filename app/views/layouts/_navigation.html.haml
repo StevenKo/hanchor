@@ -1,0 +1,33 @@
+%ul.nav
+  %li
+    = link_to image_tag("logo.png"), root_path, :class => 'brand'
+  %li
+    = link_to '關於我們', aboutus_path
+  %li
+    = link_to '部落格', ""
+  %li
+    = link_to '包款', ""
+  %li
+    = link_to '配件', ""
+  %li
+    = link_to '衣著', ""
+  %li
+    = link_to '其它', ""
+  %li
+    = link_to '客製化', ""
+  %li
+    = link_to '限量優惠', ""
+  %li
+    = link_to '問與答', ""
+
+#user_links.pull-right
+  %ul
+    %li.dropdown
+      %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+        Welcome,Steven
+        %b.caret
+      %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+        %li
+          %a(href="#") Account
+          %a(href="#") Plan and Billing
+          = link_to 'Logout', ""

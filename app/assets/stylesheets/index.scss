@@ -1,0 +1,95 @@
+#main fieldset{
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+}
+#main legend{
+    padding: 5px 3px;
+    color:#999;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#product .product_thumbs{
+  background:#F6F7F9;
+  background:-webkit-linear-gradient(top,#FEFEFF 50%,#F6F7F9 100%);
+  border:1px solid #bbb;
+  padding:10px;
+  width:200px;
+  vertical-align: top;
+  margin: 8px 4px;
+  display: inline-block;
+  font-size:12px;
+  cursor: pointer;
+  height:340px;
+}
+.product_thumbs .name{
+  padding: 2px;
+  font-weight: bold;
+}
+.product_thumbs .kill_price{
+  color:#666;
+  text-decoration:line-through;
+}
+.product_thumbs .special_price{
+  color:#cd0a0a;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+#main .product_thumbs a.add{
+  padding: 3px;
+  background:#E39633;
+  color:#fff;
+  line-height: 30px;
+}
+#main .product_thumbs a.add:hover{
+  background:#FF8B40;
+  text-decoration: none;
+}
+
+/**
+* footer
+*/
+#footer_frame{
+    clear: both;
+    background: #000;
+    padding: 10px;
+    border-top: 3px solid #999;
+}
+#footer{
+    width:1000px;
+    margin: 0 auto;
+    font-size: 12px;
+    text-align: center;
+    color:#999;
+    position: relative;
+}
+#footer ul#nav{
+    padding: 0;
+    margin: 0 18%;
+    list-style: none;
+}
+
+#footer.footer_tw ul#nav{
+    padding: 0;
+    margin: 0 28%;
+    list-style: none;
+}
+#footer ul#nav li{
+    color:#fff;
+    float: left;
+    margin: 0px 6px;
+}
+#footer ul#nav li a{
+    color:#fff;
+}
+#footer ul#nav li a:hover{
+    color:#ccc;
+}
+#footer a{
+    color:#E0C574;
+    text-decoration: none;
+}
+#footer a:hover{
+    color:#FF8B40;
+    text-decoration:underline;
+}

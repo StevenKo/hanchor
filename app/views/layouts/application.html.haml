@@ -1,0 +1,28 @@
+<!doctype html>
+%html
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %title Hanchor
+        %meta{:content => "", :name => "description"}
+          %meta{:content => "", :name => "author"}
+            = stylesheet_link_tag "application", :media => "all"
+            = javascript_include_tag "application"
+            = favicon_link_tag "favicon.jpg"
+            = csrf_meta_tags
+            = yield(:head)
+  %body
+    %header
+      .navbar
+        .navbar-inner
+          .container
+            = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        .row
+          .span12
+            #messages
+              = render 'layouts/messages'
+            = yield
+    %footer
+      = render 'layouts/footer'

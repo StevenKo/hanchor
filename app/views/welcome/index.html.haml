@@ -1,0 +1,86 @@
+.span7
+  #myCarousel.carousel.slide
+    .carousel-inner
+      .item
+        =image_tag "news1.jpg" do
+          .carousel-caption
+            %h4 First Thumbnail label
+            %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+      .item
+        =image_tag "news1.jpg" do
+          .carousel-caption
+            %h4 Second Thumbnail label
+            %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+      .item.active
+        =image_tag "news1.jpg" do
+          .carousel-caption
+            %h4 Third Thumbnail label
+            %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
+    %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
+.span4
+  #aboutus
+    %fieldset
+      %legend 關於我們
+    %p
+      Hanchor在2012年創立於台灣台北，始於2010年著手設計、手工製作戶外用品。品牌圖案呈現攀岩者沾滿白色碳酸鎂粉的手緊緊抓住岩塊；HANCHOR= Hand+ Anchor，結合兩項攀岩者與岩牆連結的重要元素，象徵穩固及堅持的精神。由攀岩概念出發的原創設計，採用高級環保材料，並致力於輕量化兼具堅固及功能性的街頭戶外風格。產品經過反覆測試與及親身使用，在乎你每一個感受；甚至提供客製的貼心服務，讓你擁有獨一無二的HANCHOR。
+      =link_to "更多資訊",""
+  #news
+    %fieldset
+      %legend 部落格文章
+    %p
+      -@news.each do |news|
+        = link_to news.title, ""
+
+.span12
+  #videos
+    %fieldset
+      %legend Feature Video
+    %p
+      -@videos.each do |video|
+        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "250", :src => "http://www.youtube.com/embed/jxazVGqodnY", :title => "YouTube video player", :width => "430"}
+  #product
+    %fieldset
+      %legend Feature Product
+    - @products.each do |product|
+      .product_thumbs
+        %center
+          =link_to (image_tag "http://localhost/resample.php?scale=0.6&path=upload/product/pipefirst.JPG"),""
+        %br
+        = link_to product.name, ""
+        %br
+        %span.price
+          NT$
+          = product.price
+        %br
+          = truncate(strip_tags(product.feature), length: 50)
+  #facebook_fan
+    %fieldset
+      %legend HANCHOR on Facebook
+      #fb-root
+        :javascript
+          (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=356939360986455";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+          FB.Event.subscribe('xfbml.render',
+              function(response) {
+                  alert('You liked the URL: ');
+              }
+          );
+  
+        .fb-like-box{"data-border-color" => "#e5e5e5", "data-header" => "false", "data-height" => "300", "data-href" => "https://www.facebook.com/pages/HANCHOR/210934362319129", "data-show-faces" => "false", "data-stream" => "true", "data-width" => "980"}
+        
+
+
+
+
+
+
+
+
+
+
