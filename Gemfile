@@ -10,12 +10,14 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'truncate_html'
 
-
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'
   gem 'sass-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.3.0'
 end
+
+#分頁
+gem 'will_paginate'
 
 group :doc do
   gem 'sdoc', require: false

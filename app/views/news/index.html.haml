@@ -1,0 +1,23 @@
+.span8
+  = link_to "部落格", news_index_path
+
+  - @news.each_with_index do |news_item,i|
+    .news_item
+      %span.title
+        =link_to news_item.title,news_path(news_item)
+      %br
+      %span.postdate
+        = news_item.created_at.strftime("%Y-%m-%d")
+      .content
+        -if(i==0)
+          = image_tag news_item.pic
+          = news_item.content.html_safe
+        -else
+          = image_tag news_item.pic, class: "small"
+          = truncate_html(news_item.content, length: 150)
+          = link_to "read more", news_path(news_item)
+  = will_paginate @news
+
+
+.span3
+  = render "sidebar", news: @news
