@@ -5,4 +5,11 @@ class Product < ActiveRecord::Base
   has_many :product_sizes
   has_many :product_quantities
   has_many :product_infos
+
+  scope :select_info, -> { select(" product_infos.name,
+                                    product_infos.price,
+                                    product_infos.feature,
+                                    product_infos.quick_overview, 
+                                    products.id"
+                        ) }
 end

@@ -30,6 +30,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
+    bootstrap_form (1.0.0)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -45,6 +46,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.1)
+    fancybox2-rails (0.2.4)
+      railties (>= 3.1.0)
     ffi (1.9.0)
     formatador (0.2.4)
     guard (1.8.2)
@@ -164,7 +167,9 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (~> 2.3.2.0)
+  bootstrap_form
   coffee-rails (~> 4.0.0)
+  fancybox2-rails (~> 0.2.4)
   guard-livereload
   haml-rails
   jbuilder (~> 1.2)

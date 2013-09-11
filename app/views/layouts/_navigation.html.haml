@@ -6,28 +6,32 @@
   %li
     = link_to '部落格', news_index_path
   %li
-    = link_to '包款', ""
+    = link_to '包款', product_index_path("packing")
   %li
-    = link_to '配件', ""
+    = link_to '配件', product_index_path("accessories")
   %li
-    = link_to '衣著', ""
+    = link_to '衣著', product_index_path("apparel")
   %li
-    = link_to '其它', ""
+    = link_to '其它', product_index_path("others")
   %li
-    = link_to '客製化', ""
+    = link_to '客製化', product_index_path("customization")
   %li
-    = link_to '限量優惠', ""
+    = link_to '限量優惠', product_index_path("deal")
   %li
-    = link_to '問與答', ""
+    = link_to '問與答', faq_path
 
 #user_links.pull-right
-  %ul
-    %li.dropdown
-      %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-        Welcome,Steven
-        %b.caret
-      %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-        %li
-          %a(href="#") Account
-          %a(href="#") Plan and Billing
-          = link_to 'Logout', ""
+  = link_to "購物車", ""
+  -if logged_in?
+    %ul
+      %li.dropdown
+        %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+          Welcome,Steven
+          %b.caret
+        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+          %li
+            %a(href="#") Account
+            %a(href="#") Plan and Billing
+            = link_to 'Logout', ""
+  -else
+    = link_to "登入", login_path

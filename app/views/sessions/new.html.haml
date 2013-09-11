@@ -1,0 +1,24 @@
+#account
+  / <h2>我的帳號</h2>
+  %div
+    %fieldset
+      %legend 加入會員
+    Create an account to shop with HANCHOR! You will be able to check details and status of your orders. Your personal information won’t be shared with any others.
+    %br
+      %br
+        加入本網站會員立即進行購物並可追蹤訂單，HANCHOR不會洩漏任何資料給第三方，除HANCHOR外，會員不會收到來自第三人之電子郵件。
+        %br
+          %br
+            %input.button{:onclick => "location.href='/home/account/create/';", :type => "button", :value => "註冊"}
+  %div
+    %fieldset
+      %legend 會員登入
+    %br
+    = form_tag '/login' do
+      = label_tag "電子郵件:"
+      = text_field_tag :username
+      = label_tag "密碼: "
+      = password_field_tag :password
+      %br
+      = submit_tag "登入", class: 'button'
+      = link_to "忘記密碼","", class: 'button'

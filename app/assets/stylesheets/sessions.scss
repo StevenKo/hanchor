@@ -1,0 +1,22 @@
+div#account{
+    width:900px;
+    margin: auto;
+}
+div#account div{
+    width: 390px;
+    float:left;
+    padding:20px;
+    margin:0px 5px;
+    margin-bottom: 15px;
+    background: #FAFAFA;
+    font-size: 12px;
+}
+div#account div form{
+    font-size: 12px;
+    color:#666;
+    padding-left: 15px;
+    font-weight: bold;
+}
+div#account .button{
+     float:right;border:1px solid #E39633; background: #E39633; color:#fff; padding:5px; cursor:pointer; margin: 5px;
+}

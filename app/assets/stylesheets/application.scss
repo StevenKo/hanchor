@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fancybox
  *= require_tree .
  */
 
@@ -40,5 +41,31 @@ div.nav_item {
 
 div.comment_votes {
   padding: 10px;
+}
+
+
+#product .pic {
+float: left;
+width: 360px;
+text-align: center;
+padding: 5px;
+}
+
+.pic p img{
+  width: 60px;
+}
+
+#product .info{
+  margin-left: 370px;
+  padding: 5px;
+  width: 400px;
+}
+#product .info h2{
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+#product .info li{
+  padding: 5px;
 }
 

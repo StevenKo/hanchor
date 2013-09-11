@@ -8,7 +8,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
+gem 'bootstrap_form'
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'

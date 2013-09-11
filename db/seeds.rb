@@ -7,7 +7,13 @@ News.create(title: "2013-06-04 HANCHOR Multi-Day Pack",content: "<p></p><div><b>
 Video.create(link: "http://www.youtube.com/watch?v=jxazVGqodnY&feature=plcp", sort: 1)
 Video.create(link: "http://www.youtube.com/watch?v=1sQRAEBKrlA",sort: 2)
 
-ProductCategory.create(name: "包款",name_en: "Packing", is_visible: 1, sort: 1)
+ProductCategory.create(name: "包款",name_en: "packing", is_visible: 1, sort: 1)
+ProductCategory.create(name: "配件",name_en: "accessories", is_visible: 1, sort: 1)
+ProductCategory.create(name: "衣著",name_en: "apparel", is_visible: 1, sort: 1)
+ProductCategory.create(name: "其它",name_en: "others", is_visible: 1, sort: 1)
+ProductCategory.create(name: "客製化",name_en: "customization", is_visible: 1, sort: 1)
+ProductCategory.create(name: "限量優惠",name_en: "deal", is_visible: 1, sort: 1)
+
 
 Product.create(no: "uc01", product_category_id: 1)
 Product.create(no: "ucx2", product_category_id: 1)
