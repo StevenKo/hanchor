@@ -1,3 +1,3 @@
 class ProductColor < ActiveRecord::Base
-  belogns_to :product
+  belongs_to :product
 end
