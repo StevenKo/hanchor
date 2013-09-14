@@ -1,0 +1,32 @@
+= will_paginate @products
+
+%table.table
+  %tr
+    %th 產品編號
+    %th 分類
+    %th 產品名稱
+    %th 售價
+    %th 特價
+    %th 數量
+    %th 排序
+    %th 點擊次
+    %th 顯示
+
+  - @products.each do |product|
+    %tr
+      %td= product.no
+      %td= product.product_category.name
+      %td= product.product_infos.first.name
+      %td= product.product_infos.first.price
+      %td= product.product_infos.first.special_price
+      %td= 1 #product.product_quantities.first.quantity
+      %td= product.product_infos.first.sort
+      %td= product.product_infos.first.views
+      %td= (product.product_infos.first.is_visible)? "顯示" : "不顯示"
+
+      %td= link_to 'Show', admin_product_path(product)
+      %td= link_to 'Edit', edit_admin_product_path(product)
+      %td= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= will_paginate @products

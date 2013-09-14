@@ -1,0 +1,22 @@
+= will_paginate @users
+
+%table.table
+  %tr
+    %th 編號
+    %th 名字
+    %th 聯絡電話
+    %th Email
+    %th 訂單紀錄
+  - @users.each do |user|
+    %tr
+      %td= user.id
+      %td= user.name
+      %td= user.phone
+      %td= user.email
+      %td= user.orders.size
+      %td= link_to 'Show', admin_user_path(user)
+      %td= link_to 'Edit', edit_admin_user_path(user)
+      %td= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= will_paginate @users

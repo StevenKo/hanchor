@@ -1,0 +1,42 @@
+%table.table
+  %tbody
+    %tr
+      %th{:width => "260"} 編號
+      %td= @user.id
+    %tr
+      %th 名字
+      %td= @user.name
+    %tr
+      %th 聯絡電話
+      %td= @user.phone
+    %tr
+      %th Email(帳號)
+      %td= @user.email
+    %tr
+      %th 密碼
+      %td ****************
+    %tr
+      %th 註冊日期
+      %td= @user.created_at
+    %tr
+      %th 郵遞區號
+      %td= @user.zip_code
+    %tr
+      %th 州
+      %td= @user.state
+    %tr
+      %th 城市
+      %td= @user.city
+    %tr
+      %th 國家
+      %td= @user.country
+    %tr
+      %th 收件地址
+      %td= @user.shipping_address
+    %tr
+      %th 訂單紀錄
+      %td 
+        - @user.orders.each_with_index do |order,i|
+          = link_to "order#{i.to_s}",""
+
+= link_to "back", admin_users_path, class: "btn"

@@ -1,0 +1,25 @@
+= will_paginate @news
+
+%table.table
+  %tr
+    %th 發佈日期
+    %th 編號
+    %th 標題
+    %th 排序
+    %th TW顯示
+    %th EN顯示
+
+  - @news.each do |news|
+    %tr
+      %td= display_date(news.created_at)
+      %td= news.id
+      %td= news.title
+      %td= news.sort
+      %td= news.is_tw
+      %td= news.is_en
+      %td= link_to 'Show', admin_news_path(news)
+      %td= link_to 'Edit', edit_admin_news_path(news)
+      %td= link_to 'Destroy', admin_news_path(news), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= will_paginate @news

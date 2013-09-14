@@ -17,6 +17,7 @@ class CreateOrders < ActiveRecord::Migration
       t.text :memo
       t.string :payment
       t.string :bank
+      t.string :status
 
       t.timestamps
     end

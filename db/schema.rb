@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130910031912) do
+ActiveRecord::Schema.define(version: 20130914103016) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20130910031912) do
     t.datetime "updated_at"
   end
 
+  create_table "order_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.integer  "price"
+    t.integer  "product_size_id"
+    t.integer  "product_color_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: true do |t|
     t.string   "shipping_address"
     t.string   "billing_address"
@@ -80,6 +91,7 @@ ActiveRecord::Schema.define(version: 20130910031912) do
     t.text     "memo"
     t.string   "payment"
     t.string   "bank"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -200,6 +212,7 @@ ActiveRecord::Schema.define(version: 20130910031912) do
     t.datetime "last_sign_in_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   create_table "videos", force: true do |t|

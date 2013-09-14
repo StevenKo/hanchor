@@ -1,0 +1,78 @@
+%table.table
+  %tbody
+    %tr
+      %th{:width => "100"} 編號
+      %td= format_order_id(@order.id)
+    %tr
+      %th 訂單日期
+      %td= display_date(@order.created_at)
+    %tr
+      %th 名字
+      %td= @order.user.name
+    %tr
+      %th 聯絡電話
+      %td= @order.phone
+    %tr
+      %th 運送方式
+      %td= @order.shipping_name
+    %tr
+      %th 國家
+      %td= @order.country
+    %tr
+      %th 洲
+      %td= @order.state
+    %tr
+      %th 城市
+      %td= @order.city
+    %tr
+      %th 郵遞區號
+      %td= @order.zip_code
+    %tr
+      %th 收件地址
+      %td= @order.shipping_address
+    %tr
+      %th 付費方式
+      %td= @order.shipping_name
+    %tr
+      %th 付款資訊(銀行)
+      %td= @order.bank
+    %tr
+      %th 總金額
+      %td= @order.total
+    %tr
+      %th 意見
+      %td= @order.memo
+    %tr
+      %th 狀態
+      %td
+        = @order.status
+        %br
+          = link_to "訂單確認", change_status_admin_order_path(@order,value: "訂單確認"), class: "btn"
+          = link_to "確認匯款", change_status_admin_order_path(@order,value: "確認匯款"), class: "btn"
+          = link_to "已出貨", change_status_admin_order_path(@order,value: "已出貨"), class: "btn"
+
+訂單細節
+%table.table
+  %thead
+    %tr
+      %th 出貨編號
+      %th 品名
+      %th 尺寸
+      %th 顏色
+      %th 單價
+      %th 數量
+      %th 金額
+  %tbody
+    -@order.order_items.each do |order_item|
+      %tr
+        %td=  "#{format_order_id(@order.id)}:#{order_item.id}" 
+        %td= order_item.product.product_infos.first.name
+        %td= order_item.product_size.size
+        %td= order_item.product_color.color
+        %td= order_item.price
+        %td= order_item.quantity
+        %td= order_item.price * order_item.quantity
+
+= link_to "back", admin_orders_path, class: "btn"
+%br
+%br

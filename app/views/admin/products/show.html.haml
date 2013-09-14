@@ -1,0 +1,11 @@
+%section.register.container
+  .row
+    .span10.offset1
+      = bootstrap_form_for @product, url: admin_product_path(@product),:html => {:class => "form-horizontal"} do |f|
+        
+        = f.text_field :no, :class => "span3", label: "產品編號"
+        = f.select :product_category_id, @category_selection,label: "分類"
+        = f.secondary "確定"
+        = link_to "返回", admin_products_path, class: "btn"
+        = link_to "預覽", admin_products_path, class: "btn btn-info"
+        = link_to "刪除", admin_product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

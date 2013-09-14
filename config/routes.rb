@@ -19,4 +19,21 @@ Hanchor::Application.routes.draw do
 
   get ':category/product' => "product#index", as: "product_index"
   resources :products, except: [:index]
+
+  namespace :admin do
+    get '/' => 'admin#index'
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    get '/logout', to: 'sessions#destroy'
+
+    resources :users
+    resources :orders do
+      member do
+        get 'change_status'
+      end
+    end
+    resources :products
+    resources :news
+    resources :faqs, only: [:edit]
+  end
 end

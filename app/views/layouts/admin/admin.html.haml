@@ -1,0 +1,44 @@
+<!doctype html>
+%html
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %title Hanchor
+        %meta{:content => "", :name => "description"}
+          %meta{:content => "", :name => "author"}
+            = stylesheet_link_tag "application", :media => "all"
+            = javascript_include_tag "application"
+            = favicon_link_tag "favicon.jpg"
+            = csrf_meta_tags
+            = yield(:head)
+  %body
+    %header
+      .navbar
+        .navbar-inner
+          .container
+            = render 'layouts/admin/navigation'
+    .navbar
+      #header-b
+        %div
+          %ul
+            %li
+              =link_to "Members", admin_users_path
+            %li
+              =link_to "Orders", admin_orders_path
+            %li
+              =link_to "Products", admin_products_path
+            %li
+              =link_to "News", admin_news_index_path
+            %li
+              %a{:href => "?page=faq"} Q&amp;A
+            %li
+              %a{:href => "?page=banner"} Banner
+            %li
+              %a{:href => "?page=video"} Video
+    #main{:role => "main"}
+      .container
+        .row
+          .span12
+            #messages
+              = render 'layouts/messages'
+            = yield

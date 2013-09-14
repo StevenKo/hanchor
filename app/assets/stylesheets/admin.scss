@@ -1,0 +1,30 @@
+#header-b{
+    margin: 0;
+    background: #50595d;
+/*    background: #3A4043;*/
+    height: 30px;
+}
+#header-b div{
+    width:900px;
+    margin: auto;
+}
+#header-b ul{
+    padding: 0px;
+    padding-top: 5px;
+    margin: 0;
+    list-style: none;
+}
+#header-b ul li{
+    float:left;
+    margin: 0 10px;
+    width:90px;
+}
+#header-b ul li a{
+    font-weight: bold;
+    color: #c5d1e3;
+    text-decoration: none;
+}
+#header-b ul li a:hover{
+    color: #fff;
+    text-decoration: none;
+}
