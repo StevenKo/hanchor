@@ -1,0 +1,11 @@
+.span8
+  %table#news_list{:border => "0", :cellpadding => "5", :cellspacing => "0"}
+    %tbody
+      - @news.each do |news_item|
+        %tr
+          %td{:width => "80"}
+            = news_item.created_at.strftime("%Y-%m-%d")
+          %td
+            = link_to news_item.title, news_path(news_item)
+.span3
+  = render "sidebar", news: @news

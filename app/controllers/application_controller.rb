@@ -18,6 +18,13 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def require_user
+    unless logged_in?
+      flash[:error] = "Must logged_in"
+      redirect_to login_path
+    end
+  end
+
   def get_cart_items
     if session[:cart_id]
       @cart_items = CartItem.where("cart_id = #{session[:cart_id]}")

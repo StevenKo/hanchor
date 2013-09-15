@@ -8,4 +8,8 @@ class NewsController < ApplicationController
     @recent_news = News.limit(4)
     @news = News.find(params[:id])
   end
+
+  def list
+    @news = News.all.select("id, title, created_at")
+  end
 end

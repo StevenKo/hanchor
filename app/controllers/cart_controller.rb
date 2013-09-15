@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-
+  before_action :require_user, only: [:index, :checkout]
   before_action :get_cart_items, only: [:index,:checkout]
 
   def index
