@@ -1,5 +1,4 @@
 #account
-  / <h2>我的帳號</h2>
   %div
     %fieldset
       %legend 加入會員
@@ -9,7 +8,7 @@
         加入本網站會員立即進行購物並可追蹤訂單，HANCHOR不會洩漏任何資料給第三方，除HANCHOR外，會員不會收到來自第三人之電子郵件。
         %br
           %br
-            %input.button{:onclick => "location.href='/home/account/create/';", :type => "button", :value => "註冊"}
+            = link_to "註冊",register_path, class: 'button'
   %div
     %fieldset
       %legend 會員登入
