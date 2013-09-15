@@ -14,11 +14,12 @@ ProductCategory.create(name: "其它",name_en: "others", is_visible: 1, sort: 1)
 ProductCategory.create(name: "客製化",name_en: "customization", is_visible: 1, sort: 1)
 ProductCategory.create(name: "限量優惠",name_en: "deal", is_visible: 1, sort: 1)
 
-ProductCategory.create(name: "test",name_en: "deal", is_visible: 1, sort: 1, parent_id: 1)
+ProductCategory.create(name: "測試",name_en: "test", is_visible: 1, sort: 1, parent_id: 1)
 
 
 Product.create(no: "uc01", product_category_id: 1)
 Product.create(no: "ucx2", product_category_id: 1)
+Product.create(no: "uc03", product_category_id: 7)
 
 ProductPic.create(product_id: 1, description: "pic description 1", pic: "http://hanchor.com/upload/slideshow/coverphoto28.JPG", sort: 1)
 ProductPic.create(product_id: 1, description: "pic description 2", pic: "http://hanchor.com/upload/slideshow/coverphoto28.JPG", sort: 2)
@@ -26,6 +27,7 @@ ProductPic.create(product_id: 1, description: "pic description 3", pic: "http://
 
 ProductInfo.create(name: "PIPE",weight: "430g", material: "210D ripstop nlyon / X-Pac VX21", quick_overview: "<p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh3.googleusercontent.com/-iETq4RtvUlQ/T3kjy12IIGI/AAAAAAAAAIo/wckbqZvH040/s600/P3298398.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-c2WkaZNdAMI/T3kpbm4jTBI/AAAAAAAAAJI/lpKMYCAfatE/s600/P3298296.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"line-height: normal; font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">PIPE為Urban Climbing Series目前唯一的後背包款，</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">採用防水且抗撕裂的尼龍布做為表布材質，搭配耐磨性強的三層貼合菱形布為底布以及</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\">YKK</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" 新細明體?,?serif?;mso-ascii-font-family:calibri;mso-ascii-theme-font:=\"\" minor-latin;mso-fareast-font-family:新細明體;mso-fareast-theme-font:minor-fareast;=\"\" mso-hansi-font-family:calibri;mso-hansi-theme-font:minor-latin?=\"\">防水拉鍊、</span><span style=\"font-size: 10pt;\" lang=\"EN-US\">ZOATFOAMS PLASTAZOTE LD15 </span><span style=\"font-size: 10pt;\" mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\">物理性發泡無毒超輕量泡棉<font size=\"2\" face=\"Arial, Verdana\">之原創包款，主縫線雙線車縫並且包邊強化，輕量兼具堅固，目前有四種顏色可選擇，無論運動或休閒都很適合。</font></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►大容量前袋，適合放置岩鞋</span></span><span style=\"font-family: 新細明體, serif; font-size: 10pt;\">、</span><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">吊帶具等物品，方便拿取且具有透氣功能。</span><span style=\"font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"></span><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-ArvxHDqXrKU/T3kYgZbb5zI/AAAAAAAAAGg/D_Ot_wWdwzA/s600/P3217901.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><img src=\"https://lh6.googleusercontent.com/-jp8La77kNKc/T3kYtgwwNpI/AAAAAAAAAHc/QQx4XOk76yU/s600/P3217933.JPG\"></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"></span><span style=\"font-size: small;\"> ►雙筒式口袋打造快速取物的收納空間提供雨傘、水瓶等各種小物置放，並設有四合扣可供閉合。</span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-P_WlZ6BbQWA/T3kYY_7hs2I/AAAAAAAAAGQ/CEQsFa5brcA/s600/P3217899.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►內側多層次口袋，分類收納書本及文件，另有拉鍊口袋與勾環方便置放小物及掛置鑰匙。</span><font size=\"2\"><br></font><img src=\"https://lh4.googleusercontent.com/-LFKRY1_XBJk/T3kYtFnMlQI/AAAAAAAAAHY/5uVmymXiDys/s600/P3217916.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh4.googleusercontent.com/-zmdMBdVCcIY/T3kYg2atxpI/AAAAAAAAAGo/TVBQhYOJBWs/s600/P3217906.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"> </p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►</span><span style=\"font-size: 13px;\">側邊拉鍊隱藏雙口袋，水瓶</span>、錢包、手機、零錢小物輕鬆收納。</p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"> </span><img style=\"font-size: 10pt;\" src=\"https://lh5.googleusercontent.com/-cbEpUkVeiws/T3kYntZLf6I/AAAAAAAAAG4/S_vSzukgBoA/s600/P3217908.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-my2Cs2xaH7w/T3kYoWv4j3I/AAAAAAAAAG8/q9CtpLaOMjA/s600/P3217912.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><font size=\"2\">►</font></span><span style=\"text-align: center; letter-spacing: 1px; background-color: rgb(255, 255, 255);\"><font size=\"2\" face=\"Arial, Verdana\">包體受力處採用X-PAC布料強化</font></span></span><img style=\"font-size: 10pt;\" src=\"https://lh6.googleusercontent.com/-bUcQ0G7a-IQ/T3kYZORG_fI/AAAAAAAAAGM/3q2BkBmurv4/s600/P3217900.JPG\"><font style=\"font-family: Arial, Verdana; font-size: 10pt;\" size=\"2\"><font> </font></font><span style=\"font-family: Arial, Verdana; font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-family: Arial, Verdana; font-size: 10pt;\">►YKK waterproof zipper 提供高抗水兼具取物容易的收納空間</span><img style=\"font-size: small;\" src=\"https://lh3.googleusercontent.com/-ctbNqP_MpCY/T3kYY1j8L3I/AAAAAAAAAGI/TNBpzG19Mvw/s600/P3217894.JPG\"></p><div style=\"font: 10pt/normal Arial, Verdana; text-align: center; font-size-adjust: none; font-stretch: normal;\"><font color=\"#444444\" face=\"Verdana, Arial, sans-serif\"><span style=\"letter-spacing: 1px;\"><br></span></font></div><font style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" size=\"2\" face=\"Arial, Verdana\"><br></font><br><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\"></p>", dimension: "29cm*47cm*11cm", price: 4900, feature: "<p></p><div><b>PIPE 後背包款採預約訂製的方式販售，網路下單後約需一至兩個禮拜工作天進行製作與出貨</b></div><div><br></div><div>輕量化抗水多功能背包<span style=\"font-size: 10pt;\">，</span><span style=\"font-size: 10pt;\">日常生活及城市攀岩完美收納所需物品的貼心選擇</span><span style=\"font-size: 10pt;\">。</span></div><div>• 主面料採210D 表面silicone背面PU輕量耐磨抗撕裂尼龍</div><div>• 底部採Dimension Polyant X-Pac VX21四層貼合輕量防水耐磨抗撕裂布料</div><div>• 拉鍊於包體內部採YKK 3CF，外部採YKK 5CNT8 防水拉鍊</div><div>• 採用ZOTEFOAMS PLASTAZOTE LD15 物理性發泡無毒超輕量泡棉&nbsp;</div><div>• 主袋超長防水拉鍊開口，前方片蓋式開口</div><div>• 兩側、前、後及內部多夾層口袋</div><div>• 前方直式防水拉鍊開口SHAREDSPACE透氣大口袋隔離運動用品及其他物品</div><div>• 前方雙筒口袋提供快速取物</div><div>• 兩側隱藏式一高一低口袋，提供手機等小物及水瓶雨傘等長型物品收納</div><div>• 內部提供鑰匙圈掛勾</div><div>• 主縫線雙車縫強化，包體受力處X-Pac強化</div><div style=\"font: 10pt/normal Arial, Verdana;\"><b style=\"font-family: 'Times New Roman'; font-size: medium;\"><font color=\"#d7040c\"><br></font></b></div><div style=\"font: 10pt/normal Arial, Verdana;\"><b style=\"font-family: 'Times New Roman'; font-size: medium;\"><font color=\"#d7040c\">PIPE 因體積尺寸問題，不適用超商取貨</font></b><br></div><p></p>", is_visible: true, sort: 1, product_id: 1)
 ProductInfo.create(name: "PIPE 2",weight: "430g", material: "210D ripstop nlyon / X-Pac VX21", quick_overview: "<p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh3.googleusercontent.com/-iETq4RtvUlQ/T3kjy12IIGI/AAAAAAAAAIo/wckbqZvH040/s600/P3298398.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-c2WkaZNdAMI/T3kpbm4jTBI/AAAAAAAAAJI/lpKMYCAfatE/s600/P3298296.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"line-height: normal; font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">PIPE為Urban Climbing Series目前唯一的後背包款，</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">採用防水且抗撕裂的尼龍布做為表布材質，搭配耐磨性強的三層貼合菱形布為底布以及</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\">YKK</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" 新細明體?,?serif?;mso-ascii-font-family:calibri;mso-ascii-theme-font:=\"\" minor-latin;mso-fareast-font-family:新細明體;mso-fareast-theme-font:minor-fareast;=\"\" mso-hansi-font-family:calibri;mso-hansi-theme-font:minor-latin?=\"\">防水拉鍊、</span><span style=\"font-size: 10pt;\" lang=\"EN-US\">ZOATFOAMS PLASTAZOTE LD15 </span><span style=\"font-size: 10pt;\" mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\">物理性發泡無毒超輕量泡棉<font size=\"2\" face=\"Arial, Verdana\">之原創包款，主縫線雙線車縫並且包邊強化，輕量兼具堅固，目前有四種顏色可選擇，無論運動或休閒都很適合。</font></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►大容量前袋，適合放置岩鞋</span></span><span style=\"font-family: 新細明體, serif; font-size: 10pt;\">、</span><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">吊帶具等物品，方便拿取且具有透氣功能。</span><span style=\"font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"></span><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-ArvxHDqXrKU/T3kYgZbb5zI/AAAAAAAAAGg/D_Ot_wWdwzA/s600/P3217901.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><img src=\"https://lh6.googleusercontent.com/-jp8La77kNKc/T3kYtgwwNpI/AAAAAAAAAHc/QQx4XOk76yU/s600/P3217933.JPG\"></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"></span><span style=\"font-size: small;\"> ►雙筒式口袋打造快速取物的收納空間提供雨傘、水瓶等各種小物置放，並設有四合扣可供閉合。</span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-P_WlZ6BbQWA/T3kYY_7hs2I/AAAAAAAAAGQ/CEQsFa5brcA/s600/P3217899.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►內側多層次口袋，分類收納書本及文件，另有拉鍊口袋與勾環方便置放小物及掛置鑰匙。</span><font size=\"2\"><br></font><img src=\"https://lh4.googleusercontent.com/-LFKRY1_XBJk/T3kYtFnMlQI/AAAAAAAAAHY/5uVmymXiDys/s600/P3217916.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh4.googleusercontent.com/-zmdMBdVCcIY/T3kYg2atxpI/AAAAAAAAAGo/TVBQhYOJBWs/s600/P3217906.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"> </p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►</span><span style=\"font-size: 13px;\">側邊拉鍊隱藏雙口袋，水瓶</span>、錢包、手機、零錢小物輕鬆收納。</p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"> </span><img style=\"font-size: 10pt;\" src=\"https://lh5.googleusercontent.com/-cbEpUkVeiws/T3kYntZLf6I/AAAAAAAAAG4/S_vSzukgBoA/s600/P3217908.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-my2Cs2xaH7w/T3kYoWv4j3I/AAAAAAAAAG8/q9CtpLaOMjA/s600/P3217912.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><font size=\"2\">►</font></span><span style=\"text-align: center; letter-spacing: 1px; background-color: rgb(255, 255, 255);\"><font size=\"2\" face=\"Arial, Verdana\">包體受力處採用X-PAC布料強化</font></span></span><img style=\"font-size: 10pt;\" src=\"https://lh6.googleusercontent.com/-bUcQ0G7a-IQ/T3kYZORG_fI/AAAAAAAAAGM/3q2BkBmurv4/s600/P3217900.JPG\"><font style=\"font-family: Arial, Verdana; font-size: 10pt;\" size=\"2\"><font> </font></font><span style=\"font-family: Arial, Verdana; font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-family: Arial, Verdana; font-size: 10pt;\">►YKK waterproof zipper 提供高抗水兼具取物容易的收納空間</span><img style=\"font-size: small;\" src=\"https://lh3.googleusercontent.com/-ctbNqP_MpCY/T3kYY1j8L3I/AAAAAAAAAGI/TNBpzG19Mvw/s600/P3217894.JPG\"></p><div style=\"font: 10pt/normal Arial, Verdana; text-align: center; font-size-adjust: none; font-stretch: normal;\"><font color=\"#444444\" face=\"Verdana, Arial, sans-serif\"><span style=\"letter-spacing: 1px;\"><br></span></font></div><font style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" size=\"2\" face=\"Arial, Verdana\"><br></font><br><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\"></p>", dimension: "29cm*47cm*11cm", price: 4900, feature: "黑灰藍配色，腰帶淺黃色<div><div><div>• 主面料採210D表面silicone背面PU輕量耐磨抗撕裂尼龍</div><div>• 底部採Dimension Polyant X-Pac VX21三層貼合輕量防水耐磨抗撕裂布料</div></div><div>• 束口式開關</div><div>•&nbsp;<span style=\"font-size: 10pt; \">放置攀岩使用毛刷之彈性帶</span></div></div>", is_visible: true, sort: 1, product_id: 2)
+ProductInfo.create(name: "PIPE 2",weight: "430g", material: "210D ripstop nlyon / X-Pac VX21", quick_overview: "<p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh3.googleusercontent.com/-iETq4RtvUlQ/T3kjy12IIGI/AAAAAAAAAIo/wckbqZvH040/s600/P3298398.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-c2WkaZNdAMI/T3kpbm4jTBI/AAAAAAAAAJI/lpKMYCAfatE/s600/P3298296.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"line-height: normal; font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">PIPE為Urban Climbing Series目前唯一的後背包款，</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:新細明體;=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;mso-hansi-theme-font:=\"\" minor-latin?=\"\">採用防水且抗撕裂的尼龍布做為表布材質，搭配耐磨性強的三層貼合菱形布為底布以及</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\">YKK</span><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" 新細明體?,?serif?;mso-ascii-font-family:calibri;mso-ascii-theme-font:=\"\" minor-latin;mso-fareast-font-family:新細明體;mso-fareast-theme-font:minor-fareast;=\"\" mso-hansi-font-family:calibri;mso-hansi-theme-font:minor-latin?=\"\">防水拉鍊、</span><span style=\"font-size: 10pt;\" lang=\"EN-US\">ZOATFOAMS PLASTAZOTE LD15 </span><span style=\"font-size: 10pt;\" mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\">物理性發泡無毒超輕量泡棉<font size=\"2\" face=\"Arial, Verdana\">之原創包款，主縫線雙線車縫並且包邊強化，輕量兼具堅固，目前有四種顏色可選擇，無論運動或休閒都很適合。</font></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►大容量前袋，適合放置岩鞋</span></span><span style=\"font-family: 新細明體, serif; font-size: 10pt;\">、</span><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">吊帶具等物品，方便拿取且具有透氣功能。</span><span style=\"font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"></span><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-ArvxHDqXrKU/T3kYgZbb5zI/AAAAAAAAAGg/D_Ot_wWdwzA/s600/P3217901.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><img src=\"https://lh6.googleusercontent.com/-jp8La77kNKc/T3kYtgwwNpI/AAAAAAAAAHc/QQx4XOk76yU/s600/P3217933.JPG\"></span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"></span><span style=\"font-size: small;\"> ►雙筒式口袋打造快速取物的收納空間提供雨傘、水瓶等各種小物置放，並設有四合扣可供閉合。</span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img style=\"font-size: 10pt;\" src=\"https://lh4.googleusercontent.com/-P_WlZ6BbQWA/T3kYY_7hs2I/AAAAAAAAAGQ/CEQsFa5brcA/s600/P3217899.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►內側多層次口袋，分類收納書本及文件，另有拉鍊口袋與勾環方便置放小物及掛置鑰匙。</span><font size=\"2\"><br></font><img src=\"https://lh4.googleusercontent.com/-LFKRY1_XBJk/T3kYtFnMlQI/AAAAAAAAAHY/5uVmymXiDys/s600/P3217916.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh4.googleusercontent.com/-zmdMBdVCcIY/T3kYg2atxpI/AAAAAAAAAGo/TVBQhYOJBWs/s600/P3217906.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"> </p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\">►</span><span style=\"font-size: 13px;\">側邊拉鍊隱藏雙口袋，水瓶</span>、錢包、手機、零錢小物輕鬆收納。</p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-size: 10pt;\"> </span><img style=\"font-size: 10pt;\" src=\"https://lh5.googleusercontent.com/-cbEpUkVeiws/T3kYntZLf6I/AAAAAAAAAG4/S_vSzukgBoA/s600/P3217908.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><img src=\"https://lh5.googleusercontent.com/-my2Cs2xaH7w/T3kYoWv4j3I/AAAAAAAAAG8/q9CtpLaOMjA/s600/P3217912.JPG\"></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span mso-hansi-theme-font:minor-latin?=\"\" 新細明體?,?serif?;=\"\" mso-ascii-font-family:calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:=\"\" 新細明體;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:calibri;=\"\"><span style=\"text-align: center; letter-spacing: 1px; font-family: Verdana, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><font size=\"2\">►</font></span><span style=\"text-align: center; letter-spacing: 1px; background-color: rgb(255, 255, 255);\"><font size=\"2\" face=\"Arial, Verdana\">包體受力處採用X-PAC布料強化</font></span></span><img style=\"font-size: 10pt;\" src=\"https://lh6.googleusercontent.com/-bUcQ0G7a-IQ/T3kYZORG_fI/AAAAAAAAAGM/3q2BkBmurv4/s600/P3217900.JPG\"><font style=\"font-family: Arial, Verdana; font-size: 10pt;\" size=\"2\"><font> </font></font><span style=\"font-family: Arial, Verdana; font-size: 10pt;\"> </span></p><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" class=\"MsoNormal\"><span style=\"font-family: Arial, Verdana; font-size: 10pt;\">►YKK waterproof zipper 提供高抗水兼具取物容易的收納空間</span><img style=\"font-size: small;\" src=\"https://lh3.googleusercontent.com/-ctbNqP_MpCY/T3kYY1j8L3I/AAAAAAAAAGI/TNBpzG19Mvw/s600/P3217894.JPG\"></p><div style=\"font: 10pt/normal Arial, Verdana; text-align: center; font-size-adjust: none; font-stretch: normal;\"><font color=\"#444444\" face=\"Verdana, Arial, sans-serif\"><span style=\"letter-spacing: 1px;\"><br></span></font></div><font style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" size=\"2\" face=\"Arial, Verdana\"><br></font><br><span style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\" lang=\"EN-US\"><!--?xml:namespace prefix = o /--><o:p></o:p></span><p style=\"font: 10pt/normal Arial, Verdana; font-size-adjust: none; font-stretch: normal;\"></p>", dimension: "29cm*47cm*11cm", price: 4900, feature: "黑灰藍配色，腰帶淺黃色<div><div><div>• 主面料採210D表面silicone背面PU輕量耐磨抗撕裂尼龍</div><div>• 底部採Dimension Polyant X-Pac VX21三層貼合輕量防水耐磨抗撕裂布料</div></div><div>• 束口式開關</div><div>•&nbsp;<span style=\"font-size: 10pt; \">放置攀岩使用毛刷之彈性帶</span></div></div>", is_visible: true, sort: 1, product_id: 3)
 
 
 User.create(name: "StevenKo",email: "test@hanchor.com", password: "111111")
@@ -119,7 +121,183 @@ Order.create( shipping_address: "fake shipping address",
 Country.create(name: "TW")
 Country.create(name: "EN")
 
-Faq.create(country_id: 1)
+Faq.create(country_id: 1, context: "<h3>1. 為何使用PAYPAL信用卡交易被收取國外交易手續費?
+  <p>
+    因為信用卡銀行與PAYPAL 之間認定的不同，有部分銀行認為PAYPAL為外商，均使用美金交易因此誤收這筆費用，若帳單上出現這筆費用的網友均可向HANCHOR 客服反映，將有專人為您與PAYPAL 公司協調退費事宜。
+  </p>
+  <h3>2. 哪裡有 HANCHOR 的經銷點?</h3>
+  <p></p>
+  <div>{:style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <span>{:style => \"background-color: rgb(255, 255, 255); font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; \"}
+      <font>{:size => \"2\"} HANCHOR 商品主要以官網為主，目前台灣有五個經銷據點展示部分商品&nbsp;</font></span></div>
+  <div>{:style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <span>{:style => \"background-color: rgb(255, 255, 255); font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; \"}
+      <font>{:size => \"2\"}
+        <br /></font></span></div>
+  <div>{:style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <font>{:size => \"2\"}
+      <span>{:style => \"background-color: rgb(255, 255, 255); font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; \"} UNDER PEACE</span>
+      <span>{:style => \"background-color: rgb(255, 255, 255); font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; \"} &nbsp;</span></font></div>
+  <font>{:size => \"2\", :style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <div class=\"text_exposed_show\">{:style => \"display: inline; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; background-color: rgb(255, 255, 255); \"}
+      地址:台北市大安區延吉街62巷9號1F
+      <br />
+      <br />
+      VINTAGE&nbsp;
+      <br />
+      地址:西門新宿大樓 5 F 32 / 10 室
+      <br />
+      <br />
+      台北山水&nbsp;
+      <br />
+      地址:台北市中正區中山北路一段12號
+      <br />
+      <br />
+      登山友中山店
+      <br />
+      地址:台北市中正區中山北路一段22號</div></font>
+  <div>{:style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <font>{:size => \"2\"}
+      <div class=\"text_exposed_show\">{:style => \"display: inline; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; line-height: 14px; background-color: rgb(255, 255, 255); \"}
+        <br /></div></font></div>
+  <div>
+    <font>{:size => \"2\"}
+      <div class=\"text_exposed_show\">{:style => \"display: inline; background-color: rgb(255, 255, 255); \"}
+        <font>{:face => \"lucida grande, tahoma, verdana, arial, sans-serif\"}
+          <span>{:style => \"line-height: 14px;\"} iClimb風城攀岩館</span></font></div></font>
+  </div>
+  <div>
+    <font>{:size => \"2\"}
+      <div class=\"text_exposed_show\">{:style => \"display: inline; background-color: rgb(255, 255, 255); \"}
+        <font>{:face => \"lucida grande, tahoma, verdana, arial, sans-serif\"}
+          <div>
+            <span>{:style => \"font-size: 13px; line-height: 14px; \"} 地址:</span>
+            <span>{:style => \"line-height: 14px; \"} 新竹縣竹北市成功二街98號</span>
+          </div>
+          <div>
+            <span>{:style => \"line-height: 14px; \"}
+              <br /></span>
+          </div>
+          <div>
+            <span>{:style => \"line-height: 14px; \"} STONE 攀岩館</span>
+          </div>
+          <div>
+            <span>{:style => \"line-height: 14px; \"}
+              <br /></span>
+          </div>
+          <div>
+            <span>{:style => \"line-height: 14px; \"} 地址: 新北市新莊區三合路58-12號</span>
+          </div></font></div></font>
+    <font>{:size => \"2\"}
+      <div class=\"text_exposed_show\">{:style => \"display: inline; background-color: rgb(255, 255, 255); \"}
+        <br />
+        <font>{:face => \"lucida grande, tahoma, verdana, arial, sans-serif\", :size => \"2\"}
+          <span>{:style => \"line-height: 14px;\"} * 由於各店展示商品數量不同，建議想看特定商品的朋友先行來信info@hanchor.com 詢問</span></font></div>
+      <span>{:style => \"font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: 14px; background-color: rgb(255, 255, 255); \"} 。</span></font>
+  </div>
+  <p></p>
+  <h3>3. 如何在HANCHOR購物？</h3>
+  <p></p>
+  <div>
+    <font>{:size => \"2\"} ※在HANCHOR購物刷卡，全程採用PAYPAL第三方金流系統，可選擇使用PAYPAL帳戶或直接線上刷卡，這項服務讓任何人自由選擇偏好方式付款，包含信用卡、銀行帳戶、PayPal Smart Connect或帳戶餘額，無須透露財務資料給其人。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"}</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} ※您亦可透過銀行ATM轉帳方式完成您的購物需求。請在交易確認後3天內轉入您的帳款。如您無法在期限內轉帳，我們將取消您的訂單；如有造成您的不便，敬請見諒。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} 當您完成轉帳程序後請至您的帳號中通知訂單已匯款或來信告知，我們確認無誤後將盡快寄送商品。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"}
+      <br /></font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} ※您亦可選擇郵局配送貨到付款方式付費</font>
+  </div>
+  <div>{:style => \"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; \"}
+    <br /></div>
+  <p></p>
+  <h3>4. HANCHOR購物運費如何計算？</h3>
+  <p></p>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} HANCHOR運費以單筆訂單方式計費:&nbsp;</font>
+  </div>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"}
+      <br /></font>
+  </div>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} 1.郵局配送到府運費 NT$100&nbsp;</font>
+  </div>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} 2.全家、萊爾富、ok超商取貨運費 NT$80</font>
+  </div>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} 3. 台灣郵局配送國際訂單運費 NT$600</font>
+  </div>
+  <div>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} 4.郵局配送貨到付款運費 NT$150</font>
+  </div>
+  <p></p>
+  <h3>5. 網路下訂單後，幾天可以收到商品？</h3>
+  <p></p>
+  <div>
+    <font>{:size => \"2\"} 國內訂單在確認有庫存且完成購買程序後，HANCHOR會盡快寄出您的商品。商品將於您付款完成後的7個工作天內送達您指定的地址。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"}
+      <br /></font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} 國際訂單將根據寄送目的不同需要7~30個工作天送達。</font>
+  </div>
+  <p></p>
+  <h3>6. 已經過了七個工作天了，東西還是沒收到?</h3>
+  <p></p>
+  <div>
+    <font>{:size => \"2\"} 可能是商品在運送過程產生異常，請您寄信至info@hanchor.com，客服人員將會為您查詢貨品的運送狀況。</font>
+  </div>
+  <div>{:style => \"font-size: 10pt; \"}
+    <br /></div>
+  <p></p>
+  <h3>7. 如何使用全家、萊爾富、ok超商到店取貨方式收件？</h3>
+  <p></p>
+  <div>
+    <font>{:size => \"2\"} ※HANCHOR提供買家全國4200家便利商店超商取貨的服務。(恕不接受全家、萊爾富、ok之外其他連鎖體系便利商店取貨)</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} ※於網路下訂單同時選擇您所希望取貨的超商門市，貨物寄送抵達的時候將會簡訊通知您前往領取。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} ※便利商店取貨，為配合門市人員核定身份，請務必使用收件人本名，取貨時請隨身攜帶身份證明，以方便門市人員核對。</font>
+  </div>
+  <div>{:style => \"font-size: 10pt; \"}
+    <br /></div>
+  <p></p>
+  <h3>8. 如何查詢訂單？</h3>
+  <p></p>
+  <div>
+    <font>{:size => \"2\"} ※凡經由HANCHOR下單後，您可隨時透過HANCHOR網站我的帳戶裡的訂單查詢系統作線上查詢，立即知道您的訂單與商品現階段的處理流程。</font>
+  </div>
+  <div>
+    <font>{:size => \"2\"} ※或是您可來信info@hanchor.com，將有專人為您服務。</font>
+  </div>
+  <p></p>
+  <h3>9. 如何退換貨？</h3>
+  <p>
+    <font>{:face => \"Arial, Verdana\", :size => \"2\"} 根據消費者保護法之規定，HANCHOR提供商品到貨七天猶豫期隨時解約退貨之權益，但提醒您注意，商品退貨時必須為全新狀態且完整包裝（ 包含商品、附件、保證卡、內外包裝、隨機文件、贈品等）。若商品為新品瑕疵或商品之情形，煩請將商品在一週內寄回(台北市信義區和平東路三段391巷20弄30號)進行退換貨。如回收件姓名與地址有任何更改，請務必迅速通知HANCHOR做資料變更。</font>
+  </p>
+  <h3>10. 若有商品要送修或相關疑問，應與何處聯繫？</h3>
+  <p></p>
+  <div>
+    <span>{:style => \"font-family: Arial, Verdana; \"}
+      <font>{:size => \"2\"} 請來信客服info@hanchor.com,將有專人與您盡速聯絡。</font></span>
+  </div>
+  <p></p></h3>
+")
 Faq.create(country_id: 2)
 
 Banner.create(pic: "http://hanchor.com/upload/slideshow/coverphoto27.JPG", link: "http://hanchor.com/home/product/customization/Custom%20MOAI/%E5%AE%A2%E8%A3%BD%E5%8C%96-MOAI-%E7%B2%89%E8%A2%8B.html",sort: 1)

@@ -1,6 +1,6 @@
 .cart
   %ul
-    %li{:style => " background:#eee 5px 7px no-repeat url(/images/cart.gif); padding-left:26px"}
+    %li{:style => " background:#eee 5px 7px; padding-left:26px"}
       =link_to "購物車",cart_index_path
     - @cart_items.each do |item|
       %li

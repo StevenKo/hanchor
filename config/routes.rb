@@ -17,8 +17,9 @@ Hanchor::Application.routes.draw do
     end
   end
 
-  get ':category/products' => "products#index", as: "products_index"
-  resources :products, except: [:index]
+  get 'products/:category' => "products#index", as: "products_index"
+  get 'products/:category/:id' => "products#show", as: "products_show"
+
   resources :cart, only: [:index] do
     collection do
       post 'add_item_to_cart'

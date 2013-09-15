@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
                                     product_infos.price,
                                     product_infos.feature,
                                     product_infos.quick_overview, 
-                                    products.id"
+                                    products.id,
+                                    product_category_id"
                         ) }
 end

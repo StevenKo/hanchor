@@ -1,4 +1,18 @@
 .span7
+  %ul.breadcrumb
+    %li
+      = link_to "首頁", root_path 
+      %span.divider /
+    %li.active
+      產品
+      %span.divider /
+    %li
+      = link_to @base_category.name, products_index_path(@base_category.name_en)
+    %li
+      - if @sub_category != @base_category
+        %span.divider /
+        = link_to @sub_category.name, products_index_path(@base_category.name_en, sub: @sub_category.name_en)
+
   #product
     .pic
       =link_to image_tag("http://hanchor.com/upload/product/SCHISTSmall01.JPG",:style => "max-width:300px"),"http://hanchor.com/upload/product/SCHISTSmall01.JPG", rel: "group"

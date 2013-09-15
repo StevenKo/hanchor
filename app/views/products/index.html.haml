@@ -1,20 +1,23 @@
 .span8
   %ul.breadcrumb
     %li
-      %a{:href => "#"} Home
-      %span.divider /
-    %li
-      %a{:href => "#"} Library
+      = link_to "首頁", root_path 
       %span.divider /
     %li.active
-      %a{:href => "#"} Data
+      產品
+      %span.divider /
+    %li
+      = link_to @base_category.name, products_index_path(@base_category.name_en)
+    %li
+      - if @sub_category
+        %span.divider /
+        = link_to @sub_category.name, products_index_path(@base_category.name_en, sub: @sub_category.name_en)
   .product_cate
-    = link_to "城市通勤系列","", class: "btn btn-info"
-    = link_to "城市攀岩系列","", class: "btn btn-info"
-    = link_to "White and Black Series","", class: "btn btn-info"
+    - @base_category.child_categories.each do |c|
+      = link_to c.name, products_index_path(@base_category.name_en, sub: c.name_en), class: "btn btn-info"
   #product
     - @products.each do |product|
-      =link_to product do
+      =link_to products_show_path(@base_category.name_en,product) do
         .product_thumbs
           %center
             =(image_tag "http://localhost/resample.php?scale=0.6&path=upload/product/pipefirst.JPG")
