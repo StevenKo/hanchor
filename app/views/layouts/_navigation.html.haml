@@ -6,22 +6,22 @@
   %li
     = link_to '部落格', news_index_path
   %li
-    = link_to '包款', product_index_path("packing")
+    = link_to '包款', products_index_path("packing")
   %li
-    = link_to '配件', product_index_path("accessories")
+    = link_to '配件', products_index_path("accessories")
   %li
-    = link_to '衣著', product_index_path("apparel")
+    = link_to '衣著', products_index_path("apparel")
   %li
-    = link_to '其它', product_index_path("others")
+    = link_to '其它', products_index_path("others")
   %li
-    = link_to '客製化', product_index_path("customization")
+    = link_to '客製化', products_index_path("customization")
   %li
-    = link_to '限量優惠', product_index_path("deal")
+    = link_to '限量優惠', products_index_path("deal")
   %li
     = link_to '問與答', faq_path
 
 #user_links.pull-right
-  = link_to "購物車", ""
+  = link_to "購物車", cart_index_path
   -if logged_in?
     %ul
       %li.dropdown
@@ -32,6 +32,6 @@
           %li
             %a(href="#") Account
             %a(href="#") Plan and Billing
-            = link_to 'Logout', ""
+            = link_to 'Logout', logout_path
   -else
     = link_to "登入", login_path

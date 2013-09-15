@@ -30,11 +30,11 @@
             %li
               =link_to "News", admin_news_index_path
             %li
-              %a{:href => "?page=faq"} Q&amp;A
+              =link_to "FAQs", admin_faqs_path
             %li
-              %a{:href => "?page=banner"} Banner
+              =link_to "Banner", admin_banners_path
             %li
-              %a{:href => "?page=video"} Video
+              =link_to "Videos", admin_videos_path
     #main{:role => "main"}
       .container
         .row

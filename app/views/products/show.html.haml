@@ -1,0 +1,47 @@
+.span7
+  #product
+    .pic
+      =link_to image_tag("http://hanchor.com/upload/product/SCHISTSmall01.JPG",:style => "max-width:300px"),"http://hanchor.com/upload/product/SCHISTSmall01.JPG", rel: "group"
+      %fieldset
+        %legend 更多圖片
+      %p{:style => "text-align:left"}
+        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall03.JPG", :rel => "group", :title => ""}
+          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall03.JPG"}
+        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall04.JPG", :rel => "group", :title => ""}
+          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall04.JPG"}
+        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall05.JPG", :rel => "group", :title => ""}
+          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall05.JPG"}
+        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall06.JPG", :rel => "group", :title => ""}
+          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall06.JPG"}
+    .info
+      %h2 SCHIST Small
+      = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
+        %ul
+          %li 重量: 285公克
+          %li 
+            尺寸: 30公分*22公分*10公分
+            = f.select :product_size_id, [["L",1],["M",2]]
+          %li 材質: CORDURA 420D/ X-Pac VX21
+          %li
+            顏色:
+            = f.select :product_color_id, [["卡其(KHAKI)",1],["藍(BLUE)",2]]
+          %li
+            價格:
+            %strong NT$2280
+          %li
+            數量:
+            = f.select :quantity, [[1,1],[2,2]]
+        = f.submit "放進購物車"
+  .clearfix
+  .features
+    %fieldset
+      %legend 產品說明
+    %p
+      = @product.feature.html_safe
+  .quick_overview
+    %fieldset
+      %legend 描述與使用
+    = @product.quick_overview.html_safe
+
+.span3.offset1
+  = render "cart_sidebar"

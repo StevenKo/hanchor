@@ -1,0 +1,9 @@
+%table.table
+  %tr
+    %th 地點
+
+  - @faqs.each do |faq|
+    %tr
+      %td= faq.country.name
+      %td= link_to 'Edit', edit_admin_faq_path(faq)
+

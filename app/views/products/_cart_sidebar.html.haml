@@ -1,0 +1,19 @@
+.cart
+  %ul
+    %li{:style => " background:#eee 5px 7px no-repeat url(/images/cart.gif); padding-left:26px"}
+      =link_to "購物車",cart_index_path
+    - @cart_items.each do |item|
+      %li
+        = image_tag item.product.product_pics.first.pic, width: "40"
+        = link_to item.product.product_infos.first.name, product_path(item.product)
+        %br
+          %strong= item.quantity
+          x $#{item.price}
+          = link_to "","",class: "remove"
+          %p{:style => "clear:both"}
+    %li{:style => "background:#E9E4D4;border-top:1px solid #fff"}
+      %strong= @cart_items.size
+      個商品
+      %br
+        %span{:style => "color:#A7440F; font-weight:bold"} 總共: $#{sum_cart_items_price(@cart_items)}
+        = link_to "前往結帳", cart_index_path, class: "checkout"

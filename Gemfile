@@ -11,6 +11,9 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
 gem 'bootstrap_form'
+gem "ckeditor"
+gem "carrierwave"
+gem "mini_magick"
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'

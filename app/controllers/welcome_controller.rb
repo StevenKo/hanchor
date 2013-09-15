@@ -8,4 +8,8 @@ class WelcomeController < ApplicationController
 
   def aboutus
   end
+
+  def faq
+    @faq = Faq.first
+  end
 end

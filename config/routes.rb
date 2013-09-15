@@ -17,8 +17,24 @@ Hanchor::Application.routes.draw do
     end
   end
 
-  get ':category/product' => "product#index", as: "product_index"
+  get ':category/products' => "products#index", as: "products_index"
   resources :products, except: [:index]
+  resources :cart, only: [:index] do
+    collection do
+      post 'add_item_to_cart'
+      get 'checkout'
+    end
+    member do
+      put 'change_cart_item_quantity'
+      patch 'change_cart_item_quantity'
+    end
+  end
+
+  resources :orders, only: [:create] do
+    collection do
+      get 'result'
+    end
+  end
 
   namespace :admin do
     get '/' => 'admin#index'
@@ -34,6 +50,8 @@ Hanchor::Application.routes.draw do
     end
     resources :products
     resources :news
-    resources :faqs, only: [:edit]
+    resources :faqs, only: [:index, :edit, :update]
+    resources :banners, only: [:index, :edit, :update]
+    resources :videos, only: [:index, :edit, :update]
   end
 end

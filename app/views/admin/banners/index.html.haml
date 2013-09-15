@@ -1,0 +1,20 @@
+= will_paginate @banners
+
+%table.table
+  %tr
+    %th 編號
+    %th 圖片
+    %th 連結
+    %th 排序
+
+  - @banners.each do |banner|
+    %tr
+      %td= banner.id
+      %td= image_tag(banner.pic)
+      %td= banner.link
+      %td= banner.sort
+      %td= link_to 'Edit', edit_admin_banner_path(banner)
+      %td= link_to 'Destroy', admin_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= will_paginate @banners

@@ -1,0 +1,121 @@
+.checkout{:style => "display: block;"}
+  .row
+    .span10
+      %fieldset
+        %legend 寄送資訊(Shipping Information)
+      = bootstrap_form_for @order, url: orders_path do |f|
+        = f.text_field :shipping_name, :class => "span7", label: "姓名(Full Name 請填寫真實姓名因超商取貨需核對證件)*"
+        = f.text_field :phone, :class => "span7", label: "電話(Phone)*"
+        = f.text_field :shipping_address, :class => "span7", label: "地址(Address)*"
+        = f.text_field :zip_code, :class => "span7", label: "郵遞區號(Zip Code)*"
+        = f.text_field :city, :class => "span7", label: "城市(City)*"
+        = f.text_field :state, :class => "span7", label: "州(State)若無則填城市*"
+        = f.text_field :country, :class => "span7", label: "國家(Country)*"
+        = f.select  :shipping_cost_id, [["請選擇運費",nil],["超商取貨(NT$80)",1],["國內寄送(NT$100)",2],["international delivery(NT$600)",3],["貨到付款(NT$150)",4]], label: "運送方式*: "
+        #store
+          %label 取貨門市
+          = link_to '查詢門市','http://map.ezship.com.tw/', class: "btn"
+          = f.fields_for :store do |child_form|
+            = child_form.text_field :code, label: "服務代號*:"
+            = child_form.text_field :stroe_name, label: "門市名稱*:"
+        %fieldset
+          %legend 付款資訊(Payment Information)*
+        %p
+          %em.tw_payment{:style => "font-style: normal;"}
+            %span{:style => ""} 台灣訂單(Domestic Order in Taiwan):
+            %br{:style => ""}
+              = f.radio_button :payment, value: "PayPal"
+              = f.label "信用卡(經由PayPal系統)"
+              %a{:href => "#", :onclick => "javascript:window.open('https://www.paypal.com/cgi-bin/webscr?cmd=xpt/Marketing/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=350');", :style => ""}
+                %img{:alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}/
+              / PayPal Logo
+              %br{:style => ""}
+              = f.radio_button :payment, value: "匯款"
+              = f.label "銀行或ATM匯款"
+              %span.ui-state-default.ui-corner-all{:style => "padding: 5px;"}
+                %strong> 銀行
+                或
+                %strong> ATM匯款
+                (請於匯款後點選
+                %span.ui-button.ui-state-hover
+                  = link_to "通知匯款",""
+                以利盡快出貨)
+              %span.POD{:style => "display: none;"}
+                %input{:name => "payment", :type => "radio", :value => "貨到付款"}
+                  貨到付款
+        %fieldset
+          %legend 意見(Comment)
+        %p
+          %textarea{:name => "memo", :style => "width:500px;height:100px;"}
+          %br
+            %br
+              %span.ui-state-default.ui-corner-all{:style => "padding:5px;mpargin: 5px;"}
+                購買前請詳細閱讀
+                = link_to "購買說明",shopping_guide_path
+                (Please Read
+                = link_to "Shopping Guide",shopping_guide_path
+                Before Checkout)
+        %fieldset
+          %legend 訂單明細
+        #overview{:style => "margin:0px 10px;"}
+          %table.cart_table{:align => "center", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+            %thead
+              %tr
+                %td 商品圖片
+                %td 商品名稱
+                %td 單價
+                %td 尺寸
+                %td 顏色
+                %td 數量
+                %td 小計
+            %tbody
+              - @cart_items.each do |item|
+                %tr
+                  %td{:width => "90"}
+                    = link_to product_path(item.product) do
+                      =image_tag item.product.product_pics.first.pic, width: "90",border: 0
+                  %td
+                    = link_to item.product.product_infos.first.name,product_path(item.product)
+                  %td{:align => "right", :width => "90"}
+                    NT$
+                    = item.price
+                  %td{:align => "center", :width => "40"}
+                    = item.product_size.size
+                  %td{:align => "center", :width => "40"}
+                    = item.product_color.color
+                  %td{:align => "center", :width => "60"}
+                    = item.quantity
+                  %td{:align => "right", :width => "90"} 
+                    NT$
+                    = item.price * item.quantity
+              %tr{:bgcolor => "E9E4D4"}
+                %td{:align => "right", :colspan => "6"} 總計
+                %td{:align => "right", :style => "font-size:1.3em; font-weight:bold; color:#CC4D33"}
+                  NT$
+                  = sum_cart_items_price @cart_items
+        %p{:style => "margin:10px 10px 50px 0; float:right;"}
+          = f.submit "完成訂購", class: "btn btn-success", :confirm => "已詳細閱讀購買說明，並確認訂單內容及資料填寫無誤?Have you already read shopping guide and check the order list and other information are correct?"
+    
+    
+  / 下單完成
+  .result{:style => "padding-left:25px;display:none;"}
+    Dear 柯俊宇
+    %div
+      %p 您的繳費資訊
+      %ul{:style => "list-style:none;"}
+        %li 戶名: 汗可股份有限公司
+        %li 銀行名稱:  台北富邦銀行
+        %li 轉帳帳號:  742120001104
+        %li
+          應繳金額: NT$
+          %span.total
+      %p
+        請在交易確認後3天內轉入您的帳款，如您無法在期限內轉帳，我們將取消您的訂單；如有造成您的不便，敬請見諒。
+        %br
+          當您完成轉帳程序後，請於我的帳戶點選
+          %span.ui-button.ui-state-hover> 通知匯款
+          ；HANCHOR將立即為您安排出貨事宜。
+    %p
+      您的訂單已完成，HANCHOR將於確認訂單後立刻處理並寄出您的商品，亦可隨時至
+      %a{:href => "/home/account/order"}> 我的訂單(My Orders)
+      處查詢貨品狀況

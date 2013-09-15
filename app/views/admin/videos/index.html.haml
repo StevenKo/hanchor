@@ -1,0 +1,18 @@
+= will_paginate @videos
+
+%table.table
+  %tr
+    %th 編號
+    %th 連結
+    %th 排序
+
+  - @videos.each do |video|
+    %tr
+      %td= video.id
+      %td= video.link
+      %td= video.sort
+      %td= link_to 'Edit', edit_admin_video_path(video)
+      %td= link_to 'Destroy', admin_video_path(video), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= will_paginate @videos

@@ -1,0 +1,44 @@
+%table.cart_table{:align => "center", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+  %thead
+    %tr
+      %td 商品圖片
+      %td 商品名稱
+      %td 單價
+      %td 尺寸
+      %td 顏色
+      %td 數量
+      %td 小計
+  %tbody
+    - @cart_items.each do |item|
+      %tr
+        %td{:width => "90"}
+          = link_to product_path(item.product) do
+            =image_tag item.product.product_pics.first.pic, width: "90",border: 0
+        %td
+          = link_to item.product.product_infos.first.name,product_path(item.product)
+          = link_to "" do
+            = image_tag("fancy_close.png")
+        %td{:align => "right", :width => "90"}
+          NT$
+          = item.price
+        %td{:align => "center", :width => "40"}
+          = item.product_size.size
+        %td{:align => "center", :width => "40"}
+          = item.product_color.color
+        %td{:align => "center", :width => "60"}
+          = form_for item, url: change_cart_item_quantity_cart_path(item) do |f|
+            = f.select :quantity, [[1,1],[2,2]], selected: item.quantity
+        %td{:align => "right", :width => "90"} 
+          NT$
+          = item.price * item.quantity
+    %tr{:bgcolor => "E9E4D4"}
+      %td{:align => "right", :colspan => "6"} 總計
+      %td{:align => "right", :style => "font-size:1.3em; font-weight:bold; color:#CC4D33"}
+        NT$
+        = sum_cart_items_price @cart_items
+        %input{:name => "total", :type => "hidden", :value => "1890"}/
+%p{:style => "margin:15px; padding-bottom: 25px;"}
+  %span.button{:style => "float:left;"} 
+    = link_to "繼續購物", ""
+  %span.button{:style => "float:right;"} 
+    = link_to "前往結帳", checkout_cart_index_path

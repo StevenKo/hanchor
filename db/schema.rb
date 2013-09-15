@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914103016) do
+ActiveRecord::Schema.define(version: 20130914145545) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20130914103016) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "faqs", force: true do |t|
+    t.text     "context"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

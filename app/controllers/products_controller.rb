@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :get_cart_items
 
   def index
     category = ProductCategory.find_by name_en: params[:category]
@@ -7,6 +8,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.joins(:product_infos).select_info.find(params[:id])
+    @item = CartItem.new
   end
 
 end
