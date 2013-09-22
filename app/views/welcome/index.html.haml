@@ -57,22 +57,7 @@
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook
-      #fb-root
-        :javascript
-          (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=356939360986455";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-          FB.Event.subscribe('xfbml.render',
-              function(response) {
-                  alert('You liked the URL: ');
-              }
-          );
-  
-        .fb-like-box{"data-border-color" => "#e5e5e5", "data-header" => "false", "data-height" => "300", "data-href" => "https://www.facebook.com/pages/HANCHOR/210934362319129", "data-show-faces" => "false", "data-stream" => "true", "data-width" => "980"}
+      .fb-like-box{"data-border-color" => "#e5e5e5", "data-header" => "false", "data-height" => "300", "data-href" => "https://www.facebook.com/pages/HANCHOR/210934362319129", "data-show-faces" => "false", "data-stream" => "true", "data-width" => "980"}
         
 
 
