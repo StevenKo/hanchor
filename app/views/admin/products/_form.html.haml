@@ -1,0 +1,62 @@
+%section.register.container
+  .row
+    .span10.offset1
+      = bootstrap_form_for product, url: url,:html => {:class => "form-horizontal"} do |f|
+        = f.text_field :no, :class => "span3", label: "產品編號"
+        = f.select :product_category_id, category_selection,label: "分類"
+        = f.control_group "", label: { text: '顏色' } do
+          = product.product_colors.map{ |c|  "#{c.color}/#{c.color_en}"}.join(" ")
+          = link_to "修改or增加顏色", "", class: "btn"
+        = f.control_group "", label: { text: '尺寸' } do
+          = product.product_sizes.map{ |c|  "#{c.size}/#{c.size_en}"}.join(" ")
+          = link_to "修改or增加尺寸", "", class: "btn"
+        = f.control_group "", label: { text: '數量' } do
+          = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{quantity}"}.join(" ")
+          = link_to "修改數量", "", class: "btn"
+        .tabbable.tabs-below
+          %ul.nav.nav-tabs
+            %li.active
+              %a{"data-toggle" => "tab", :href => "#1"} TW
+            %li
+              %a{"data-toggle" => "tab", :href => "#2"} EN
+          .tab-content
+            #1.tab-pane.active
+              = f.fields_for product.product_infos[0], :index => 0 do |builder|
+                = builder.text_field :name
+                = builder.text_field :weight
+                = builder.text_field :material
+                = builder.text_field :capacity
+                = builder.cktext_area :quick_overview, :class => "someclass", :ckeditor => {:language => "uk"}
+                %br
+                = builder.text_field :price
+                = builder.text_field :special_price
+                = builder.cktext_area :feature, :class => "someclass", :ckeditor => {:language => "uk"}
+                %br
+                = builder.text_field :views,:readonly => true 
+                .offset2
+                  = builder.check_box :is_visible, :inline => true, label: "是否顯示"
+                = builder.hidden_field :country_id, value: 1
+            #2.tab-pane
+              = f.fields_for product.product_infos[1], :index => 1 do |builder|
+                = builder.text_field :name
+                = builder.text_field :weight
+                = builder.text_field :material
+                = builder.text_field :capacity
+                = builder.cktext_area :quick_overview, :class => "someclass", :ckeditor => {:language => "uk"}
+                %br
+                = builder.text_field :price
+                = builder.text_field :special_price
+                = builder.cktext_area :feature, :class => "someclass", :ckeditor => {:language => "uk"}
+                %br
+                = builder.text_field :views,:readonly => true 
+                .offset2
+                  = builder.check_box :is_visible, :inline => true, label: "是否顯示"
+                = builder.hidden_field :country_id, value: 2
+
+        
+
+        = f.secondary "確定"
+        = link_to "返回", admin_products_path, class: "btn"
+        = link_to "預覽", admin_products_path, class: "btn btn-info"
+        - unless product.new_record?
+          = link_to "刪除", admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
