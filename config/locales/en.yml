@@ -8,3 +8,13 @@ en:
   customization: "Customization"
   deals: "Deals"
   q_and_a: "Q & A"
+
+  account:
+    name: "Full Name*"
+    email: "Email*"
+    phone: "Phone number*"
+    zip_code: "Zip Code*"
+    city: "City*"
+    state: "State*"
+    country:  "Country*"
+    address:  "Shipping Address"
