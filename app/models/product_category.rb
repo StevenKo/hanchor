@@ -4,6 +4,16 @@ class ProductCategory < ActiveRecord::Base
   belongs_to :parent_category, foreign_key: 'parent_id', class_name: 'ProductCategory'
   has_many :child_categories, foreign_key: 'parent_id', class_name: 'ProductCategory'
 
+  def self.generate_parent_select_category_array
+    str_array = []
+    str_array << ["無",""]
+    all.each do |cat|
+      str_array << [cat.name, cat.id] if cat.parent_id.nil?
+    end
+    str_array
+  end
+
+
   def self.generate_category_array
     str_array = []
     all.each do |cat|

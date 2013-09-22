@@ -54,6 +54,7 @@ Hanchor::Application.routes.draw do
       end
     end
     resources :products
+    resources :categories
     resources :news
     resources :faqs, only: [:index, :edit, :update]
     resources :banners, only: [:index, :edit, :update]
