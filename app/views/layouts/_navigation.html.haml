@@ -22,24 +22,27 @@
 
 #user_links.pull-right
   = link_to "購物車", cart_index_path
+  %ul
+    %li.dropdown
+      %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+        切換語言
+        %b.caret
+      %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+        %li
+          = link_to "中文", root_path(locale: "zh-TW")
+          = link_to "English", root_path(locale: "en")
   -if logged_in?
     %ul
       %li.dropdown
         %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-          Welcome,Steven
+          Welcome,
+          = current_user.name
           %b.caret
         %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
           %li
             %a(href="#") Account
             %a(href="#") Plan and Billing
             = link_to 'Logout', logout_path
-      %li.dropdown
-        %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-          切換語言
-          %b.caret
-        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-          %li
-            = link_to "中文", root_path(locale: "zh-TW")
-            = link_to "English", root_path(locale: "en")
+      
   -else
     = link_to "登入", login_path

@@ -1,0 +1,31 @@
+
+    h2{
+        padding-left: 50px;
+        color:#E39633;
+    }
+    div#create_account{
+        width:600px;
+        margin: auto;
+        padding:20px;
+        margin-bottom: 20px;
+        border: 1px solid #bbbbbb;
+        background: #FAFAFA;
+        padding-bottom: 0px;
+        font-size: 12px;
+    }
+    div#create_account form fieldset{
+        padding-bottom: 0px;
+    }
+    div#create_account form p{
+        color:#666;
+        margin-left: 20px;
+        font-weight: bold;
+        padding: 0;
+    }
+    .error{
+        color: #EB340A;
+    }
+    input.error{
+        border: 1px solid #EB340A;
+        background:#FAEBE7;
+    }

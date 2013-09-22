@@ -4,17 +4,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(users_params)
-    if @user.save
+    user = User.new(users_params)
+    if user.save
       flash[:notice] = "have registered"
+      session[:user_id] = user.id
       redirect_to root_path
     else
-      render '/register'
+      render :new
     end
   end
 
   private
     def users_params
-      params.require(:user).permit(:username,:password,:time_zone)
+      params.require(:user).permit(:name,:email, :phone, :zip_code, :country, :password, :password_confirmation)
     end
 end

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_secure_password validations: false
   validates :password, presence: true, on: :create, length: {minimum: 6}
+  validates_confirmation_of :password
+  validates_presence_of :name,:email, :phone, :zip_code, :country
 
   def admin?
     self.role == "admin"

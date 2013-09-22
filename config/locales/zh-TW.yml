@@ -8,3 +8,15 @@ zh-TW:
   customization: "客製化"
   deals: "限量優惠"
   q_and_a: "問與答"
+
+  account:
+    name: "姓名(Full Name)*"
+    email: "Email*"
+    phone: "電話(Phone)*"
+    zip_code: "郵遞區號(Zip Code)*"
+    city: "城市(City)*"
+    state: "州(State)若無則填城市*"
+    country:  "國家(Country)*"
+    address:  "寄送地址(Shipping Address)"
+    password: "密碼*"
+    password_confirm: "密碼確認*"
