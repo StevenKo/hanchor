@@ -9,7 +9,7 @@ Hanchor::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:create]
+  resources :users, only: [:create,:update]
 
   resources :news do
     collection do
@@ -19,6 +19,10 @@ Hanchor::Application.routes.draw do
 
   get 'products/:category' => "products#index", as: "products_index"
   get 'products/:category/:id' => "products#show", as: "products_show"
+
+  get 'account' => "account#index"
+  get 'account/info' => "account#info"
+  get 'account/orders' => "account#orders"
 
   resources :cart, only: [:index] do
     collection do
