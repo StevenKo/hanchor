@@ -5,7 +5,7 @@
     - @cart_items.each do |item|
       %li
         = image_tag item.product.product_pics.first.pic, width: "40"
-        = link_to item.product.product_infos.first.name, product_path(item.product)
+        = link_to item.product.product_infos.first.name, products_show_path(item.product.product_category.name_en,item.product)
         %br
           %strong= item.quantity
           x $#{item.price}

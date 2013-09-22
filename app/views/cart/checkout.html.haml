@@ -72,10 +72,10 @@
               - @cart_items.each do |item|
                 %tr
                   %td{:width => "90"}
-                    = link_to product_path(item.product) do
+                    = link_to products_show_path(item.product.product_category.name_en,item.product) do
                       =image_tag item.product.product_pics.first.pic, width: "90",border: 0
                   %td
-                    = link_to item.product.product_infos.first.name,product_path(item.product)
+                    = link_to item.product.product_infos.first.name,products_show_path(item.product.product_category.name_en,item.product)
                   %td{:align => "right", :width => "90"}
                     NT$
                     = item.price

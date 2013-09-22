@@ -25,7 +25,7 @@ class CartController < ApplicationController
       flash[:error] = "錯誤發生，麻煩你再重試一次，或聯絡我們！"
     end
 
-    redirect_to product_path(product)
+    redirect_to products_show_path(product.product_category.name_en, product)
   end
 
   def change_cart_item_quantity
