@@ -1,0 +1,7 @@
+顏色
+= builder.text_field :color, placeholder: "中文"
+= builder.text_field :color_en, placeholder: "EN"
+
+- if defined?(color)
+  = link_to "刪除", admin_product_product_color_path(product, color), method: :delete, data: { confirm: 'Are you sure?' }
+%br

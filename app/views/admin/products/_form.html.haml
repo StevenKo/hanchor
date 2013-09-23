@@ -5,14 +5,23 @@
         = f.text_field :no, :class => "span3", label: "產品編號"
         = f.select :product_category_id, category_selection,label: "分類"
         = f.control_group "", label: { text: '顏色' } do
-          = product.product_colors.map{ |c|  "#{c.color}/#{c.color_en}"}.join(" ")
-          = link_to "修改or增加顏色", "", class: "btn"
+          - if product.new_record?
+            請先新增product，再修改
+          - else
+            = product.product_colors.map{ |c|  "#{c.color}/#{c.color_en}"}.join(" ")
+            = link_to "修改or增加顏色", admin_product_product_colors_path(product), class: "btn"
         = f.control_group "", label: { text: '尺寸' } do
-          = product.product_sizes.map{ |c|  "#{c.size}/#{c.size_en}"}.join(" ")
-          = link_to "修改or增加尺寸", "", class: "btn"
+          - if product.new_record?
+            請先新增product，再修改
+          - else
+            = product.product_sizes.map{ |c|  "#{c.size}/#{c.size_en}"}.join(" ")
+            = link_to "修改or增加尺寸", admin_product_product_sizes_path(product), class: "btn"
         = f.control_group "", label: { text: '數量' } do
-          = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{quantity}"}.join(" ")
-          = link_to "修改數量", "", class: "btn"
+          - if product.new_record?
+            請先新增product，再修改
+          - else
+            = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{quantity}"}.join(" ")
+            = link_to "修改數量", "", class: "btn"
         .tabbable.tabs-below
           %ul.nav.nav-tabs
             %li.active
