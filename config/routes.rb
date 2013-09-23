@@ -64,6 +64,7 @@ Hanchor::Application.routes.draw do
           post "create_update"
         end
       end
+      resources :product_quantities, only: [:index, :create]
     end
     resources :categories
     resources :news

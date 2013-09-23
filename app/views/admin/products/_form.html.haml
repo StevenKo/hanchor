@@ -20,8 +20,8 @@
           - if product.new_record?
             請先新增product，再修改
           - else
-            = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{quantity}"}.join(" ")
-            = link_to "修改數量", "", class: "btn"
+            = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{c.quantity}"}.join("  ")
+            = link_to "修改數量", admin_product_product_quantities_path(product), class: "btn"
         .tabbable.tabs-below
           %ul.nav.nav-tabs
             %li.active

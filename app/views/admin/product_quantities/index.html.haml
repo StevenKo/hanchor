@@ -1,0 +1,13 @@
+%section.register.container
+  .row
+    .span10
+      = form_for :quantites, url: admin_product_product_quantities_path(@product),:html => {:class => "form-horizontal", multipart: true} do |f|
+        - @quantities.each do |quantity_item|
+          = f.fields_for quantity_item, index:  quantity_item.id do |builder|
+            = render "product_quantity_form", :builder => builder, :quantity => quantity_item, :product => @product
+        
+        %br
+        %br
+        .offset2
+          = f.submit "確定", class: "btn"
+          = link_to "返回", edit_admin_product_path(@product), class: "btn"
