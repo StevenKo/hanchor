@@ -1,0 +1,15 @@
+%table.table
+  %tr
+    %th 產品編號
+    %th 方式
+    %th 費用
+    %th 地區
+  - @shipping_costs.each do |shipping_cost|
+    %tr
+      %td= shipping_cost.id
+      %td= shipping_cost.description
+      %td= shipping_cost.cost
+      %td= shipping_cost.country.name
+      %td= link_to 'Edit', edit_admin_shipping_cost_path(shipping_cost)
+      %td= link_to 'Destroy', admin_shipping_cost_path(shipping_cost), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to "New", new_admin_shipping_cost_path, class: "btn"

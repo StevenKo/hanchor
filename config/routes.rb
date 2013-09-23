@@ -53,8 +53,22 @@ Hanchor::Application.routes.draw do
         get 'change_status'
       end
     end
-    resources :products
+    resources :products do
+      resources :product_colors, only: [:index, :destroy] do
+        collection do
+          post "create_update"
+        end
+      end
+      resources :product_sizes, only: [:index, :destroy] do
+        collection do
+          post "create_update"
+        end
+      end
+      resources :product_quantities, only: [:index, :create]
+    end
+    resources :categories
     resources :news
+    resources :shipping_costs
     resources :faqs, only: [:index, :edit, :update]
     resources :banners, only: [:index, :edit, :update]
     resources :videos, only: [:index, :edit, :update]

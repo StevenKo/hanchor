@@ -17,9 +17,11 @@
       %td= news.sort
       %td= news.is_tw
       %td= news.is_en
-      %td= link_to 'Show', admin_news_path(news)
       %td= link_to 'Edit', edit_admin_news_path(news)
       %td= link_to 'Destroy', admin_news_path(news), method: :delete, data: { confirm: 'Are you sure?' }
 
 
 = will_paginate @news
+
+
+= link_to "New", new_admin_news_path, class: "btn"

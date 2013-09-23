@@ -1,0 +1,7 @@
+顏色
+= builder.text_field :size, placeholder: "中文"
+= builder.text_field :size_en, placeholder: "EN"
+
+- if defined?(size)
+  = link_to "刪除", admin_product_product_size_path(product, size), method: :delete, data: { confirm: 'Are you sure?' }
+%br

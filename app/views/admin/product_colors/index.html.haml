@@ -1,0 +1,14 @@
+%section.register.container
+  .row
+    .span10
+      = form_for :colors, url: create_update_admin_product_product_colors_path(@product),:html => {:class => "form-horizontal", multipart: true} do |f|
+        - @colors.each do |color_item|
+          = f.fields_for color_item, index:  color_item.id do |builder|
+            = render "product_color_form", :builder => builder, :color => color_item, :product => @product
+        = link_to_add_fields "新增", f, "product_color"
+        
+        %br
+        %br
+        .offset2
+          = f.submit "確定", class: "btn"
+          = link_to "返回", edit_admin_product_path(@product), class: "btn"

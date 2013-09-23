@@ -1,0 +1,16 @@
+%section.register.container
+  .row
+    .span10
+      = bootstrap_form_for category, url: url,:html => {:class => "form-horizontal", multipart: true} do |f|
+        = f.select :parent_id, category_selection,label: "上層分類"
+        = f.text_field :name, label: "分類名稱(TW)"
+        = f.text_field :name_en, label: "分類名稱(EN)"
+        = f.text_field :sort, label: "排序"
+        .offset2
+          = f.check_box :is_visible, :inline => true, label: "是否顯示"
+        %br
+        .offset2
+          = f.secondary "確定"
+          = link_to "返回", admin_categories_path, class: "btn"
+          - unless category.new_record?
+            = link_to "刪除", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

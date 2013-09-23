@@ -1,0 +1,18 @@
+%table.table
+  %tr
+    %th 產品編號
+    %th 上層分類
+    %th 分類
+    %th 排序
+    %th 顯示
+  - @categories.each do |category|
+    %tr
+      %td= category.id
+      %td= category.parent_category.name if category.parent_category
+      %td= category.name
+      %td= category.sort
+      %td= (category.is_visible)? "顯示" : "不顯示"
+      %td= link_to 'Edit', edit_admin_category_path(category)
+      %td= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to "New", new_admin_category_path, class: "btn"
