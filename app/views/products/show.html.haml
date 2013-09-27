@@ -15,18 +15,13 @@
 
   #product
     .pic
-      =link_to image_tag("http://hanchor.com/upload/product/SCHISTSmall01.JPG",:style => "max-width:300px"),"http://hanchor.com/upload/product/SCHISTSmall01.JPG", rel: "group"
+      =link_to image_tag(@product.product_pics.first.pic_url,:style => "max-width:300px"),@product.product_pics.first.pic_url, rel: "group"
       %fieldset
         %legend 更多圖片
       %p{:style => "text-align:left"}
-        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall03.JPG", :rel => "group", :title => ""}
-          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall03.JPG"}
-        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall04.JPG", :rel => "group", :title => ""}
-          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall04.JPG"}
-        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall05.JPG", :rel => "group", :title => ""}
-          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall05.JPG"}
-        %a{:href => "http://hanchor.com/upload/product/SCHISTSmall06.JPG", :rel => "group", :title => ""}
-          %img{:border => "0", :src => "http://hanchor.com/upload/product/SCHISTSmall06.JPG"}
+        - @product.product_pics.each_with_index do |pic, index|
+          = link_to image_tag(pic.pic_url,:style => "max-width:300px"),pic.pic_url, rel: "group" if index >0
+        
     .info
       %h2 SCHIST Small
       = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
