@@ -36,6 +36,20 @@ namespace :deploy do
   end
 end
 
+namespace :carrierwave do 
+  task :uploads_folder do
+    run "mkdir -p #{shared_path}/uploads"
+    run "chmod 775 #{shared_path}/uploads"
+  end
+  after 'deploy:setup', 'carrierwave:uploads_folder'
+
+  task :symlink do 
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  end
+  after 'deploy', 'carrierwave:symlink'
+end
+
+
 before "deploy:assets:precompile", "deploy:copy_config_files" # 如果將database.yml放在shared下，請打開
 after "deploy:update_code", "deploy:copy_config_files" # 如果將database.yml放在shared下，請打開
 # after "deploy:finalize_update", "deploy:update_symlink" # 如果有實作使用者上傳檔案到public/system，請打開
