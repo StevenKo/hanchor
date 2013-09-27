@@ -17,10 +17,11 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require turbolinks
+//= require ckeditor/init
 //= require_tree .
 //= require bootstrap
-//= require ckeditor/init
 
+var CKEDITOR_BASEPATH = '/assets/ckeditor/';
 
 $(document).ready(function() {
   $("a.fancybox").fancybox();
