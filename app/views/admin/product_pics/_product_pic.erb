@@ -1,0 +1,8 @@
+<%= content_tag_for :li, product_pic, class: "painting" do %>
+    <%= image_tag(product_pic.pic_url(:thumb)) if product_pic.pic? %>
+    <div class="name"><%= product_pic.description %></div>
+    <div class="actions">
+      <%= link_to "edit", edit_admin_product_product_pic_path(product, product_pic) %> |
+      <%= link_to "remove", admin_product_product_pic_path(product,product_pic), :data => { :confirm => 'Are you sure?' }, :method => :delete %>
+    </div>
+<% end %>

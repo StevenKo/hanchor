@@ -65,6 +65,9 @@ Hanchor::Application.routes.draw do
         end
       end
       resources :product_quantities, only: [:index, :create]
+      resources :product_pics do
+        collection { post :sort }
+      end
     end
     resources :categories
     resources :news

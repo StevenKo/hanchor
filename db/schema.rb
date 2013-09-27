@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id"
-  add_index "cart_items", ["product_color_id"], name: "index_cart_items_on_product_color_id"
-  add_index "cart_items", ["product_id"], name: "index_cart_items_on_product_id"
-  add_index "cart_items", ["product_size_id"], name: "index_cart_items_on_product_size_id"
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+  add_index "cart_items", ["product_color_id"], name: "index_cart_items_on_product_color_id", using: :btree
+  add_index "cart_items", ["product_id"], name: "index_cart_items_on_product_id", using: :btree
+  add_index "cart_items", ["product_size_id"], name: "index_cart_items_on_product_size_id", using: :btree
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "orders", ["shipping_cost_id"], name: "index_orders_on_shipping_cost_id"
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+  add_index "orders", ["shipping_cost_id"], name: "index_orders_on_shipping_cost_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "product_categories", force: true do |t|
     t.string   "name"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "product_categories", ["parent_id"], name: "index_product_categories_on_parent_id"
+  add_index "product_categories", ["parent_id"], name: "index_product_categories_on_parent_id", using: :btree
 
   create_table "product_colors", force: true do |t|
     t.integer  "product_id"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "product_colors", ["product_id"], name: "index_product_colors_on_product_id"
+  add_index "product_colors", ["product_id"], name: "index_product_colors_on_product_id", using: :btree
 
   create_table "product_infos", force: true do |t|
     t.string   "name"
@@ -147,8 +147,8 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "product_infos", ["country_id"], name: "index_product_infos_on_country_id"
-  add_index "product_infos", ["product_id"], name: "index_product_infos_on_product_id"
+  add_index "product_infos", ["country_id"], name: "index_product_infos_on_country_id", using: :btree
+  add_index "product_infos", ["product_id"], name: "index_product_infos_on_product_id", using: :btree
 
   create_table "product_pics", force: true do |t|
     t.integer  "product_id"
@@ -159,20 +159,20 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "product_pics", ["product_id"], name: "index_product_pics_on_product_id"
+  add_index "product_pics", ["product_id"], name: "index_product_pics_on_product_id", using: :btree
 
   create_table "product_quantities", force: true do |t|
     t.integer  "product_id"
     t.integer  "product_color_id"
     t.integer  "product_size_id"
-    t.integer  "quantity"
+    t.integer  "quantity",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "product_quantities", ["product_color_id"], name: "index_product_quantities_on_product_color_id"
-  add_index "product_quantities", ["product_id"], name: "index_product_quantities_on_product_id"
-  add_index "product_quantities", ["product_size_id"], name: "index_product_quantities_on_product_size_id"
+  add_index "product_quantities", ["product_color_id"], name: "index_product_quantities_on_product_color_id", using: :btree
+  add_index "product_quantities", ["product_id"], name: "index_product_quantities_on_product_id", using: :btree
+  add_index "product_quantities", ["product_size_id"], name: "index_product_quantities_on_product_size_id", using: :btree
 
   create_table "product_sizes", force: true do |t|
     t.integer  "product_id"
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "product_sizes", ["product_id"], name: "index_product_sizes_on_product_id"
+  add_index "product_sizes", ["product_id"], name: "index_product_sizes_on_product_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "no"
@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id"
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
 
   create_table "shipping_costs", force: true do |t|
     t.integer  "cost"
@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.datetime "updated_at"
   end
 
-  add_index "shipping_costs", ["country_id"], name: "index_shipping_costs_on_country_id"
+  add_index "shipping_costs", ["country_id"], name: "index_shipping_costs_on_country_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

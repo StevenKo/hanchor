@@ -1,0 +1,15 @@
+%h1 Pics Gallery
+%ul#paintings{"data-update-url" => sort_admin_product_product_pics_path(@product)}
+  = render @pics, {product: @product}
+
+.clearfix
+
+= form_for @new_pic, url: admin_product_product_pics_path(@product) do |f|
+  = f.hidden_field :product_id, value: @product.id
+  = f.label :pic, "Upload Pics:"
+  = f.file_field :pic, multiple: true, name: "product_pic[pic]"
+%script#template-upload{:type => "text/x-tmpl"}
+  .upload
+    {%=o.name%}
+    .progress
+      .bar{:style => "width: 0%"}

@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require fancybox
 //= require jquery_ujs
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
