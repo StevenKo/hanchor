@@ -21,8 +21,6 @@
 //= require_tree .
 //= require bootstrap
 
-var CKEDITOR_BASEPATH = '/assets/ckeditor/';
-
 $(document).ready(function() {
   $("a.fancybox").fancybox();
 });
