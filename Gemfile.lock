@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/adamico/ckeditor.git
+  revision: f99a8c9265ffb59d690fceac0fcc20109bef5f33
+  branch: rails-4-compatibility
+  specs:
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,9 +51,6 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
-    ckeditor (4.0.6)
-      mime-types
-      orm_adapter
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -193,7 +199,7 @@ DEPENDENCIES
   bootstrap_form
   capistrano
   carrierwave
-  ckeditor
+  ckeditor!
   coffee-rails (~> 4.0.0)
   fancybox2-rails (~> 0.2.4)
   guard-livereload

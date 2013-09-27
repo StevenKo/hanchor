@@ -11,7 +11,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
 gem 'bootstrap_form'
-gem "ckeditor"
+gem "ckeditor", :git => "https://github.com/adamico/ckeditor.git", :branch => "rails-4-compatibility"
 gem "carrierwave"
 gem "mini_magick"
 gem 'jquery-fileupload-rails'
