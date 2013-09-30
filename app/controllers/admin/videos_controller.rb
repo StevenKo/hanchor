@@ -1,11 +1,21 @@
 class Admin::VideosController < Admin::AdminController
 
   def index
-    @videos = Video.paginate(:page => params[:page], :per_page => 1)
+    @videos = Video.paginate(:page => params[:page], :per_page => 30)
   end
 
   def edit
     @video = Video.find(params[:id])
+  end
+
+  def new
+    @video = Video.new
+  end
+
+  def destroy
+    Video.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_videos_path
   end
 
   def update
@@ -14,6 +24,16 @@ class Admin::VideosController < Admin::AdminController
       flash[:notice] = "Update success"
     else
       flash[:error] = "Update fail!"
+    end
+    redirect_to edit_admin_video_path(@video)
+  end
+
+  def create
+    @video = Video.new(params.require(:video).permit(:link,:sort))
+    if @video.save
+      flash[:notice] = "Create success"      
+    else
+      flash[:error] = "Create fail!"
     end
     redirect_to edit_admin_video_path(@video)
   end
