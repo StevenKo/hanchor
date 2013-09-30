@@ -73,7 +73,7 @@ Hanchor::Application.routes.draw do
     resources :news
     resources :shipping_costs
     resources :faqs, only: [:index, :edit, :update]
-    resources :banners, only: [:index, :edit, :update]
+    resources :banners
     resources :videos, only: [:index, :edit, :update]
   end
 end

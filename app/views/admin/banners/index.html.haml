@@ -10,7 +10,7 @@
   - @banners.each do |banner|
     %tr
       %td= banner.id
-      %td= image_tag(banner.pic)
+      %td= image_tag(banner.pic_url, :style => 'max-height: 200px; max-width: 200px;')
       %td= banner.link
       %td= banner.sort
       %td= link_to 'Edit', edit_admin_banner_path(banner)
@@ -18,3 +18,5 @@
 
 
 = will_paginate @banners
+
+= link_to "New", new_admin_banner_path, class: "btn"

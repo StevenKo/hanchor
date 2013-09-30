@@ -1,0 +1,13 @@
+%section.register.container
+  .row
+    .span10
+      = bootstrap_form_for banner, url: url,:html => {:class => "form-horizontal", multipart: true} do |f|
+        .offset2
+          = image_tag(banner.pic_url, :style => 'max-height: 200px; max-width: 200px;')
+        = f.file_field :pic, :class => "span7", label: "上傳圖片(圖片建議大小:570x355)"
+        = f.text_field :link, :class => "span7", label: "連結"
+        = f.text_field :sort, :class => "span7", label: "排序(數字越大，排序越前面)"
+        = f.secondary "確定"
+        = link_to "返回", admin_banners_path, class: "btn"
+        - unless banner.new_record?
+          = link_to "刪除", admin_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

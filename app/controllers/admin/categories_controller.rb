@@ -34,9 +34,6 @@ class Admin::CategoriesController < Admin::AdminController
     redirect_to edit_admin_category_path(@category)
   end
 
-  def create
-
-  end
 
 private
   def category_param
