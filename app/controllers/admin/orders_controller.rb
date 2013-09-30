@@ -1,7 +1,7 @@
 class Admin::OrdersController < Admin::AdminController
 
   def index
-    @orders = Order.paginate(:page => params[:page], :per_page => 1)
+    @orders = Order.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
