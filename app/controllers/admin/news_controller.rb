@@ -1,7 +1,7 @@
 class Admin::NewsController < Admin::AdminController
 
   def index
-    @news = News.paginate(:page => params[:page], :per_page => 2)
+    @news = News.paginate(:page => params[:page], :per_page => 20)
   end
 
   def edit
@@ -30,6 +30,12 @@ class Admin::NewsController < Admin::AdminController
       flash[:error] = "Update fail!"
     end
     redirect_to edit_admin_news_path(@news)
+  end
+
+  def destroy
+    News.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_news_index_path
   end
 
 private
