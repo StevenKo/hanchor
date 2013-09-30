@@ -34,6 +34,12 @@ class Admin::ShippingCostsController < Admin::AdminController
     redirect_to admin_shipping_costs_path
   end
 
+  def destroy
+    ShippingCost.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_shipping_costs_path
+  end
+
 private
 
   def ship_params

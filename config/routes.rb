@@ -71,7 +71,7 @@ Hanchor::Application.routes.draw do
     end
     resources :categories
     resources :news
-    resources :shipping_costs
+    resources :shipping_costs, except: [:show]
     resources :faqs, only: [:index, :edit, :update]
     resources :banners, except: [:show]
     resources :videos, except: [:show]

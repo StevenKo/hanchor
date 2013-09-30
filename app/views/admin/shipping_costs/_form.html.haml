@@ -2,8 +2,8 @@
   .row
     .span10
       = bootstrap_form_for shipping_cost, url: url,:html => {:class => "form-horizontal", multipart: true} do |f|
-        = f.text_field :cost, label: "費用"
         = f.text_field :description, label: "方式"
+        = f.text_field :cost, label: "費用"
         = f.select :country_id, country_select, label: "地區(國家)"
         .offset2
           = f.secondary "確定"
