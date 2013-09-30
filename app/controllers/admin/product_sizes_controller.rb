@@ -14,7 +14,7 @@ class Admin::ProductSizesController < Admin::AdminController
   end
 
   def create_update
-    params[:colors][:product_size].each do |key,param|
+    params[:sizes][:product_size].each do |key,param|
       if ProductSize.exists?(key)
         size = ProductSize.find(key)
         size.update(param)
@@ -24,6 +24,7 @@ class Admin::ProductSizesController < Admin::AdminController
         size.save
       end
     end
+    ProductQuantity.create_quantiy(params[:product_id])
     redirect_to admin_product_product_sizes_path(params[:product_id])
   end
 

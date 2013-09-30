@@ -11,7 +11,7 @@ class ProductQuantity < ActiveRecord::Base
       sizes.each do |size|
         quantity = ProductQuantity.where("product_color_id = #{color.id} and product_size_id = #{size.id}").first
         ProductQuantity.create(product_id: product_id, product_color_id: color.id, product_size_id: size.id) if quantity.blank?
-        ProductQuantity.delete_all("product_id = #{product_id} and (product_color_id is null or product_color_id is null) ")
+        ProductQuantity.delete_all("product_id = #{product_id} and (product_color_id is null or product_size_id is null) ")
       end
     end
 

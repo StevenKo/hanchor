@@ -24,6 +24,7 @@ class Admin::ProductColorsController < Admin::AdminController
         color.save
       end
     end
+    ProductQuantity.create_quantiy(params[:product_id])
     redirect_to admin_product_product_colors_path(params[:product_id])
   end
 

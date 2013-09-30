@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::AdminController
 
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 1)
+    @products = Product.paginate(:page => params[:page], :per_page => 40)
   end
 
   def edit
@@ -45,6 +45,12 @@ class Admin::ProductsController < Admin::AdminController
       flash[:error] = "Create fail!"
     end
     redirect_to edit_admin_product_path(@product)
+  end
+
+  def destroy
+    Product.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_products_path
   end
 
 private

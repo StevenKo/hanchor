@@ -20,12 +20,15 @@
           - if product.new_record?
             請先新增product，再修改
           - else
-            = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size}:#{c.quantity}"}.join("  ")
+            = product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size if c.product_size}:#{c.quantity}"}.join("  ")
             = link_to "修改數量", admin_product_product_quantities_path(product), class: "btn"
         = f.control_group "", label: { text: '修改圖片' } do
           - if product.new_record?
             請先新增product，再修改
           - else
+            - product.product_pics.each do |pic|
+              = image_tag(pic.pic_url(:thumb), :style => 'max-height: 200px; max-width: 200px;')
+            %br
             = link_to "修改圖片", admin_product_product_pics_path(product), class: "btn"
         .tabbable.tabs-below
           %ul.nav.nav-tabs
