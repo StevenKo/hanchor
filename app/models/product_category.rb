@@ -8,7 +8,7 @@ class ProductCategory < ActiveRecord::Base
     str_array = []
     str_array << ["無",""]
     all.each do |cat|
-      str_array << [cat.name, cat.id] if cat.parent_id.nil?
+      str_array << ["#{cat.name}(#{cat.name_en})", cat.id] if cat.parent_id.nil?
     end
     str_array
   end

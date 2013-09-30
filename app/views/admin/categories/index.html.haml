@@ -1,15 +1,15 @@
 %table.table
   %tr
     %th 產品編號
-    %th 上層分類
-    %th 分類
+    %th 上層分類(EN)
+    %th 分類(EN)
     %th 排序
     %th 顯示
   - @categories.each do |category|
     %tr
       %td= category.id
-      %td= category.parent_category.name if category.parent_category
-      %td= category.name
+      %td= "#{category.parent_category.name}(#{category.parent_category.name_en})" if category.parent_category
+      %td= "#{category.name}(#{category.name_en})"
       %td= category.sort
       %td= (category.is_visible)? "顯示" : "不顯示"
       %td= link_to 'Edit', edit_admin_category_path(category)

@@ -34,6 +34,11 @@ class Admin::CategoriesController < Admin::AdminController
     redirect_to edit_admin_category_path(@category)
   end
 
+  def destroy
+    ProductCategory.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_categories_path
+  end
 
 private
   def category_param
