@@ -36,13 +36,13 @@
         %center
           =link_to (image_tag product.product_pics.first.pic_url),"" if product.product_pics.first
         %br
-        = link_to product.name, ""
+        = link_to product.product_infos[0].name, ""
         %br
         %span.price
           NT$
-          = product.price
+          = product.product_infos[0].price
         %br
-          = truncate(strip_tags(product.feature), length: 50)
+          = truncate(strip_tags(product.product_infos[0].feature), length: 50)
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook
