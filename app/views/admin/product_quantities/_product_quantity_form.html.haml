@@ -1,8 +1,8 @@
 顏色
 = builder.hidden_field :product_color_id, placeholder: "中文"
-= quantity.product_color.color
+= quantity.product_color.color if quantity.product_color
 尺寸
 = builder.hidden_field :product_size_id, placeholder: "EN"
-= quantity.product_size.size
+= quantity.product_size.size if quantity.product_size
 = builder.text_field :quantity, placeholder: "數量"
 %br
