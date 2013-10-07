@@ -2,23 +2,23 @@
   #footer.footer_tw
     %ul#nav
       %li
-        %a{:href => "/home/aboutus"} 關於我們
+        = link_to t("aboutus"), aboutus_path
       %li
-        %a{:href => "/home/news"} 部落格
+        = link_to t('news_events'), news_index_path
       %li
-        %a{:href => "/home/product/packing/"} 包 款
+        = link_to t('packing'), products_index_path("packing")
       %li
-        %a{:href => "/home/product/accessories/"} 配 件
+        = link_to t('accessories'), products_index_path("accessories")
       %li
-        %a{:href => "/home/product/apparel/"} 衣 著
+        = link_to t('apparel'), products_index_path("apparel")
       %li
-        %a{:href => "/home/product/others/"} 其 他
+        = link_to t('others'), products_index_path("others")
       %li
-        %a{:href => "/home/product/customization/"} 客製化
+        = link_to t('customization'), products_index_path("customization")
       %li
-        %a{:href => "/home/deal"} 限量優惠
+        = link_to t('deals'), products_index_path("deal")
       %li
-        %a{:href => "/home/faq"} 問與答
+        = link_to t('q_and_a'), faq_path
     %div{:style => "position:absolute; right:10px; top:10px"}
       / PayPal Logo
       %table{:align => "center", :border => "0", :cellpadding => "5", :cellspacing => "0"}
@@ -34,5 +34,5 @@
       %a{:href => "maito://info@hanchor.com"} info@hanchor.com
       %br
         Copyright 2012 ©
-        %a{:href => "/home/", :style => "color:#fff"} HANCHOR
+        = link_to "HANCHOR",root_path, style: "color:#fff"
         All Rights Reserved
