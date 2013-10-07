@@ -8,6 +8,9 @@ zh-TW:
   customization: "客製化"
   deals: "限量優惠"
   q_and_a: "問與答"
+  change_language: "切換語言"
+  shopping_cart: "購物車"
+  sign_in: "登入"
 
   account:
     name: "姓名(Full Name)*"

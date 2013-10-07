@@ -8,6 +8,9 @@ en:
   customization: "Customization"
   deals: "Deals"
   q_and_a: "Q & A"
+  change_language: "Language"
+  shopping_cart: "Cart"
+  sign_in: "Sign In"
 
   account:
     name: "Full Name*"

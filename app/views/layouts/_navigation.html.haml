@@ -21,11 +21,11 @@
     = link_to t('q_and_a'), faq_path
 
 #user_links.pull-right
-  = link_to "購物車", cart_index_path
+  = link_to t('shopping_cart'), cart_index_path
   %ul
     %li.dropdown
       %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-        切換語言
+        = t('change_language')
         %b.caret
       %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
         %li
@@ -44,4 +44,4 @@
             = link_to 'Logout', logout_path
       
   -else
-    = link_to "登入", login_path
+    = link_to t('sign_in'), login_path
