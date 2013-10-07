@@ -23,7 +23,7 @@ class CartController < ApplicationController
     if item.save
       flash[:notice] = "恭喜你，成功加入購物車了！"
     else
-      flash[:error] = "錯誤發生，麻煩你再重試一次，或聯絡我們！"
+      flash[:error] = "對不起，無法加入購物車"
     end
 
     redirect_to products_show_path(product.product_category.name_en, product)

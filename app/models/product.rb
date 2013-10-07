@@ -36,4 +36,8 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def sum_quantities
+    product_quantities.map(&:quantity).inject(:+)
+  end
+
 end

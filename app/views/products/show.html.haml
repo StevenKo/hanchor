@@ -48,9 +48,12 @@
             %strong= "NT$#{@product.product_infos[@product_info_index].price}"
           %li
             #{t('product.quantity')}
-            = select_tag :quantity,[]
-
-        = f.submit t('product.add_to_cart')
+            - if @product.sum_quantities > 0
+              = select_tag :quantity,[]
+            -else
+              %strong 目前已完售
+        - if @product.sum_quantities > 0    
+          = f.submit t('product.add_to_cart')
   .clearfix
   .features
     %fieldset

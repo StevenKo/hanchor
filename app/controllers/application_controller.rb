@@ -26,11 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_cart_items
-    if session[:cart_id]
-      @cart_items = CartItem.where("cart_id = #{session[:cart_id]}")
-    else
-      @cart_items = []
-    end
+    @cart_items = []
+    @cart_items = @shopping_cart.cart_items if @shopping_cart
   end
 
   def default_url_options(options={})
