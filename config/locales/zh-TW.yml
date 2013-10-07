@@ -15,6 +15,10 @@ zh-TW:
   more: "更多資訊"
   news_articles: "部落格文章"
 
+  news:
+    new_article: "最新文章"
+    more_article: "更多文章"
+
   account:
     name: "姓名(Full Name)*"
     email: "Email*"

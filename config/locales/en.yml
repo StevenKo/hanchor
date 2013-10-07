@@ -15,6 +15,10 @@ en:
   more: "Read more"
   news_articles: "News Articles"
 
+  news:
+    new_article: "Recent Posts"
+    more_article: "More"
+
   account:
     name: "Full Name*"
     email: "Email*"
