@@ -30,3 +30,7 @@ zh-TW:
     address:  "寄送地址(Shipping Address)"
     password: "密碼*"
     password_confirm: "密碼確認*"
+
+  product:
+    home: "首頁"
+    product: "產品"

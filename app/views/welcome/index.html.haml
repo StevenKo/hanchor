@@ -46,7 +46,7 @@
           NT$
           = product.product_infos[0].price
         %br
-          = truncate(strip_tags(product.product_infos[0].feature), length: 50)
+          = truncate_html(strip_tags(product.product_infos[0].feature), length: 80)
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook

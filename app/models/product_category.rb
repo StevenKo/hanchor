@@ -4,6 +4,10 @@ class ProductCategory < ActiveRecord::Base
   belongs_to :parent_category, foreign_key: 'parent_id', class_name: 'ProductCategory'
   has_many :child_categories, foreign_key: 'parent_id', class_name: 'ProductCategory'
 
+  def locale language
+    (language == "zh-TW") ? name : name_en
+  end
+
   def self.generate_parent_select_category_array
     str_array = []
     str_array << ["無",""]

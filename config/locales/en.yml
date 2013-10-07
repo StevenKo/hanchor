@@ -28,3 +28,7 @@ en:
     state: "State*"
     country:  "Country*"
     address:  "Shipping Address"
+  
+  product:
+    home: "Home"
+    product: "Product"

@@ -1,20 +1,20 @@
 .span8
   %ul.breadcrumb
     %li
-      = link_to "首頁", root_path 
+      = link_to t('product.home'), root_path 
       %span.divider /
     %li.active
-      產品
+      = t("product.product")
       %span.divider /
     %li
-      = link_to @base_category.name, products_index_path(@base_category.name_en)
+      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
     %li
       - if @sub_category
         %span.divider /
-        = link_to @sub_category.name, products_index_path(@base_category.name_en, sub: @sub_category.name_en)
+        = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
   .product_cate
     - @base_category.child_categories.each do |c|
-      = link_to c.name, products_index_path(@base_category.name_en, sub: c.name_en), class: "btn btn-info"
+      = link_to c.locale(params[:locale]), products_index_path(@base_category.name_en, sub: c.name_en), class: "btn btn-info"
   #product
     - @products.each do |product|
       =link_to products_show_path(@base_category.name_en,product) do
@@ -22,13 +22,13 @@
           %center
             =(image_tag product.product_pics.first.pic_url) if product.product_pics.first
           %br
-          = product.product_infos[0].name
+          = product.product_infos[@product_info_index].name
           %br
           %span.price
             NT$
-            = product.product_infos[0].price
+            = product.product_infos[@product_info_index].price
           %br
-            = truncate(strip_tags(product.product_infos[0].feature), length: 50)
+            = truncate_html(strip_tags(product.product_infos[@product_info_index].feature), length: 80)
   = will_paginate @products
 .span3
   = render "cart_sidebar"
