@@ -11,6 +11,9 @@ en:
   change_language: "Language"
   shopping_cart: "Cart"
   sign_in: "Sign In"
+  hanchor_info: "The HANCHOR brand was created in Taipei in 2012. We have been designing and  hand making bags for outdoor adventures since 2010, and our logo symbolizes a chalked hand with a solid grip on a hold.HANCHOR = Hand+Anchor, both of which keep  us on the wall when we climb, and our mission is to design innovative, simple, and..."
+  more: "Read more"
+  news_articles: "News Articles"
 
   account:
     name: "Full Name*"

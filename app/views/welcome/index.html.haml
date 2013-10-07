@@ -13,13 +13,13 @@
 .span4
   #aboutus
     %fieldset
-      %legend 關於我們
+      %legend= t("aboutus")
     %p
-      Hanchor在2012年創立於台灣台北，始於2010年著手設計、手工製作戶外用品。品牌圖案呈現攀岩者沾滿白色碳酸鎂粉的手緊緊抓住岩塊；HANCHOR= Hand+ Anchor，結合兩項攀岩者與岩牆連結的重要元素，象徵穩固及堅持的精神。由攀岩概念出發的原創設計，採用高級環保材料，並致力於輕量化兼具堅固及功能性的街頭戶外風格。產品經過反覆測試與及親身使用，在乎你每一個感受；甚至提供客製的貼心服務，讓你擁有獨一無二的HANCHOR。
-      =link_to "更多資訊", aboutus_path
+      = t("hanchor_info")
+      =link_to "#{t("more")}...", aboutus_path
   #news
     %fieldset
-      %legend 部落格文章
+      %legend= t("news_articles")
     %p
       -@news.each do |news|
         = link_to "#{display_date(news.updated_at)} #{news.title}", news
