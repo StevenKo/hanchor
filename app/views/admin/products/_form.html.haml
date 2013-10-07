@@ -54,6 +54,13 @@
                 = builder.text_field :views,:readonly => true 
                 .offset2
                   = builder.check_box :is_visible, :inline => true, label: "是否顯示"
+                .offset2
+                  - @shipping_tw.each do |shipping|
+                    - if product.product_infos[0].shipping.include? shipping.id.to_s
+                      = check_box_tag "shipping[tw][]", shipping.id, true
+                    - else
+                      = check_box_tag "shipping[tw][]", shipping.id, false
+                    = shipping.description
                 = builder.hidden_field :country_id, value: 1
             #2.tab-pane
               = f.fields_for product.product_infos[1], :index => 1 do |builder|
@@ -72,9 +79,14 @@
                 = builder.text_field :views,:readonly => true 
                 .offset2
                   = builder.check_box :is_visible, :inline => true, label: "是否顯示"
+                .offset2
+                  - @shipping_en.each do |shipping|
+                    - if product.product_infos[1].shipping.include? shipping.id.to_s
+                      = check_box_tag "shipping[en][]", shipping.id, true
+                    - else
+                      = check_box_tag "shipping[en][]", shipping.id, false
+                    = shipping.description
                 = builder.hidden_field :country_id, value: 2
-
-        
 
         = f.secondary "確定"
         = link_to "返回", admin_products_path, class: "btn"

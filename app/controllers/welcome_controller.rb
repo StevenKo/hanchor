@@ -8,6 +8,6 @@ class WelcomeController < ApplicationController
   end
 
   def faq
-    @faq = Faq.find_by_locale params[:locale]
+    @faq = Faq.find_by(country_id: @country_id)
   end
 end

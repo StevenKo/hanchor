@@ -7,16 +7,21 @@ class Admin::ProductsController < Admin::AdminController
   def edit
     @product = Product.find(params[:id])
     @category_selection = ProductCategory.generate_category_array
+    @shipping_tw = ShippingCost.where(country_id: 1)
+    @shipping_en = ShippingCost.where(country_id: 2)
   end
 
   def update
+    binding.pry
     @product = Product.find(params[:id])
     begin
       Product.transaction do
         @product.update(product_param)
         info_tw = @product.product_infos[0]
+        info_tw.shipping = params[:shipping][:tw]
         info_tw.update(product_info_tw)
         info_en = @product.product_infos[1]
+        info_en.shipping = params[:shipping][:en]
         info_en.update(product_info_en)
       end
       flash[:notice] = "Update success"
@@ -31,6 +36,8 @@ class Admin::ProductsController < Admin::AdminController
     @product.product_infos << ProductInfo.new
     @product.product_infos << ProductInfo.new
     @category_selection = ProductCategory.generate_category_array
+    @shipping_tw = ShippingCost.where(country_id: 1)
+    @shipping_en = ShippingCost.where(country_id: 2)
   end
 
   def create

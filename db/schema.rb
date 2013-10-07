@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914145545) do
+ActiveRecord::Schema.define(version: 20131007113716) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20130914145545) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "shipping"
   end
 
   add_index "product_infos", ["country_id"], name: "index_product_infos_on_country_id", using: :btree
