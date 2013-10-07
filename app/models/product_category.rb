@@ -31,4 +31,8 @@ class ProductCategory < ActiveRecord::Base
     end
 
   end
+
+  def child_category_ids
+    ProductCategory.where("parent_id = #{id}").select("id").map(&:id)
+  end
 end

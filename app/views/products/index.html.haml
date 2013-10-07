@@ -22,13 +22,14 @@
           %center
             =(image_tag "http://localhost/resample.php?scale=0.6&path=upload/product/pipefirst.JPG")
           %br
-          = product.name
+          = product.product_infos[0].name
           %br
           %span.price
             NT$
-            = product.price
+            = product.product_infos[0].price
           %br
-            = truncate(strip_tags(product.feature), length: 50)
-
+            = truncate(strip_tags(product.product_infos[0].feature), length: 50)
+  = will_paginate @products
 .span3
   = render "cart_sidebar"
+
