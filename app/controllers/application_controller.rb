@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_shopping_cart
+    binding.pry
     @shopping_cart ||= Cart.find(session[:cart_id]) if session[:cart_id]
   end
 

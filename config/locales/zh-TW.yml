@@ -34,3 +34,10 @@ zh-TW:
   product:
     home: "首頁"
     product: "產品"
+
+  shopping_cart_locale:
+    cart: "購物車"
+    empty: "0個商品"
+    item: "%{num}個商品"
+    sum: "總共: NT$%{price}"
+    checkout: "前往結帳"

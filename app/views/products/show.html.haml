@@ -46,11 +46,11 @@
     %fieldset
       %legend 產品說明
     %p
-      = @product.feature.html_safe
+      = @product.product_infos[@product_info_index].feature.html_safe
   .quick_overview
     %fieldset
       %legend 描述與使用
-    = @product.quick_overview.html_safe
+    = @product.product_infos[@product_info_index].quick_overview.html_safe
 
 .span3.offset1
   = render "cart_sidebar"

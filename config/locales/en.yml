@@ -32,3 +32,10 @@ en:
   product:
     home: "Home"
     product: "Product"
+
+  shopping_cart_locale:
+    cart: "Shopping Cart"
+    empty: "Empty"
+    item: "There are %{num} items in your cart."
+    sum: "Total: NT$%{price}"
+    checkout: "Checkout"
