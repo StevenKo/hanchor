@@ -44,7 +44,7 @@ private
       I18n.locale = extract_locale_from_accept_language_header
     end
 
-    (params[:locale] == "zh-TW")? @product_info_index = 0 : @product_info_index = 1
+    (params[:locale] == "zh-TW")? @local_index = 0 : @local_index = 1
   end
 
   def extract_locale_from_accept_language_header

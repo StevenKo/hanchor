@@ -52,3 +52,7 @@ zh-TW:
     item: "%{num}個商品"
     sum: "總共: NT$%{price}"
     checkout: "前往結帳"
+
+  faq:
+    guide: "購物說明(Shopping Guide)"
+    faq: "常見問題(FAQ)"

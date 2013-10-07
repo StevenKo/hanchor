@@ -1,6 +1,7 @@
 %fieldset
   %ul#nav
     %li#guide.active 
-      = link_to "購物說明(Shopping Guide)", shopping_guide_path
-    %li#faq 
-      = link_to "常見問題(FAQ)", faq_path
+      = link_to t('faq.guide'), shopping_guide_path
+    - if params[:locale] == "zh-TW"
+      %li#faq 
+        = link_to "常見問題(FAQ)", faq_path

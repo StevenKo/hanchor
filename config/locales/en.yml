@@ -50,3 +50,7 @@ en:
     item: "There are %{num} items in your cart."
     sum: "Total: NT$%{price}"
     checkout: "Checkout"
+
+  faq:
+    guide: "Shopping Guide"
+    faq: "FAQ"

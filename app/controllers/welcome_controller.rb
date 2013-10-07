@@ -7,10 +7,7 @@ class WelcomeController < ApplicationController
     @banners = Banner.all
   end
 
-  def aboutus
-  end
-
   def faq
-    @faq = Faq.first
+    @faq = Faq.find_by_locale params[:locale]
   end
 end

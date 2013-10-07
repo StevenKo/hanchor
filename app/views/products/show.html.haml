@@ -23,29 +23,29 @@
           = link_to image_tag(pic.pic_url,:style => "max-width:300px"),pic.pic_url, rel: "group" if index >0
         
     .info
-      %h2= @product.product_infos[@product_info_index].name
+      %h2= @product.product_infos[@local_index].name
       = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
         %ul
           %li 
             #{t('product.weight')} 
-            #{@product.product_infos[@product_info_index].weight}
+            #{@product.product_infos[@local_index].weight}
           %li
             #{t('product.dimension')}
-            #{@product.product_infos[@product_info_index].capacity}
+            #{@product.product_infos[@local_index].capacity}
           - if @product_size_selector.present?
             %li
               #{t('product.size')}
               = f.select :product_size_id, @product_size_selector
           %li
             #{t('product.material')}
-            #{@product.product_infos[@product_info_index].material}
+            #{@product.product_infos[@local_index].material}
           - if @product_color_selector.present?
             %li
               #{t('product.color')}
               = f.select :product_color_id, @product_color_selector
           %li
             #{t('product.regular_price')}
-            %strong= "NT$#{@product.product_infos[@product_info_index].price}"
+            %strong= "NT$#{@product.product_infos[@local_index].price}"
           %li
             #{t('product.quantity')}
             - if @product.sum_quantities > 0
@@ -59,11 +59,11 @@
     %fieldset
       %legend= "#{t('product.feature')}"
     %p
-      = @product.product_infos[@product_info_index].quick_overview.html_safe
+      = @product.product_infos[@local_index].quick_overview.html_safe
   .quick_overview
     %fieldset
       %legend= "#{t('product.description')}"
-    = @product.product_infos[@product_info_index].feature.html_safe
+    = @product.product_infos[@local_index].feature.html_safe
 
 .span3.offset1
   = render "cart_sidebar"

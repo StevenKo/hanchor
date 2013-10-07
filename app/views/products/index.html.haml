@@ -22,13 +22,13 @@
           %center
             =(image_tag product.product_pics.first.pic_url) if product.product_pics.first
           %br
-          = product.product_infos[@product_info_index].name
+          = product.product_infos[@local_index].name
           %br
           %span.price
             NT$
-            = product.product_infos[@product_info_index].price
+            = product.product_infos[@local_index].price
           %br
-            = truncate_html(strip_tags(product.product_infos[@product_info_index].feature), length: 80)
+            = truncate_html(strip_tags(product.product_infos[@local_index].quick_overview), length: 60)
   = will_paginate @products
 .span3
   = render "cart_sidebar"
