@@ -39,4 +39,8 @@ class ProductQuantity < ActiveRecord::Base
     ProductQuantity.delete_all("product_size_id = #{product_size_id}")
   end
 
+  def quantity_selector
+    (1..quantity).map{|i| [i,i]}
+  end
+
 end

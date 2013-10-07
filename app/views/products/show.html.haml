@@ -1,56 +1,66 @@
 .span7
   %ul.breadcrumb
     %li
-      = link_to "首頁", root_path 
+      = link_to t('product.home'), root_path 
       %span.divider /
     %li.active
-      產品
+      = t("product.product")
       %span.divider /
     %li
-      = link_to @base_category.name, products_index_path(@base_category.name_en)
+      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
     %li
       - if @sub_category != @base_category
         %span.divider /
-        = link_to @sub_category.name, products_index_path(@base_category.name_en, sub: @sub_category.name_en)
+        = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
 
   #product
     .pic
       =link_to image_tag(@product.product_pics.first.pic_url,:style => "max-width:300px"),@product.product_pics.first.pic_url, rel: "group"
       %fieldset
-        %legend 更多圖片
+        %legend= t('product.more_views')
       %p{:style => "text-align:left"}
         - @product.product_pics.each_with_index do |pic, index|
           = link_to image_tag(pic.pic_url,:style => "max-width:300px"),pic.pic_url, rel: "group" if index >0
         
     .info
-      %h2 SCHIST Small
+      %h2= @product.product_infos[@product_info_index].name
       = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
         %ul
-          %li 重量: 285公克
           %li 
-            尺寸: 30公分*22公分*10公分
-            = f.select :product_size_id, [["L",1],["M",2]]
-          %li 材質: CORDURA 420D/ X-Pac VX21
+            #{t('product.weight')} 
+            #{@product.product_infos[@product_info_index].weight}
           %li
-            顏色:
-            = f.select :product_color_id, [["卡其(KHAKI)",1],["藍(BLUE)",2]]
+            #{t('product.dimension')}
+            #{@product.product_infos[@product_info_index].capacity}
+          - if @product_size_selector.present?
+            %li
+              #{t('product.size')}
+              = f.select :product_size_id, @product_size_selector
           %li
-            價格:
-            %strong NT$2280
+            #{t('product.material')}
+            #{@product.product_infos[@product_info_index].material}
+          - if @product_color_selector.present?
+            %li
+              #{t('product.color')}
+              = f.select :product_color_id, @product_color_selector
           %li
-            數量:
-            = f.select :quantity, [[1,1],[2,2]]
-        = f.submit "放進購物車"
+            #{t('product.regular_price')}
+            %strong= "NT$#{@product.product_infos[@product_info_index].price}"
+          %li
+            #{t('product.quantity')}
+            = select_tag :quantity,[]
+
+        = f.submit t('product.add_to_cart')
   .clearfix
   .features
     %fieldset
-      %legend 產品說明
+      %legend= "#{t('product.feature')}"
     %p
-      = @product.product_infos[@product_info_index].feature.html_safe
+      = @product.product_infos[@product_info_index].quick_overview.html_safe
   .quick_overview
     %fieldset
-      %legend 描述與使用
-    = @product.product_infos[@product_info_index].quick_overview.html_safe
+      %legend= "#{t('product.description')}"
+    = @product.product_infos[@product_info_index].feature.html_safe
 
 .span3.offset1
   = render "cart_sidebar"

@@ -18,6 +18,13 @@ class ProductsController < ApplicationController
     @product = Product.includes(:product_infos).select_info.find(params[:id])
     @sub_category = @product.product_category
     @item = CartItem.new
+    @product_size_selector = @product.size_selector(params[:locale])
+    @product_color_selector = @product.color_selector(params[:locale])
+  end
+
+  def quantity
+    q = ProductQuantity.where(product_color_id: params[:color_id], product_size_id: params[:size_id])[0]
+    @quantity_selector = q.quantity_selector
   end
 
 end

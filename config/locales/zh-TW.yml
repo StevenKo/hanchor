@@ -34,6 +34,17 @@ zh-TW:
   product:
     home: "首頁"
     product: "產品"
+    more_views: "更多圖片"
+    weight: "重量:"
+    dimension: "尺寸:"
+    material: "材質:"
+    color: "顏色:"
+    regular_price: "價格:"
+    quantity: "數量:"
+    size: "Size:"
+    add_to_cart: "放進購物車"
+    feature: "產品說明"
+    description: "描述與使用"
 
   shopping_cart_locale:
     cart: "購物車"

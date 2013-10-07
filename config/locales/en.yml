@@ -32,6 +32,17 @@ en:
   product:
     home: "Home"
     product: "Product"
+    more_views: "More Views"
+    weight: "Weight:"
+    dimension: "Dimension:"
+    material: "Material:"
+    color: "Color:"
+    regular_price: "Regular Price:"
+    quantity: "Quantity:"
+    size: "Size:"
+    add_to_cart: "Add To Cart"
+    feature: "Features"
+    description: "Description"
 
   shopping_cart_locale:
     cart: "Shopping Cart"

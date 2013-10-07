@@ -19,4 +19,21 @@ class Product < ActiveRecord::Base
       pic.update_attribute(:sort,index+1)
     end
   end
+
+  def size_selector locale
+    if locale == "zh-TW"
+      product_sizes.map{|size| [size.size,size.id]}
+    else
+      product_sizes.map{|size| [size.size_en,size.id]}
+    end
+  end
+
+  def color_selector locale
+    if locale == "zh-TW"
+      product_colors.map{|color| [color.color,color.id]}
+    else
+      product_colors.map{|color| [color.color_en,color.id]}
+    end
+  end
+
 end

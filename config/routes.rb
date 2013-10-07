@@ -17,8 +17,10 @@ Hanchor::Application.routes.draw do
     end
   end
 
+  get 'products/quantity' => "products#quantity"
   get 'products/:category' => "products#index", as: "products_index"
   get 'products/:category/:id' => "products#show", as: "products_show"
+
 
   get 'account' => "account#index"
   get 'account/info' => "account#info"
