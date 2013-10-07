@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def get_cart_items
     @cart_items = []
-    @cart_items = @shopping_cart.cart_items if @shopping_cart
+    @cart_items = current_shopping_cart.cart_items if current_shopping_cart
   end
 
   def default_url_options(options={})

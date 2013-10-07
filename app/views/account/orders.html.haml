@@ -3,59 +3,46 @@
   = render partial: "products/cart_sidebar"
 .span8
   #account_main
-  %h2 我的帳號(My account)
-  %p
-    此處可修改個人資料及追蹤訂單狀態，若使用ATM繳款方式訂購請於匯款後請點選該筆訂單中的
-    %span.ui-button.ui-state-hover
-      通知匯款
-    填寫您的帳戶資訊。
-    %br
-    Here you can view your order history, check status of orders and update your personal information.Enjoy your shopping!
-    %br
-    如付款方式選擇銀行匯款，HANCHOR帳戶資訊如下
-    %br
-    戶名:汗可股份有限公司
-    %br
-    台北富邦銀行(銀行代碼012)
-    %br
-    帳號: 742120001104
+  %h2= t('account.order')
+  %p= t('account.message').html_safe
     
-    #last_order
-      %fieldset
-        %legend 訂單紀錄
-        %br
-      %table.table{:align => "center", :cellpadding => "3", :cellspacing => "0", :width => "100%"}
-        %thead
-          %tr
-            %th 數量
-            %th 下單日期
-            %th 狀態
-            %th 運送方式
-            %th 付款方式
-            %th 金額
-            %th{:align => "center", :width => "70"} 付款確認
-        %tbody
-          %tr.hover
-            %td 130307206
-            %td 2013/03/07
-            %td 已出貨
-            %td 國內寄送
-            %td 匯款
-            %td 930
-            %td.green{:align => "center"} 已付款
-          %tr.hover
-            %td 130215202
-            %td 2013/02/15
-            %td 已出貨
-            %td 國內寄送
-            %td 匯款
-            %td 1800
-            %td.green{:align => "center"} 已付款
-          %tr.hover
-            %td 130127197
-            %td 2013/01/27
-            %td 已出貨
-            %td 國內寄送
-            %td 匯款
-            %td 3080
-            %td.green{:align => "center"} 已付款
+    
+  #last_order
+    %fieldset
+      %legend= t('order.history')
+      %br
+    %table.table{:align => "center", :cellpadding => "3", :cellspacing => "0", :width => "100%"}
+      %thead
+        %tr
+          %th= t('order.num')
+          %th= t('order.date')
+          %th= t('order.status')
+          %th= t('order.shpping')
+          %th= t('order.pay')
+          %th= t('order.price')
+          %th{:align => "center", :width => "70"}= t('order.confirm')
+      %tbody
+        %tr.hover
+          %td 130307206
+          %td 2013/03/07
+          %td 已出貨
+          %td 國內寄送
+          %td 匯款
+          %td 930
+          %td.green{:align => "center"} 已付款
+        %tr.hover
+          %td 130215202
+          %td 2013/02/15
+          %td 已出貨
+          %td 國內寄送
+          %td 匯款
+          %td 1800
+          %td.green{:align => "center"} 已付款
+        %tr.hover
+          %td 130127197
+          %td 2013/01/27
+          %td 已出貨
+          %td 國內寄送
+          %td 匯款
+          %td 3080
+          %td.green{:align => "center"} 已付款

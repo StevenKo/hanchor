@@ -30,6 +30,7 @@ Hanchor::Application.routes.draw do
     collection do
       post 'add_item_to_cart'
       get 'checkout'
+      get 'remove_cart_item'
     end
     member do
       put 'change_cart_item_quantity'

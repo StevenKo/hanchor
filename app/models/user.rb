@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create, length: {minimum: 6}
   validates_confirmation_of :password
   validates_presence_of :name,:email, :phone, :zip_code, :country
-  validates_uniqueness_of :email
+  # validates_uniqueness_of :email, :case_sensitive => false
 
   def admin?
     self.role == "admin"

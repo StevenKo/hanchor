@@ -10,7 +10,7 @@ class CartController < ApplicationController
     item = CartItem.new(params.require(:cart_item).permit(:product_color_id,:product_size_id))
     item.quantity = params[:quantity]
     item.product = product
-    item.price = product.product_infos.first.price
+    item.price = product.product_infos[@local_index].price
     
     if current_shopping_cart
       item.cart = current_shopping_cart
@@ -27,6 +27,11 @@ class CartController < ApplicationController
     end
 
     redirect_to products_show_path(product.product_category.name_en, product)
+  end
+
+  def remove_cart_item
+    CartItem.delete(params[:item_id])
+    redirect_to :back
   end
 
   def change_cart_item_quantity

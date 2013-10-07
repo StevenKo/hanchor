@@ -14,6 +14,7 @@ zh-TW:
   hanchor_info: "Hanchor在2012年創立於台灣台北，始於2010年著手設計、手工製作戶外用品。品牌圖案呈現攀岩者沾滿白色碳酸鎂粉的手緊緊抓住岩塊；HANCHOR= Hand+ Anchor，結合兩項攀岩者與岩牆連結的重要元素，象徵穩固及堅持的精神。由攀岩概念出發的原創設計，採用高級環保材料，並致力於輕量化兼具堅固及功能性的街頭戶外風格。產品經過反覆測試與及親身使用，在乎你每一個感受；甚至提供客製的貼心服務，讓你擁有獨一無二的HANCHOR。"
   more: "更多資訊"
   news_articles: "部落格文章"
+  required: "*必填項目 "
 
   news:
     new_article: "最新文章"
@@ -30,6 +31,30 @@ zh-TW:
     address:  "寄送地址(Shipping Address)"
     password: "密碼*"
     password_confirm: "密碼確認*"
+    my_account: "我的帳號(My account)"
+    info: "我的資料(Personal Information)"
+    order: "我的訂單(My Orders)"
+    change_password: "修改密碼"
+    back: "<<回上頁"
+    message: |
+      此處可修改個人資料及追蹤訂單狀態，若使用ATM繳款方式訂購請於匯款後請點選該筆訂單中的
+      <span class="ui-button ui-state-hover">
+        通知匯款
+      </span>
+      填寫您的帳戶資訊。
+      <br />
+      Here you can view your order history, check status of orders and update your personal information.Enjoy your shopping!
+      <br />
+      如付款方式選擇銀行匯款，HANCHOR帳戶資訊如下
+      <br />
+      戶名:汗可股份有限公司
+      <br />
+      台北富邦銀行(銀行代碼012)
+      <br />
+      帳號: 742120001104
+    account_info: "帳戶資訊"
+    name: "姓名:"
+    edit_address: "編輯地址"
 
   product:
     home: "首頁"
@@ -56,3 +81,31 @@ zh-TW:
   faq:
     guide: "購物說明(Shopping Guide)"
     faq: "常見問題(FAQ)"
+
+  cart:
+    picture: "商品圖片"
+    name: "商品名稱"
+    unit_price: "單價"
+    size: "尺寸"
+    color: "顏色"
+    quantity: "數量"
+    subtotal: "小計"
+    sum: "總計"
+    continue: "繼續購物"
+    checkout: "前往結帳"
+
+  order:
+    history: "訂單紀錄"
+    num: "訂單號"
+    date: "下單日期"
+    status: "狀態"
+    shpping: "運送方式"
+    pay: "付款方式"
+    price: "金額"
+    confirm: "付款確認"
+
+
+
+
+
+

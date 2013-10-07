@@ -4,7 +4,7 @@
 .span8
   #create_account
     %fieldset
-      %legend 我的資料
+      %legend= t('account.my_account')
     = bootstrap_form_for current_user do |f|
       = f.text_field :name, label: t("account.name")
       = f.text_field :email, label: t("account.email")
@@ -14,12 +14,12 @@
       = f.text_field :state, label: t("account.state")
       = f.text_field :country, label: t("account.country")
       = f.text_field :shipping_address, label: t("account.address")
-      %legend 修改密碼
+      %legend= t('account.change_password')
       = f.password_field :password, label: t("account.password")
       = f.password_field :password_confirmation, label: t("account.password_confirm")
 
       %p{:style => "text-align:right;border-top:1px solid #bbb; margin-top: 10px; padding-top:5px;"}
-        %span.error *必填項目
+        %span.error= t('required')
         %br
           = f.submit "Submit", style: "border:1px solid #E39633; background: #E39633; color:#fff; padding:3px;"
-          = link_to "<<回上頁", account_path, :style => "float:left"
+          = link_to t('account.back'), account_path, :style => "float:left"
