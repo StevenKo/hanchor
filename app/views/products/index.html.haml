@@ -20,7 +20,7 @@
       =link_to products_show_path(@base_category.name_en,product) do
         .product_thumbs
           %center
-            =(image_tag product.product_pics.first.pic_url)
+            =(image_tag product.product_pics.first.pic_url) if product.product_pics.first
           %br
           = product.product_infos[0].name
           %br
