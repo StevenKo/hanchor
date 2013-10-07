@@ -7,7 +7,7 @@
           = image_tag(news.pic_url, :style => 'max-height: 200px; max-width: 200px;')
         = f.file_field :pic, :class => "span7", label: "上傳圖片(圖片建議大小:570x355)"
         = f.label "內容"
-        = f.cktext_area :content, :class => "someclass", :ckeditor => {:language => "uk"}
+        = f.cktext_area :content, :class => "someclass", :ckeditor => {:language => "en"}
         %br
         = f.text_field :sort_en, label: "排序(En)"
         = f.text_field :sort, label: "排序"
