@@ -12,7 +12,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def update
-    binding.pry
     @product = Product.find(params[:id])
     begin
       Product.transaction do

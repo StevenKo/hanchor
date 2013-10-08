@@ -45,5 +45,12 @@ class CartController < ApplicationController
 
   def checkout
     @order = Order.new
+    ps = Product.where(id: @cart_items.map(&:product_id)).includes(:product_infos)
+    shipping_array = ps[0].product_infos[@local_index].shipping
+    ps.each do |p|
+      shipping_array = shipping_array & p.product_infos[@local_index].shipping
+    end
+    @shippings = ShippingCost.where(id: shipping_array)
+    @shippings_selector = @shippings.map{ |s| ["#{s.description}($NT#{s.cost})",s.id]}
   end
 end
