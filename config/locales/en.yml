@@ -103,6 +103,9 @@ en:
     pay: "Payment Method"
     price: "Amount"
     confirm: "Confirmed"
+    order_confirm: 'Order Confirmed'
+    pay_confirm: 'Payed'
+    shipped: "Shipped"
 
 
 

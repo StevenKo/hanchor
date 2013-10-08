@@ -25,13 +25,13 @@
           %em.tw_payment{:style => "font-style: normal;"}
             %span{:style => ""}
             %br{:style => ""}
-              = f.radio_button :payment, value: "PayPal"
+              = f.radio_button :payment, "PayPal",checked: true
               = f.label t('cart.credit_card')
               %img{:alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
 
               %br{:style => ""}
               -if @country_id == 1
-                = f.radio_button :payment, value: t('cart.transfer')
+                = f.radio_button :payment, t('cart.transfer')
                 = f.label t('cart.transfer_bank')
                 %span.ui-state-default.ui-corner-all{:style => "padding: 5px;"}
                   %strong> 銀行
@@ -45,16 +45,16 @@
         %fieldset
           %legend= t('cart.comment')
         %p
-          %textarea{:name => "memo", :style => "width:500px;height:100px;"}
-          %br
-            %br
-              %span.ui-state-default.ui-corner-all{:style => "padding:5px;mpargin: 5px;"}
-                -if @country_id == 1
-                  購買前請詳細閱讀
-                  = link_to "購買說明",shopping_guide_path
-                (Please Read
-                = link_to "Shopping Guide",shopping_guide_path
-                Before Checkout)
+          = text_area_tag :memo, nil, :style => "width:500px;height:100px;"
+        %br
+        %br
+        %span.ui-state-default.ui-corner-all{:style => "padding:5px;mpargin: 5px;"}
+          -if @country_id == 1
+            購買前請詳細閱讀
+            = link_to "購買說明",shopping_guide_path
+          (Please Read
+          = link_to "Shopping Guide",shopping_guide_path
+          Before Checkout)
         %fieldset
           %legend= t('cart.order')
         #overview{:style => "margin:0px 10px;"}

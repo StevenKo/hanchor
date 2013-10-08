@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
       order_item = OrderItem.new(product_id: cart_item.product_id, quantity: cart_item.quantity, price: cart_item.price, product_size_id: cart_item.product_size_id, product_color_id: cart_item.product_color_id)
       order.order_items << order_item
     end
+    order.total = sum_item_price(order)
+    order.memo = params[:memo]
+    order.status = "order_confirm"
 
     if order.save
       flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
@@ -25,14 +28,20 @@ class OrdersController < ApplicationController
 
   def result
     @order = Order.find(params[:order])
-    
-    binding.pry
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:shipping_name, :phone, :zip_code, :country, :city, :state, :shipping_address, :shipping_cost_id)
+    params.require(:order).permit(:shipping_name, :phone, :zip_code, :country, :city, :state, :shipping_address, :shipping_cost_id, :payment)
+  end
+
+  def sum_item_price order
+    sum = 0
+    order.order_items.each do |item|
+      sum += (item.price * item.quantity)
+    end
+    sum
   end
 
 end
