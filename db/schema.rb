@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007113716) do
+ActiveRecord::Schema.define(version: 20131008144132) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20131007113716) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_payed",         default: false
   end
 
   add_index "orders", ["shipping_cost_id"], name: "index_orders_on_shipping_cost_id", using: :btree

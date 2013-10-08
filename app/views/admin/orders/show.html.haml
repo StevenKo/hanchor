@@ -2,7 +2,7 @@
   %tbody
     %tr
       %th{:width => "100"} 編號
-      %td= format_order_id(@order.id)
+      %td= format_order_id(@order)
     %tr
       %th 訂單日期
       %td= display_date(@order.created_at)
@@ -50,6 +50,12 @@
           = link_to "訂單確認", change_status_admin_order_path(@order,value: "order_confirm"), class: "btn"
           = link_to "確認匯款", change_status_admin_order_path(@order,value: "pay_confirm"), class: "btn"
           = link_to "已出貨", change_status_admin_order_path(@order,value: "shipped"), class: "btn"
+    %tr
+      %th 付款確認
+      %td
+        = (@order.is_payed) ? t("order.payed") : t("order.not_payed")
+        = link_to "尚未付款", change_pay_status_admin_order_path(is_payed: false), class: "btn"
+        = link_to "已付款", change_pay_status_admin_order_path(is_payed: true), class: "btn"
 
 訂單細節
 %table.table
@@ -65,7 +71,7 @@
   %tbody
     -@order.order_items.each do |order_item|
       %tr
-        %td=  "#{format_order_id(@order.id)}:#{order_item.id}" 
+        %td
         %td= order_item.product.product_infos.first.name
         %td= order_item.product_size.size if order_item.product_size
         %td= order_item.product_color.color if order_item.product_color

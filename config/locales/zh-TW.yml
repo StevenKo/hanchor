@@ -127,6 +127,8 @@ zh-TW:
     order_confirm: '訂單確認'
     pay_confirm: '確認匯款'
     shipped: "已出貨"
+    not_payed: "尚未付款"
+    payed: "已付款"
 
 
 

@@ -22,27 +22,12 @@
           %th= t('order.price')
           %th{:align => "center", :width => "70"}= t('order.confirm')
       %tbody
-        %tr.hover
-          %td 130307206
-          %td 2013/03/07
-          %td 已出貨
-          %td 國內寄送
-          %td 匯款
-          %td 930
-          %td.green{:align => "center"} 已付款
-        %tr.hover
-          %td 130215202
-          %td 2013/02/15
-          %td 已出貨
-          %td 國內寄送
-          %td 匯款
-          %td 1800
-          %td.green{:align => "center"} 已付款
-        %tr.hover
-          %td 130127197
-          %td 2013/01/27
-          %td 已出貨
-          %td 國內寄送
-          %td 匯款
-          %td 3080
-          %td.green{:align => "center"} 已付款
+        - current_user.orders.each do |order|
+          %tr.hover
+            %td= format_order_id(order)
+            %td= display_date(order.created_at)
+            %td= t("order.#{order.status}")
+            %td= order.shipping_cost.description
+            %td= order.payment
+            %td= order.total
+            %td.green{:align => "center"}= (order.is_payed) ? t("order.payed") : t("order.not_payed")

@@ -106,6 +106,8 @@ en:
     order_confirm: 'Order Confirmed'
     pay_confirm: 'Payed'
     shipped: "Shipped"
+    not_payed: "N/A"
+    payed: "N/A"
 
 
 
