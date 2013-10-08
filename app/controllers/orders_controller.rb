@@ -2,12 +2,37 @@ class OrdersController < ApplicationController
   before_action :get_cart_items
 
   def create
-    return_url = result_orders_url
-    redirect_to current_shopping_cart.paypal_url(return_url)
+
+    order = Order.new(order_params)
+    order.user_id = current_user.id
+    @cart_items.each do |cart_item|
+      order_item = OrderItem.new(product_id: cart_item.product_id, quantity: cart_item.quantity, price: cart_item.price, product_size_id: cart_item.product_size_id, product_color_id: cart_item.product_color_id)
+      order.order_items << order_item
+    end
+
+    if order.save
+      flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
+      redirect_to result_orders_url(order: order)
+    else
+      flash[:error] = "錯誤發生，麻煩你再重試一次，或聯絡我們！"
+      redirect_to :back
+    end
+
+    
+    # return_url = result_orders_url
+    # redirect_to current_shopping_cart.paypal_url(return_url)
   end
 
   def result
+    @order = Order.find(params[:order])
+    
     binding.pry
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:shipping_name, :phone, :zip_code, :country, :city, :state, :shipping_address, :shipping_cost_id)
   end
 
 end
