@@ -40,7 +40,7 @@
             #1.tab-pane.active
               = f.fields_for product.product_infos[0], :index => 0 do |builder|
                 .offset1
-                  點擊次數
+                  點擊次數:
                   = product.product_infos[0].views
                 = builder.text_field :sort
                 = builder.text_field :name
