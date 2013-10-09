@@ -39,6 +39,10 @@
           .tab-content
             #1.tab-pane.active
               = f.fields_for product.product_infos[0], :index => 0 do |builder|
+                .offset1
+                  點擊次數
+                  = product.product_infos[0].views
+                = builder.text_field :sort
                 = builder.text_field :name
                 = builder.text_field :weight
                 = builder.text_field :material
@@ -51,7 +55,6 @@
                 = builder.label :feature
                 = builder.cktext_area :feature, :class => "someclass", :ckeditor => {:language => "en"},value:  product.product_infos[0].feature
                 %br
-                = builder.text_field :views,:readonly => true 
                 .offset2
                   = builder.check_box :is_visible, :inline => true, label: "是否顯示"
                 .offset2
@@ -64,6 +67,10 @@
                 = builder.hidden_field :country_id, value: 1
             #2.tab-pane
               = f.fields_for product.product_infos[1], :index => 1 do |builder|
+                .offset1
+                  點擊次數:
+                  = product.product_infos[1].views
+                = builder.text_field :sort
                 = builder.text_field :name
                 = builder.text_field :weight
                 = builder.text_field :material

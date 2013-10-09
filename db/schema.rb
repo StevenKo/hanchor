@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008144132) do
+ActiveRecord::Schema.define(version: 20131009071007) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -139,9 +139,9 @@ ActiveRecord::Schema.define(version: 20131008144132) do
     t.integer  "price"
     t.integer  "special_price"
     t.text     "feature"
-    t.boolean  "is_visible"
-    t.integer  "views"
-    t.integer  "sort"
+    t.boolean  "is_visible",     default: false
+    t.integer  "views",          default: 0
+    t.integer  "sort",           default: 0
     t.integer  "product_id"
     t.integer  "country_id"
     t.datetime "created_at"
