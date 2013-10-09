@@ -17,10 +17,10 @@ class Admin::ProductsController < Admin::AdminController
       Product.transaction do
         @product.update(product_param)
         info_tw = @product.product_infos[0]
-        info_tw.shipping = params[:shipping][:tw]
+        info_tw.shipping = params[:shipping][:tw] if params[:shipping]
         info_tw.update(product_info_tw)
         info_en = @product.product_infos[1]
-        info_en.shipping = params[:shipping][:en]
+        info_en.shipping = params[:shipping][:en] if params[:shipping]
         info_en.update(product_info_en)
       end
       flash[:notice] = "Update success"
