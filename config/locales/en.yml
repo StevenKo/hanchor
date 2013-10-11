@@ -15,6 +15,14 @@ en:
   more: "Read more"
   news_articles: "News Articles"
   required: "*Required Fields "
+  aboutus_message: |
+    <h3>
+    Light Weight, Functional, Urban Outdoor Style</h3>
+    <p>
+      The HANCHOR brand was created in Taipei, Taiwan in 2012. We have been designing and hand making bags for outdoor adventures since 2010, and our logo symbolizes a chalked hand with a solid grip on a hold. HANCHOR = Hand+Anchor, both of which keep us on the wall when we climb, and our mission is to design innovative, simple, and high-quality bags to hold your stuff for all your adventures.
+    </p>
+
+
 
   news:
     new_article: "Recent Posts"
@@ -37,7 +45,7 @@ en:
     message: |      
       Here you can view your order history, check status of orders and update your personal information.Enjoy your shopping!
     name: "Name:"
-    edit_address: "編輯地址"
+    edit_address: "Edit Address"
 
   
   product:
