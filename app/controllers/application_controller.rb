@@ -27,7 +27,13 @@ class ApplicationController < ActionController::Base
 
   def get_cart_items
     @cart_items = []
-    @cart_items = current_shopping_cart.cart_items if current_shopping_cart
+    @cart_items = current_shopping_cart.cart_items.includes(:product_size, :product_color) if current_shopping_cart
+    product_ids = @cart_items.map(&:product_id)
+    products = Product.includes(:thumb,:product_category).joins(:product_infos).where("product_infos.country_id = #{@country_id} and products.id in (#{product_ids.join(",")})").select_info
+    product_infos = {}
+    products.each {|product| product_infos[product.id] = product}
+    @products = []
+    product_ids.each { |id| @products << product_infos[id.to_i] }
   end
 
   def default_url_options(options={})

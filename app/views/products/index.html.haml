@@ -20,15 +20,15 @@
       =link_to products_show_path(@base_category.name_en,product) do
         .product_thumbs
           %center
-            =(image_tag product.product_pics.first.pic_url) if product.product_pics.first
+            =(image_tag product.thumb.pic_url) if product.thumb
           %br
-          = product.product_infos[@local_index].name
+          = product.name
           %br
           %span.price
             NT$
-            = product.product_infos[@local_index].price
+            = product.price
           %br
-            = truncate_html(strip_tags(product.product_infos[@local_index].quick_overview), length: 60)
+            = truncate_html(strip_tags(product.quick_overview), length: 60)
   = will_paginate @products
 .span3
   = render "cart_sidebar"

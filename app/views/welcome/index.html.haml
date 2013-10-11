@@ -38,15 +38,15 @@
     - @products.each do |product|
       .product_thumbs
         %center
-          =link_to (image_tag product.product_pics.first.pic_url),"" if product.product_pics.first
+          =link_to (image_tag product.thumb.pic_url),"" if product.thumb
         %br
-        = link_to product.product_infos[0].name, ""
+        = link_to product.name, ""
         %br
         %span.price
           NT$
-          = product.product_infos[0].price
+          = product.price
         %br
-          = truncate_html(strip_tags(product.product_infos[0].quick_overview), length: 60)
+          = truncate_html(strip_tags(product.quick_overview), length: 60)
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook
