@@ -24,6 +24,12 @@ class Product < ActiveRecord::Base
                                     products.id,
                                     product_category_id"
                         ) }
+  scope :cart_info, -> { select(" product_infos.name,
+                                    product_infos.price,
+                                    product_infos.shipping,
+                                    products.id,
+                                    product_category_id"
+                        ) }
 
 
   def reorder_pic_sort

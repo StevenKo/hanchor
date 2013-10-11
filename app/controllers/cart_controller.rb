@@ -44,13 +44,17 @@ class CartController < ApplicationController
   end
 
   def checkout
-    @order = Order.new
-    ps = Product.where(id: @cart_items.map(&:product_id)).includes(:product_infos)
-    shipping_array = ps[0].product_infos[@local_index].shipping
-    ps.each do |p|
-      shipping_array = shipping_array & p.product_infos[@local_index].shipping
+    if (@cart_items.present?)
+      @order = Order.new
+      shipping_array = YAML::load(@cart_products[0].shipping)
+      @cart_products.each do |p|
+        shipping_array = shipping_array & YAML::load(p.shipping)
+      end
+      @shippings = ShippingCost.where(id: shipping_array)
+      @shippings_selector = @shippings.map{ |s| ["#{s.description}($NT#{s.cost})",s.id]}
+    else
+      flash[:error] = "There is nothing in shipping"
+      redirect_to root_path
     end
-    @shippings = ShippingCost.where(id: shipping_array)
-    @shippings_selector = @shippings.map{ |s| ["#{s.description}($NT#{s.cost})",s.id]}
   end
 end

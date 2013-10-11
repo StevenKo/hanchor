@@ -12,10 +12,10 @@
     - @cart_items.each_with_index do |item, i|
       %tr
         %td{:width => "90"}
-          = link_to products_show_path(@products[i].product_category.name_en, @products[i]) do
-            =image_tag @products[i].thumb.pic_url, width: "90",border: 0
+          = link_to products_show_path(@cart_products[i].product_category.name_en, @cart_products[i]) do
+            =image_tag @cart_products[i].thumb.pic_url, width: "90",border: 0
         %td
-          = link_to @products[i].name,products_show_path(@products[i].product_category.name_en, @products[i])
+          = link_to @cart_products[i].name,products_show_path(@cart_products[i].product_category.name_en, @cart_products[i])
           = link_to remove_cart_item_cart_index_path(item_id: item.id) do
             = image_tag("fancy_close.png")
         %td{:align => "right", :width => "90"}
