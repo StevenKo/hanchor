@@ -29,8 +29,8 @@
         %b.caret
       %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
         %li
-          = link_to "中文", root_path(locale: "zh-TW")
-          = link_to "English", root_path(locale: "en")
+          = link_to "中文", url_for(:only_path => true, locale: "zh-TW")
+          = link_to "English", url_for(:only_path => true, locale: "en")
   -if logged_in?
     %ul
       %li.dropdown
