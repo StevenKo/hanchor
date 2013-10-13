@@ -51,7 +51,7 @@
             - if @product.sum_quantities > 0
               = select_tag :quantity,[]
             -else
-              %strong 目前已完售
+              %strong= t('product.out_of_stock')
         - if @product.sum_quantities > 0    
           = f.submit t('product.add_to_cart')
   .clearfix

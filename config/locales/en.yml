@@ -62,6 +62,7 @@ en:
     add_to_cart: "Add To Cart"
     feature: "Features"
     description: "Description"
+    out_of_stock: "Out of Stock"
 
   shopping_cart_locale:
     cart: "Shopping Cart"
