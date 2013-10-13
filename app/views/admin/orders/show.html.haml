@@ -69,9 +69,9 @@
       %th 數量
       %th 金額
   %tbody
-    -@order.order_items.each do |order_item|
+    -@order.order_items.each_with_index do |order_item,index|
       %tr
-        %td
+        %td= @order.code + (index+1).to_s.rjust(2, '0')
         %td= order_item.product.product_infos.first.name
         %td= order_item.product_size.size if order_item.product_size
         %td= order_item.product_color.color if order_item.product_color

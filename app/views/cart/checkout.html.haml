@@ -86,8 +86,7 @@
                   %td{:align => "center", :width => "40"}
                     = item.product_color.color
                   %td{:align => "center", :width => "60"}
-                    = form_for item, url: change_cart_item_quantity_cart_path(item) do |f|
-                      = f.select :quantity, get_cart_item_quantity_selector(item), selected: item.quantity
+                    = item.quantity
                   %td{:align => "right", :width => "90"} 
                     NT$
                     = item.price * item.quantity

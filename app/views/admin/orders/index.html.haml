@@ -11,7 +11,7 @@
     %th 狀態
   - @orders.each do |order|
     %tr
-      %td= format_order_id(order)
+      %td= order.code
       %td= order.created_at
       %td= order.user.name
       %td= order.payment

@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :get_cart_items
 
   def create
-
     order = Order.new(order_params)
     order.user_id = current_user.id
     @cart_items.each do |cart_item|
@@ -12,6 +11,7 @@ class OrdersController < ApplicationController
     order.total = sum_item_price(order)
     order.memo = params[:memo]
     order.status = "order_confirm"
+    order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
 
     if order.save
       flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
