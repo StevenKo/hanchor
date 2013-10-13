@@ -26,6 +26,14 @@ Hanchor::Application.routes.draw do
   get 'account/info' => "account#info"
   get 'account/orders' => "account#orders"
 
+  get '/forget_password', to: 'forgot_passwords#new'
+  resources :forgot_passwords, only: [:create]
+  get '/confirm_password_reset', to: 'forgot_passwords#confirm_password_reset'
+
+  resources :password_resets, only: [:show, :create]
+  get '/invalid_token', to: 'password_resets#invalid_token'
+  
+
   resources :cart, only: [:index] do
     collection do
       post 'add_item_to_cart'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131013090910) do
+ActiveRecord::Schema.define(version: 20131013124659) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(version: 20131013090910) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "token"
   end
 
   create_table "videos", force: true do |t|

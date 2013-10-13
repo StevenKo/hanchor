@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(users_params)
     if user.save
+      UserMailer.register_email(@user).deliver
       flash[:notice] = "have registered"
       session[:user_id] = user.id
       redirect_to root_path

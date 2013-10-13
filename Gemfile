@@ -34,6 +34,7 @@ group :development, :test do
   gem 'pry'
   gem 'sqlite3'
   gem 'guard-livereload'
+  gem 'letter_opener'
 end
 
 group :production do
