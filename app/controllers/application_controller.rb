@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       product_infos = {}
       products.each {|product| product_infos[product.id] = product}
       @cart_products = []
-      product_ids.each { |id| @cart_products << product_infos[id.to_i] }
+      product_ids.each { |id| @cart_products << product_infos[id] }
     else
       @cart_items = []
     end

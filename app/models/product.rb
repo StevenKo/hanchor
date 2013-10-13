@@ -30,6 +30,16 @@ class Product < ActiveRecord::Base
                                     products.id,
                                     product_category_id"
                         ) }
+  scope :admin_index_info, -> { select("products.id,
+                                        no,
+                                        product_category_id,
+                                        product_infos.name,
+                                        product_infos.price,
+                                        product_infos.special_price,
+                                        product_infos.sort,
+                                        product_infos.views,
+                                        product_infos.is_visible"
+                              )}
 
 
   def reorder_pic_sort

@@ -26,7 +26,7 @@ class ProductCategory < ActiveRecord::Base
     str_array
   end
 
-  def cateory_name_with_parent str
+  def cateory_name_with_parent(str="")
 
     if parent_category
       parent_category.cateory_name_with_parent "/"+ name
