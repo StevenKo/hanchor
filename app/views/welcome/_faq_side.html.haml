@@ -4,4 +4,4 @@
       = link_to t('faq.guide'), shopping_guide_path
     - if params[:locale] && ["zh-TW","zh"].include?( params[:locale] )
       %li#faq 
-        = link_to "常見問題(FAQ)", faq_path
+        = link_to t('faq.faq'), faq_path
