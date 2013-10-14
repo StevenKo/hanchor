@@ -45,7 +45,8 @@ en:
     change_password: "Change Password"
     message: |      
       Here you can view your order history, check status of orders and update your personal information.Enjoy your shopping!
-    name: "Name:"
+    info_name: "Name:"
+    info_email: "Email:"
     edit_address: "Edit Address"
     register: "Register"
     my_info: "My Information"

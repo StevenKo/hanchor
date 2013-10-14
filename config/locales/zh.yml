@@ -63,7 +63,8 @@ zh:
       <br />
       帳號: 742120001104
     account_info: "帳戶資訊"
-    name: "姓名:"
+    info_name: "姓名:"
+    info_email: "Email:"
     edit_address: "編輯地址"
     register: "註冊"
     my_info: "我的資料"

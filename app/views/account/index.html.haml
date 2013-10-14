@@ -11,10 +11,10 @@
       %fieldset
         %legend= t('account.account_info')
       %p
-        =  t('account.name')
+        =  t('account.info_name')
         = current_user.name
         %br
-        Email: 
+        =  t('account.info_email')
         = current_user.email
         %br
         = link_to t('account.change_password'), account_info_path
