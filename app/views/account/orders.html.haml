@@ -30,4 +30,9 @@
             %td= order.shipping_cost.description
             %td= order.payment
             %td= order.total
-            %td.green{:align => "center"}= (order.is_payed) ? t("order.payed") : t("order.not_payed")
+            -if (order.is_payed)
+              %td= t("order.payed")
+            -else
+              %td= link_to t("order.not_payed"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn order_modal_link", data: {order_id: order.id}
+
+= render "notify_modal"

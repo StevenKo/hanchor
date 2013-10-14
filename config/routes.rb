@@ -26,6 +26,8 @@ Hanchor::Application.routes.draw do
   get 'account/info' => "account#info"
   get 'account/orders' => "account#orders"
 
+  resources :paid_notify, only: [:create]
+  
   get '/forget_password', to: 'forgot_passwords#new'
   resources :forgot_passwords, only: [:create]
   get '/confirm_password_reset', to: 'forgot_passwords#confirm_password_reset'
