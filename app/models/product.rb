@@ -53,7 +53,7 @@ class Product < ActiveRecord::Base
   end
 
   def size_selector locale
-    if locale == "zh-TW"
+    if ["zh-TW","zh"].include?( locale )
       product_sizes.map{|size| [size.size,size.id]}
     else
       product_sizes.map{|size| [size.size_en,size.id]}
@@ -61,7 +61,7 @@ class Product < ActiveRecord::Base
   end
 
   def color_selector locale
-    if locale == "zh-TW"
+    if ["zh-TW","zh"].include?( locale )
       product_colors.map{|color| [color.color,color.id]}
     else
       product_colors.map{|color| [color.color_en,color.id]}

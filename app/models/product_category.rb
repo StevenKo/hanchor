@@ -5,7 +5,7 @@ class ProductCategory < ActiveRecord::Base
   has_many :child_categories, foreign_key: 'parent_id', class_name: 'ProductCategory'
 
   def locale language
-    (language == "zh-TW") ? name : name_en
+    ["zh-TW","zh"].include?( language ) ? name : name_en
   end
 
   def self.generate_parent_select_category_array
