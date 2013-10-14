@@ -5,14 +5,14 @@ class Admin::ProductsController < Admin::AdminController
     if(params[:parent_category] && params[:category])
       @categories = ProductCategory.where("id = #{params[:category]}").select("id, name, parent_id")
       categories_id = @categories.map(&:id).join(",")
-      @products = Product.joins(:product_infos).admin_index_info.where("product_category_id in (#{categories_id})").paginate(:page => params[:page], :per_page => 20)
+      @products = Product.joins(:product_infos).admin_index_info.where("product_category_id in (#{categories_id}) and product_infos.country_id = 1").paginate(:page => params[:page], :per_page => 20)
     elsif(params[:category])
       @categories = ProductCategory.where("parent_id = #{params[:category]} or id = #{params[:category]}").select("id, name, parent_id")
       categories_id = @categories.map(&:id).join(",")
-      @products = Product.joins(:product_infos).admin_index_info.where("product_category_id in (#{categories_id})").paginate(:page => params[:page], :per_page => 20)
+      @products = Product.joins(:product_infos).admin_index_info.where("product_category_id in (#{categories_id}) and product_infos.country_id = 1").paginate(:page => params[:page], :per_page => 20)
     else
       @categories = ProductCategory.where("parent_id is null").select("id, name, parent_id")
-      @products = Product.joins(:product_infos).admin_index_info.paginate(:page => params[:page], :per_page => 20)
+      @products = Product.joins(:product_infos).where("product_infos.country_id = 1").admin_index_info.paginate(:page => params[:page], :per_page => 20)
     end
 
   end
