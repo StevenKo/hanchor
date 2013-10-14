@@ -15,7 +15,7 @@
         - if @country_id == 1
           #store
             %label= t('cart.store')
-            = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn"
+            = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn", target: "_blank"
             = f.fields_for :store do |child_form|
               = child_form.text_field :code, label: t('cart.num')
               = child_form.text_field :stroe_name, label: t('cart.store_name')
