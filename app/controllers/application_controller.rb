@@ -48,13 +48,11 @@ class ApplicationController < ActionController::Base
 private
   
   def set_locale
-    if params[:locale] && ["en", "zh-TW"].include?( params[:locale] )
+    if params[:locale] && ["en", "zh-TW","zh"].include?( params[:locale] )
       I18n.locale = params[:locale] || I18n.default_locale
     else
       I18n.locale = extract_locale_from_accept_language_header
     end
-
-    (params[:locale] == "zh-TW")? @local_index = 0 : @local_index = 1
     (params[:locale] == "zh-TW")? @country_id = 1 : @country_id = 2
   end
 
