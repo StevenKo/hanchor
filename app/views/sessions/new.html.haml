@@ -1,23 +1,20 @@
 #account
   %div
     %fieldset
-      %legend 加入會員
-    Create an account to shop with HANCHOR! You will be able to check details and status of your orders. Your personal information won’t be shared with any others.
+      %legend= t('account.add_club')
+    #{t('account.register_messgae')}
     %br
-      %br
-        加入本網站會員立即進行購物並可追蹤訂單，HANCHOR不會洩漏任何資料給第三方，除HANCHOR外，會員不會收到來自第三人之電子郵件。
-        %br
-          %br
-            = link_to "註冊",register_path, class: 'button'
+    %br
+    = link_to t('account.register'),register_path, class: 'button'
   %div
     %fieldset
-      %legend 會員登入
+      %legend= t('account.club_login')
     %br
     = form_tag '/login' do
-      = label_tag "電子郵件:"
+      = label_tag t('account.email')
       = text_field_tag :username
-      = label_tag "密碼: "
+      = label_tag t('account.password')
       = password_field_tag :password
       %br
-      = submit_tag "登入", class: 'button'
-      = link_to "忘記密碼",forget_password_path, class: 'button'
+      = submit_tag t('sign_in'), class: 'button'
+      = link_to t('account.forget_password'),forget_password_path, class: 'button'

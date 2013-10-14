@@ -1,8 +1,8 @@
-%h2 新增帳號
+%h2= t("account.register")
 
 #create_account
   %fieldset
-    %legend 我的資料
+    %legend= t("account.my_info")
   = bootstrap_form_for @user do |f|
     = f.text_field :name, label: t("account.name")
     = f.text_field :email, label: t("account.email")
@@ -12,12 +12,12 @@
     = f.text_field :state, label: t("account.state")
     = f.text_field :country, label: t("account.country")
     = f.text_field :shipping_address, label: t("account.address")
-    %legend 登入資料
+    %legend= t("account.login_info")
     = f.password_field :password, label: t("account.password")
     = f.password_field :password_confirmation, label: t("account.password_confirm")
 
     %p{:style => "text-align:right;border-top:1px solid #bbb; margin-top: 10px; padding-top:5px;"}
-      %span.error *必填項目
+      %span.error= t("account.required")
       %br
         = f.submit "Submit", style: "border:1px solid #E39633; background: #E39633; color:#fff; padding:3px;"
-        = link_to "<<回上頁", login_path, :style => "float:left"
+        = link_to t("back"), login_path, :style => "float:left"

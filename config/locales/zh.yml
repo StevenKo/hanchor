@@ -24,6 +24,7 @@ zh:
     <p>
       Hanchor在2012年創立於台灣台北，始於2010年著手設計、手工製作戶外用品。品牌圖案呈現攀岩者沾滿白色碳酸鎂粉的手緊緊抓住岩塊；HANCHOR= Hand+ Anchor，結合兩項攀岩者與岩牆連結的重要元素，象徵穩固及堅持的精神。由攀岩概念出發的原創設計，採用高級環保材料，並致力於輕量化兼具堅固及功能性的街頭戶外風格。產品經過反覆測試與及親身使用，在乎你每一個感受；甚至提供客製的貼心服務，讓你擁有獨一無二的HANCHOR。
     </p>
+  back: "<<回上頁"
 
 
   news:
@@ -32,7 +33,7 @@ zh:
 
   account:
     name: "姓名(Full Name)*"
-    email: "Email*"
+    email: "電子郵件*"
     phone: "電話(Phone)*"
     zip_code: "郵遞區號(Zip Code)*"
     city: "城市(City)*"
@@ -45,7 +46,6 @@ zh:
     info: "我的資料(Personal Information)"
     order: "我的訂單(My Orders)"
     change_password: "修改密碼"
-    back: "<<回上頁"
     message: |
       此處可修改個人資料及追蹤訂單狀態，若使用ATM繳款方式訂購請於匯款後請點選該筆訂單中的
       <span class="ui-button ui-state-hover">
@@ -65,6 +65,13 @@ zh:
     account_info: "帳戶資訊"
     name: "姓名:"
     edit_address: "編輯地址"
+    register: "註冊"
+    my_info: "我的資料"
+    login_info: "登入資料"
+    register_messgae: "加入本網站會員立即進行購物並可追蹤訂單，HANCHOR不會洩漏任何資料給第三方，除HANCHOR外，會員不會收到來自第三人之電子郵件。"
+    add_club: "加入會員"
+    club_login: "會員登入"
+    forget_password: "忘記密碼"
 
   product:
     home: "首頁"
