@@ -24,9 +24,17 @@
           %br
           = product.name
           %br
-          %span.price
-            NT$
-            = product.price
+          - unless product.special_price
+            %span.price
+              NT$
+              = product.price
+          - else
+            %span.kill_price
+              NT$
+              = product.price
+            %span.special_price
+              NT$
+              = product.special_price
           %br
             = truncate_html(strip_tags(product.quick_overview), length: 60)
   = will_paginate @products

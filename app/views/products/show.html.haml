@@ -45,7 +45,14 @@
               = f.select :product_color_id, @product_color_selector
           %li
             #{t('product.regular_price')}
-            %strong= "NT$#{@product.price}"
+            - unless @product.special_price
+              %strong= "NT$#{@product.price}"
+            - else
+              %span.kill_price
+                = "NT$#{@product.price}"
+              %span.special_price
+                NT$
+                = @product.special_price
           %li
             #{t('product.quantity')}
             - if @product.sum_quantities > 0

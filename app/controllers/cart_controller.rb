@@ -10,7 +10,8 @@ class CartController < ApplicationController
     item = CartItem.new(params.require(:cart_item).permit(:product_color_id,:product_size_id))
     item.quantity = params[:quantity]
     item.product = product
-    item.price = product.product_infos.where("country_id = #{@country_id}")[0].price
+    info = product.product_infos.where("country_id = #{@country_id}").select("special_price,price")[0]
+    (info.special_price.present?) ?  item.price = info.special_price : item.price = info.price
     
     if current_shopping_cart
       item.cart = current_shopping_cart

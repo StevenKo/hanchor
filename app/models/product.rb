@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
 
   scope :select_info, -> { select(" product_infos.name,
                                     product_infos.price,
+                                    product_infos.special_price,
                                     product_infos.quick_overview, 
                                     products.id,
                                     product_category_id"
@@ -16,6 +17,7 @@ class Product < ActiveRecord::Base
 
   scope :all_info, -> { select(" product_infos.name,
                                     product_infos.price,
+                                    product_infos.special_price,
                                     product_infos.quick_overview,
                                     product_infos.weight,
                                     product_infos.capacity,
