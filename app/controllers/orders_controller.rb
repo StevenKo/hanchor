@@ -14,6 +14,8 @@ class OrdersController < ApplicationController
     order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
 
     if order.save
+      @shopping_cart.delete
+      session[:cart_id] = nil
       flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
       redirect_to result_orders_url(order: order)
     else

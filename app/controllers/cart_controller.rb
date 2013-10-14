@@ -54,7 +54,7 @@ class CartController < ApplicationController
       @shippings = ShippingCost.where(id: shipping_array)
       @shippings_selector = @shippings.map{ |s| ["#{s.description}($NT#{s.cost})",s.id]}
     else
-      flash[:error] = "There is nothing in shipping"
+      flash[:error] = "There is nothing in shopping cart!"
       redirect_to root_path
     end
   end
