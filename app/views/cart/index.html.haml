@@ -22,9 +22,9 @@
           NT$
           = item.price
         %td{:align => "center", :width => "40"}
-          = item.product_size.size if item.product_size
+          = item.product_size.locale_size(params[:locale]) if item.product_size
         %td{:align => "center", :width => "40"}
-          = item.product_color.color
+          = item.product_color.locale_color(params[:locale]) if item.product_color
         %td{:align => "center", :width => "60"}
           = form_for item, url: change_cart_item_quantity_cart_path(item) do |f|
             = f.select :quantity, get_cart_item_quantity_selector(item), selected: item.quantity
