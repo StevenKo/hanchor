@@ -21,6 +21,7 @@ class Product < ActiveRecord::Base
                                     product_infos.capacity,
                                     product_infos.material,
                                     product_infos.feature,
+                                    product_infos.views,
                                     products.id,
                                     product_category_id"
                         ) }
@@ -40,6 +41,7 @@ class Product < ActiveRecord::Base
                                         product_infos.views,
                                         product_infos.is_visible"
                               )}
+  scope :order_by_views_and_sort, -> { order("sort desc,views desc")}
 
 
   def reorder_pic_sort
