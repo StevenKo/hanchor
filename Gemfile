@@ -16,6 +16,8 @@ gem "carrierwave"
 gem "mini_magick"
 gem 'jquery-fileupload-rails'
 
+gem 'yaml_db'
+
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'
   gem 'sass-rails', '~> 4.0.0'
@@ -35,7 +37,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'guard-livereload'
   gem 'letter_opener'
-  gem 'yaml_db'
 end
 
 group :production do
