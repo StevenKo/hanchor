@@ -1,7 +1,7 @@
 %fieldset
   %ul#nav
-    %li#guide.active 
-      = link_to t('faq.guide'), shopping_guide_path
+    %li
+      = link_to t('faq.faq'), faq_path
     - if params[:locale] && ["zh-TW","zh"].include?( params[:locale] )
-      %li#faq 
-        = link_to t('faq.faq'), faq_path
+      %li 
+        = link_to t('faq.guide'), shopping_guide_path

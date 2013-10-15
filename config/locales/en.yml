@@ -113,6 +113,8 @@ en:
     order: "Order Detail"
     confirm: "Confirm"
     confirm_message: "Have you already read shopping guide and check the order list and other information are correct?"
+    read_shopping_gudide_message: "(Please Read %{href} Before Checkout)"
+    shopping_guide: "Shopping Guide"
 
   order:
     history: "History"

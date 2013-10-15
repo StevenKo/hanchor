@@ -135,6 +135,8 @@ zh:
     order: "訂單明細"
     confirm: "完成訂購"
     confirm_message: "已詳細閱讀購買說明，並確認訂單內容及資料填寫無誤?"
+    read_shopping_gudide_message: "購買前請詳細閱讀"
+    shopping_guide: "購買說明"
 
   order:
     history: "訂單紀錄"

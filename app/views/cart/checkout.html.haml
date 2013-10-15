@@ -49,12 +49,7 @@
         %br
         %br
         %span.ui-state-default.ui-corner-all{:style => "padding:5px;mpargin: 5px;"}
-          -if @country_id == 1
-            購買前請詳細閱讀
-            = link_to "購買說明",shopping_guide_path
-          (Please Read
-          = link_to "Shopping Guide",shopping_guide_path
-          Before Checkout)
+          = t("cart.read_shopping_gudide_message", :href => link_to(t("cart.shopping_guide"), shopping_guide_path)).html_safe
         %fieldset
           %legend= t('cart.order')
         #overview{:style => "margin:0px 10px;"}
