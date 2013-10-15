@@ -44,9 +44,10 @@
       %td
         = t("order.#{@order.status}")
         %br
-          = link_to "訂單確認", change_status_admin_order_path(@order,value: "order_confirm"), class: "btn"
-          = link_to "確認匯款", change_status_admin_order_path(@order,value: "pay_confirm"), class: "btn"
-          = link_to "已出貨", change_status_admin_order_path(@order,value: "shipped"), class: "btn"
+          = link_to t("order.order_confirm"), change_status_admin_order_path(@order,value: "order_confirm"), class: "btn"
+          = link_to t("order.order_cancel"), change_status_admin_order_path(@order,value: "order_cancel"), class: "btn"
+          = link_to t("order.pay_confirm"), change_status_admin_order_path(@order,value: "pay_confirm"), class: "btn"
+          = link_to t("order.shipped"), change_status_admin_order_path(@order,value: "shipped"), class: "btn"
     %tr
       %th 付款資訊(銀行)
       %td= @order.bank

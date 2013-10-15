@@ -124,6 +124,7 @@ en:
     price: "Amount"
     confirm: "Confirmed"
     order_confirm: 'Order Confirmed'
+    order_cancel: 'Order Canceled'
     pay_confirm: 'Payed'
     shipped: "Shipped"
     not_payed: "Remitting Notice"
