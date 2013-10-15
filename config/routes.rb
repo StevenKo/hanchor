@@ -64,7 +64,6 @@ Hanchor::Application.routes.draw do
     resources :orders do
       member do
         get 'change_status'
-        get 'change_pay_status'
       end
     end
     resources :products do

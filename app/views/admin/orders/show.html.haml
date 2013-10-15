@@ -34,9 +34,6 @@
       %th 付費方式
       %td= @order.payment
     %tr
-      %th 付款資訊(銀行)
-      %td= @order.bank
-    %tr
       %th 總金額
       %td= @order.total
     %tr
@@ -51,11 +48,12 @@
           = link_to "確認匯款", change_status_admin_order_path(@order,value: "pay_confirm"), class: "btn"
           = link_to "已出貨", change_status_admin_order_path(@order,value: "shipped"), class: "btn"
     %tr
+      %th 付款資訊(銀行)
+      %td= @order.bank
+    %tr
       %th 付款確認
       %td
         = (@order.is_payed) ? t("order.payed") : t("order.not_payed")
-        = link_to "尚未付款", change_pay_status_admin_order_path(is_payed: false), class: "btn"
-        = link_to "已付款", change_pay_status_admin_order_path(is_payed: true), class: "btn"
 
 訂單細節
 %table.table

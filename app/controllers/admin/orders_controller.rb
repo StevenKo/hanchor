@@ -19,11 +19,4 @@ class Admin::OrdersController < Admin::AdminController
     redirect_to admin_order_path(@order)
   end
 
-  def change_pay_status
-    order = Order.find(params[:id])
-    order.is_payed = params[:is_payed]
-    order.save
-    redirect_to admin_order_path(order)
-  end
-
 end
