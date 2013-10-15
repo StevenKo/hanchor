@@ -19,4 +19,10 @@ class Admin::OrdersController < Admin::AdminController
     redirect_to admin_order_path(@order)
   end
 
+  def destroy
+    Order.delete(params[:id])
+    flash[:notice] = "delete success"
+    redirect_to admin_orders_path
+  end
+
 end

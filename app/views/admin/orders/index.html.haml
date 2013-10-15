@@ -19,6 +19,7 @@
       %td= order.total
       %td= t("order.#{order.status}")
       %td= link_to 'Show', admin_order_path(order)
+      %td= link_to 'Destroy', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' }
 
 
 = will_paginate @orders
