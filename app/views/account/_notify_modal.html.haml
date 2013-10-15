@@ -14,5 +14,5 @@
       = text_field_tag :accunt_name
       = hidden_field_tag :order_id, ""
       %br
-      = submit_tag "確定", class: "btn"
-      = link_to "取消","","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn"
+      = submit_tag t('confirm'), class: "btn"
+      = link_to t('cancel'),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn"

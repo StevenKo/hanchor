@@ -8,13 +8,13 @@
       %td= display_date(@order.created_at)
     %tr
       %th 名字
-      %td= @order.user.name
+      %td= @order.shipping_name
     %tr
       %th 聯絡電話
       %td= @order.phone
     %tr
       %th 運送方式
-      %td= @order.shipping_name
+      %td= @order.shipping_cost.description
     %tr
       %th 國家
       %td= @order.country
