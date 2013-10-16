@@ -1,13 +1,13 @@
 class UserMailer < ActionMailer::Base
-  default from: 'chunyuko85@gmail.com'
+  default from: 'hanchorproduct@gmail.com'
 
   def register_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to Myflix Site')
+    mail(to: @user.email, subject: t('mail.register_success'))
   end
 
   def reset_password_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Reset Password')
+    mail(to: @user.email, subject: t('mail.reset_password'))
   end
 end

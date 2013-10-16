@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %br
+    此為系統信，勿直接回覆。若有任何問題請來信
+    = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+
+    %p
+      嗨
+      %strong #{@user.name},
+      %br
+      您已經以下列資料完成註冊程序成功加入HANCHOR會員
+      %br
+      全名︰#{@user.name}
+      %br
+      電子郵件︰
+      = link_to @user.email, "mailto:#{@user.email}",:target => "_blank"
+      %br
+      %br
+      現在即可登入進行購物！
+      %br
+      若有任何問題請來信
+      = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+      ，將有專人處理。
+      %br
+      謝謝！
+      %br
+      HANCHOR Official Store
+      %br
+      %a{:href => "mailto:info@hanchor.com", :style => "color: rgb(17, 85, 204);", :target => "_blank"} info@hanchor.com
+      %br
+      %a{:href => "http://www.hanchor.com/", :style => "color: rgb(17, 85, 204);", :target => "_blank"} www.hanchor.com
+      %br
+      

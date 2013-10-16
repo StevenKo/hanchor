@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %br
+    Please don’t reply this mail directly. If you have any question, please contact us at
+    = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+
+    %p
+      Hi
+      %strong #{@user.name},
+      %br
+      You have successfully created an account with information below on HANCHOR!
+      %br
+      Name: #{@user.name}
+      %br
+      E-mail:
+      = link_to @user.email, "mailto:#{@user.email}",:target => "_blank"
+      %br
+      %br
+      Welcome to sign in and shop with us!
+      %br
+      If you have any questions about your account or any other matter, please feel free to contact us at
+      = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+      %br
+      Cheers!
+      %br
+      HANCHOR Official Store
+      %br
+      %a{:href => "mailto:info@hanchor.com", :style => "color: rgb(17, 85, 204);", :target => "_blank"} info@hanchor.com
+      %br
+      %a{:href => "http://www.hanchor.com/", :style => "color: rgb(17, 85, 204);", :target => "_blank"} www.hanchor.com
+      %br
+      

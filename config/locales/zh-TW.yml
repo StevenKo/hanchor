@@ -161,6 +161,23 @@ zh-TW:
     bank_number: "銀行帳號後五碼"
     account_name: "戶名"
 
+  mail:
+    register_success: "恭喜成功加入HANCHOR會員"
+    reset_password: "重設密碼"
+
+  reset_password:
+    title: "重設密碼"
+    new_password: "新密碼"
+    set: "重設密碼"
+    invalid_message: "此連結已失效，請你再重新寄一次重設密碼信，謝謝！"
+
+  forget_password:
+    title: "忘記密碼?"
+    message: "我們會寄給你一封重設密碼的電子郵件"
+    email: "Email 信箱"
+    send: "寄送密碼信"
+    send_message: "我們已寄出重設密碼的電子郵件，謝謝"
+
 
 
 
