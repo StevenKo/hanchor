@@ -18,7 +18,7 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require ckeditor/init
 //= require_tree .
-//= require bootstrap
+//= require twitter/bootstrap
 
 $(document).ready(function() {
   $("a.fancybox").fancybox();
