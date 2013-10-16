@@ -17,11 +17,8 @@ gem 'jquery-fileupload-rails'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
-
-group :assets do
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
-end
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
 
 #分頁
 gem 'will_paginate'
