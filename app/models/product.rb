@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
                                     product_infos.capacity,
                                     product_infos.material,
                                     product_infos.feature,
-                                    product_infos.views,
+                                    products.views,
                                     products.id,
                                     product_category_id"
                         ) }
@@ -39,8 +39,8 @@ class Product < ActiveRecord::Base
                                         product_infos.name,
                                         product_infos.price,
                                         product_infos.special_price,
-                                        product_infos.sort,
-                                        product_infos.views,
+                                        products.sort,
+                                        products.views,
                                         product_infos.is_visible"
                               )}
   scope :order_by_views_and_sort, -> { order("sort desc,views desc")}

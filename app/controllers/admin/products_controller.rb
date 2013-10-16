@@ -74,15 +74,15 @@ class Admin::ProductsController < Admin::AdminController
 
 private
   def product_param
-    params.require(:product).permit(:product_category_id,:no)
+    params.require(:product).permit(:product_category_id,:no, :sort)
   end
 
   def product_info_tw
-    params.require(:product).require(:product_info).require("0").permit(:sort,:name,:weight,:material,:capacity,:quick_overview,:price,:special_price,:feature,:views,:is_visible,:country_id)
+    params.require(:product).require(:product_info).require("0").permit(:name,:weight,:material,:capacity,:quick_overview,:price,:special_price,:feature,:views,:is_visible,:country_id)
   end
 
   def product_info_en
-    params.require(:product).require(:product_info).require("1").permit(:sort,:name,:weight,:material,:capacity,:quick_overview,:price,:special_price,:feature,:views,:is_visible,:country_id)
+    params.require(:product).require(:product_info).require("1").permit(:name,:weight,:material,:capacity,:quick_overview,:price,:special_price,:feature,:views,:is_visible,:country_id)
   end
 
 end
