@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016034316) do
+ActiveRecord::Schema.define(version: 20131016040657) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20131016034316) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "purpose"
   end
+
+  add_index "faqs", ["purpose"], name: "index_faqs_on_purpose", using: :btree
 
   create_table "news", force: true do |t|
     t.string   "title"

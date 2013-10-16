@@ -1,9 +1,11 @@
 %table.table
   %tr
     %th 地點
+    %th 功用
 
   - @faqs.each do |faq|
     %tr
       %td= faq.country.name
+      %td= faq.purpose
       %td= link_to 'Edit', edit_admin_faq_path(faq)
 
