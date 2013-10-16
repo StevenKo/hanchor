@@ -36,17 +36,26 @@
     %fieldset
       %legend Feature Product
     - @products.each do |product|
-      .product_thumbs
-        %center
-          =link_to (image_tag product.thumb.pic_url),"" if product.thumb
-        %br
-        = link_to product.name, ""
-        %br
-        %span.price
-          NT$
-          = product.price
-        %br
-          = truncate_html(strip_tags(product.quick_overview), length: 60)
+      =link_to products_show_path(product.product_category.name_en,product) do
+        .product_thumbs
+          %center
+            =(image_tag product.thumb.pic_url) if product.thumb
+          %br
+          = product.name
+          %br
+          - unless product.special_price
+            %span.price
+              NT$
+              = product.price
+          - else
+            %span.kill_price
+              NT$
+              = product.price
+            %span.special_price
+              NT$
+              = product.special_price
+          %br
+            = truncate_html(strip_tags(product.quick_overview), length: 60)
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook
