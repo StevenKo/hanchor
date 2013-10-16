@@ -24,8 +24,8 @@ class ProductsController < ApplicationController
   end
 
   def quantity
-    q = ProductQuantity.where(product_color_id: params[:color_id], product_size_id: params[:size_id])[0]
-    @quantity_selector = q.quantity_selector
+    @quantity = ProductQuantity.where(product_color_id: params[:color_id], product_size_id: params[:size_id])[0]
+    @quantity_selector = @quantity.quantity_selector
   end
 
 end
