@@ -34,17 +34,13 @@
         %a{href: "#"} Link
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-          Dropdown
+          = t('change_language')
           %b.caret
         %ul.dropdown-menu{role: "menu"}
           %li
-            %a{href: "#"} Action
+            = link_to "中文", url_for(:only_path => true, locale: "zh-TW")
           %li
-            %a{href: "#"} Another action
-          %li
-            %a{href: "#"} Something else here
-          %li
-            %a{href: "#"} Separated link
+            = link_to "English", url_for(:only_path => true, locale: "en")
   / /.navbar-collapse
 
 
