@@ -13,17 +13,22 @@ class OrdersController < ApplicationController
     order.status = "order_confirm"
     order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
 
-    if order.save
-      @shopping_cart.delete
-      session[:cart_id] = nil
-      flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
-      redirect_to result_orders_url(order: order)
-    else
-      flash[:error] = "錯誤發生，麻煩你再重試一次，或聯絡我們！"
+    if order.dose_not_have_product_in_stock
+      flash[:error] = order.quantity_error_mesage(@country_id)
       redirect_to :back
+    else
+      if order.save
+        order.deduct_quanitity
+        @shopping_cart.delete
+        session[:cart_id] = nil
+        flash[:notice] = "恭喜你，成功購買了Hanchor的商品！"
+        redirect_to result_orders_url(order: order)
+      else
+        flash[:error] = "錯誤發生，麻煩你再重試一次，或聯絡我們！"
+        redirect_to :back
+      end
     end
 
-    
     # return_url = result_orders_url
     # redirect_to current_shopping_cart.paypal_url(return_url)
   end

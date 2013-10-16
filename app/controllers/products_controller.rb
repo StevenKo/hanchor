@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def show
     @base_category = ProductCategory.find_by name_en: params[:category]
     @product = Product.includes(:product_category,:product_pics).joins(:product_infos).where("product_infos.country_id = #{@country_id}").all_info.find(params[:id])
-    ProductInfo.find_by(country_id:  @country_id, product_id: @product.id).update_attribute("views",@product.views+1)
+    @product.update_attribute("views",@product.views+1)
     @sub_category = @product.product_category
     @item = CartItem.new
     @product_size_selector = @product.size_selector(params[:locale])
@@ -24,8 +24,8 @@ class ProductsController < ApplicationController
   end
 
   def quantity
-    q = ProductQuantity.where(product_color_id: params[:color_id], product_size_id: params[:size_id])[0]
-    @quantity_selector = q.quantity_selector
+    @quantity = ProductQuantity.where(product_color_id: params[:color_id], product_size_id: params[:size_id])[0]
+    @quantity_selector = @quantity.quantity_selector
   end
 
 end

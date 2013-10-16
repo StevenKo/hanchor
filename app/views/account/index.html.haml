@@ -52,7 +52,7 @@
               -if (order.is_payed)
                 %td= t("order.payed")
               -else
-                %td= link_to t("order.not_payed"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn order_modal_link", data: {order_id: order.id}
+                %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn order_modal_link", data: {order_id: order.id}
       = link_to t("more"), account_orders_path
 
 = render "notify_modal"

@@ -139,6 +139,23 @@ en:
     bank_number: "Last Five Numbers of Your Bank Account"
     account_name: "Account Name"
 
+  mail:
+    register_success: "Welcome to join HANCHOR!"
+    reset_password: "Reset Password"
+
+  reset_password:
+    title: "Reset Your Password"
+    new_password: "New Password"
+    set: "Reset Password"
+    invalid_message: "Your reset password link is expired. Please try send email again!"
+
+  forget_password:
+    title: "Forgot Password?"
+    message: "We will send you an email with a link that you can use to reset your password."
+    email: "Email Address"
+    send: "Send Email"
+    send_message: "We have send an email with instruction to reset your password. Thanks!"
+
 
 
 

@@ -7,7 +7,6 @@ gem "jquery-rails", "~> 2.3.0"
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 gem 'haml-rails'
-gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
 gem 'bootstrap_form'
@@ -16,11 +15,10 @@ gem "carrierwave"
 gem "mini_magick"
 gem 'jquery-fileupload-rails'
 
-group :assets do
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
-end
+gem 'sass-rails', '~> 4.0.0'
+gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
 
 #分頁
 gem 'will_paginate'

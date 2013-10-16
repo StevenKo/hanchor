@@ -74,7 +74,7 @@ class Admin::ProductsController < Admin::AdminController
 
 private
   def product_param
-    params.require(:product).permit(:product_category_id,:no)
+    params.require(:product).permit(:product_category_id,:no, :sort)
   end
 
   def product_info_tw

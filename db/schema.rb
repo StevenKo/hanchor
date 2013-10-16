@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131013124659) do
+ActiveRecord::Schema.define(version: 20131016040657) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20131013124659) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "purpose"
   end
+
+  add_index "faqs", ["purpose"], name: "index_faqs_on_purpose", using: :btree
 
   create_table "news", force: true do |t|
     t.string   "title"
@@ -141,8 +144,6 @@ ActiveRecord::Schema.define(version: 20131013124659) do
     t.integer  "special_price"
     t.text     "feature"
     t.boolean  "is_visible",     default: false
-    t.integer  "views",          default: 0
-    t.integer  "sort",           default: 0
     t.integer  "product_id"
     t.integer  "country_id"
     t.datetime "created_at"
@@ -192,9 +193,13 @@ ActiveRecord::Schema.define(version: 20131013124659) do
     t.integer  "product_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sort",                default: 0
+    t.integer  "views",               default: 0
   end
 
   add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  add_index "products", ["sort"], name: "index_products_on_sort", using: :btree
+  add_index "products", ["views"], name: "index_products_on_views", using: :btree
 
   create_table "shipping_costs", force: true do |t|
     t.integer  "cost"

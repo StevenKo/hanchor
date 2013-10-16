@@ -8,6 +8,10 @@ class WelcomeController < ApplicationController
   end
 
   def faq
-    @faq = Faq.find_by(country_id: @country_id)
+    @faq = Faq.find_by(country_id: @country_id, purpose: "faq")
+  end
+
+  def shopping_guide
+    @guide = Faq.find_by(country_id: @country_id, purpose: "shopping_guide")
   end
 end

@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(users_params)
-    if user.save
+    @user = User.new(users_params)
+    if @user.save
       UserMailer.register_email(@user).deliver
       flash[:notice] = "have registered"
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render :new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def update
 
-    remove_email_password_params_if_not_change
+    remove_password_params_if_not_change
 
     if current_user.update(users_params)
       flash[:notice] = "Updated"
@@ -29,9 +29,8 @@ class UsersController < ApplicationController
 
   private
     
-    def remove_email_password_params_if_not_change
-      email = users_params[:email]
-      params[:user].delete :email if current_user.email == email
+    def remove_password_params_if_not_change
+
       if params[:user][:password].blank?
         params[:user].delete :password
         params[:user].delete :password_confirmation
@@ -39,6 +38,6 @@ class UsersController < ApplicationController
     end
 
     def users_params
-      params.require(:user).permit(:name, :phone, :zip_code, :country, :password, :password_confirmation, :city, :state, :shipping_address)
+      params.require(:user).permit(:email, :name, :phone, :zip_code, :country, :password, :password_confirmation, :city, :state, :shipping_address)
     end
 end
