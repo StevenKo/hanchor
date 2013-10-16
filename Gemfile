@@ -7,7 +7,7 @@ gem "jquery-rails", "~> 2.3.0"
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 gem 'haml-rails'
-gem 'bootstrap-sass', '~> 2.3.2.0'
+gem "bootstrap3-rails", "~> 3.0.1"
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
 gem 'bootstrap_form'
