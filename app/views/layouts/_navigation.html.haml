@@ -1,58 +1,54 @@
-%nav.navbar.navbar-default{role: "navigation"}
-  / Brand and toggle get grouped for better mobile display
-  .navbar-header
-    %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to image_tag("logo.png"), root_path, :class => 'navbar-brand'
-
-  / Collect the nav links, forms, and other content for toggling
-  .collapse.navbar-collapse.navbar-ex1-collapse
-    %ul.nav.navbar-nav
+%nav.navbar.navbar-inverse{role: "navigation"}
+  %div
+    %ul.nav.navbar-nav.nav-head
       %li
+        = link_to image_tag("logo.png"), root_path, :class => 'brand-logo'
+      %li.nav-func
+        %ul.nav.navbar-nav.pull-right
+          -if logged_in?
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Hi,
+                = current_user.name
+                %b.caret
+              %ul.dropdown-menu{role: "menu"}
+                %li
+                  = link_to "Account", account_path
+                %li
+                  = link_to 'Logout', logout_path
+          -else
+            %li
+              = link_to t('sign_in'), login_path
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              = t('change_language')
+              %b.caret
+            %ul.dropdown-menu{role: "menu"}
+              %li
+                = link_to "中文", url_for(:only_path => true, locale: "zh-TW")
+              %li
+                = link_to "English", url_for(:only_path => true, locale: "en")
+  %div
+    %ul.nav.navbar-nav.main-nav
+      %li.nav-blue
         = link_to t("aboutus"), aboutus_path
-      %li
+      %li.nav-blue
         = link_to t('news_events'), news_index_path
-      %li
+      %li.nav-green
         = link_to t('packing'), products_index_path("packing")
-      %li
+      %li.nav-green
         = link_to t('accessories'), products_index_path("accessories")
-      %li
+      %li.nav-green
         = link_to t('apparel'), products_index_path("apparel")
-      %li
+      %li.nav-green
         = link_to t('others'), products_index_path("others")
-      %li
+      %li.nav-yellow
         = link_to t('customization'), products_index_path("customization")
-      %li
+      %li.nav-red
         = link_to t('deals'), products_index_path("deal")
-      %li
+      %li.nav-purple
         = link_to t('q_and_a'), shopping_guide_path
-    %ul.nav.navbar-nav.navbar-right
-      %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-          = t('change_language')
-          %b.caret
-        %ul.dropdown-menu{role: "menu"}
-          %li
-            = link_to "中文", url_for(:only_path => true, locale: "zh-TW")
-          %li
-            = link_to "English", url_for(:only_path => true, locale: "en")
-      -if logged_in?
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Hi,
-            = current_user.name
-            %b.caret
-          %ul.dropdown-menu{role: "menu"}
-            %li
-              = link_to "Account", account_path
-            %li
-              = link_to 'Logout', logout_path
-      -else
-        %li
-          = link_to t('sign_in'), login_path
+
   / /.navbar-collapse
 
 

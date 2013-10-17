@@ -1,0 +1,40 @@
+.nav-head a.brand-logo {
+	padding: 10px 10px 0 10px;
+}
+.nav-func {
+	width: 630px;
+	.navbar-nav {
+		li > a {
+			padding: 8px;
+		}
+	}
+}
+.nav-blue {
+	border: 1px solid #0070C0;
+}
+.nav-green {
+	border: 1px solid #00B050;
+}
+.nav-yellow {
+	border: 1px solid #FFC000;
+}
+.nav-red {
+	border: 1px solid #960000;
+}
+.nav-purple {
+	border: 1px solid #7223AD;
+}
+
+.main-nav {
+	padding-left: 8px;
+	padding-bottom: 3px;
+	li {
+		width: 100px;
+		text-align: center;
+		margin-right: 3px;
+		background-color: shade($color-grey, 60%);
+		a {
+			padding: 8px 5px;
+		}
+	}
+}
