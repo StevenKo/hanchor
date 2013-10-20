@@ -17,3 +17,15 @@
 
 /config/database.yml
 /public/uploads
+
+/.DS_Store
+
+/.sass-cache/
+
+/app/.DS_Store
+
+/app/assets/.DS_Store
+
+/app/assets/stylesheets/.DS_Store
+
+/app/views/.DS_Store
