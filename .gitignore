@@ -18,11 +18,11 @@
 /config/database.yml
 /public/uploads
 
-/app/.DS_Store
-
 /.DS_Store
 
 /.sass-cache/
+
+/app/.DS_Store
 
 /app/assets/.DS_Store
 
