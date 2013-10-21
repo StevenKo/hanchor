@@ -1,5 +1,7 @@
-.span3
-  = render partial: "faq_side"
+#guide
+	.col-md-3
+		= render partial: "faq_side"
 
-.span8
-  = @guide.context.html_safe
+	.col-md-9
+		.content
+			= @guide.context.html_safe
