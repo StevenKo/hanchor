@@ -1,3 +1,4 @@
+# encoding: utf-8
 class OrdersController < ApplicationController
   before_action :get_cart_items
 
