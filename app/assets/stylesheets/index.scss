@@ -20,12 +20,16 @@
     margin-top: -35px;
     color: #FFF;
   }
-
   a {
     color: $link;
     &:hover {
       color: $link-hover;
     }
+  }
+  .alert {
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    font-size: 12px;
   }
 }
 
@@ -89,8 +93,7 @@
   }
 }
 
-#product {
-  padding: 0 10px;
+#product, #product-list {
   a:hover {
     text-decoration: none;
   }
@@ -100,7 +103,7 @@
     cursor: pointer;
     display: inline-block;
     font-size: 12px;
-    height: 340px;
+    height: 370px;
     margin: 6px 3px;
     padding: 10px;
     vertical-align: top;
@@ -121,6 +124,10 @@
       color: #333;
     }
   }
+}
+
+#product {
+  padding: 0 10px;
 }
 
 #facebook_fan {

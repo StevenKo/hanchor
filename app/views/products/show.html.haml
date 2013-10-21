@@ -1,16 +1,13 @@
-.span7
+.col-md-9
   %ul.breadcrumb
     %li
       = link_to t('product.home'), root_path 
-      %span.divider /
     %li.active
       = t("product.product")
-      %span.divider /
     %li
       = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
     %li
       - if @sub_category != @base_category
-        %span.divider /
         = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
 
   #product
@@ -71,5 +68,5 @@
       %legend= "#{t('product.description')}"
     = @product.feature.html_safe
 
-.span3.offset1
+.col-md-3.offset1
   = render "cart_sidebar"
