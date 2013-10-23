@@ -1,16 +1,16 @@
-.checkout{:style => "display: block;"}
+.checkout
   .row
-    .span10
+    .col-md-12
       %fieldset
         %legend= t('cart.info')
-      = bootstrap_form_for @order, url: orders_path do |f|
-        = f.text_field :shipping_name, :class => "span7", label: t('cart.user_name'), value: @current_user.name
-        = f.text_field :phone, :class => "span7", label: t('cart.phone'), value: @current_user.phone
-        = f.text_field :shipping_address, :class => "span7", label: t('cart.address'), value: @current_user.shipping_address
-        = f.text_field :zip_code, :class => "span7", label: t('cart.zip_code'), value: @current_user.zip_code
-        = f.text_field :city, :class => "span7", label: t('cart.city'), value: @current_user.city
-        = f.text_field :state, :class => "span7", label: t('cart.state'), value: @current_user.state
-        = f.text_field :country, :class => "span7", label: t('cart.country'), value: @current_user.country
+      = bootstrap_form_for @order, url: orders_path, role: "form" do |f|
+        = f.text_field :shipping_name, :class => "form-control", label: t('cart.user_name'), value: @current_user.name
+        = f.text_field :phone, :class => "form-control", label: t('cart.phone'), value: @current_user.phone
+        = f.text_field :shipping_address, :class => "form-control", label: t('cart.address'), value: @current_user.shipping_address
+        = f.text_field :zip_code, :class => "form-control", label: t('cart.zip_code'), value: @current_user.zip_code
+        = f.text_field :city, :class => "form-control", label: t('cart.city'), value: @current_user.city
+        = f.text_field :state, :class => "form-control", label: t('cart.state'), value: @current_user.state
+        = f.text_field :country, :class => "form-control", label: t('cart.country'), value: @current_user.country
         = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping')
         - if @country_id == 1
           #store
@@ -52,8 +52,8 @@
           = t("cart.read_shopping_gudide_message", :href => link_to(t("cart.shopping_guide"), shopping_guide_path)).html_safe
         %fieldset
           %legend= t('cart.order')
-        #overview{:style => "margin:0px 10px;"}
-          %table.cart_table{:align => "center", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+        #order-overview
+          %table.table.table-striped.cart_table
             %thead
               %tr
                 %td= t('cart.picture')
@@ -66,29 +66,29 @@
             %tbody
               - @cart_items.each_with_index do |item, i|
                 %tr
-                  %td{:width => "90"}
+                  %td
                     = link_to products_show_path(@cart_products[i].product_category.name_en, @cart_products[i]) do
                       =image_tag @cart_products[i].thumb.pic_url, width: "90",border: 0
                   %td
                     = link_to @cart_products[i].name,products_show_path(@cart_products[i].product_category.name_en, @cart_products[i])
                     = link_to remove_cart_item_cart_index_path(item_id: item.id) do
                       = image_tag("fancy_close.png")
-                  %td{:align => "right", :width => "90"}
+                  %td
                     NT$
                     = item.price
-                  %td{:align => "center", :width => "40"}
+                  %td
                     = item.product_size.locale_size(params[:locale]) if item.product_size
-                  %td{:align => "center", :width => "40"}
+                  %td
                     = item.product_color.locale_color(params[:locale]) if item.product_color
-                  %td{:align => "center", :width => "60"}
+                  %td
                     = item.quantity
-                  %td{:align => "right", :width => "90"} 
+                  %td
                     NT$
                     = item.price * item.quantity
-              %tr{:bgcolor => "E9E4D4"}
-                %td{:align => "right", :colspan => "6"}= t('cart.sum')
-                %td{:align => "right", :style => "font-size:1.3em; font-weight:bold; color:#CC4D33"}
+              %tr
+                %td{:colspan => "6", :class => "total"}= t('cart.sum')
+                %td.total-price
                   NT$
                   = sum_cart_items_price @cart_items
-        %p{:style => "margin:10px 10px 50px 0; float:right;"}
-          = f.submit t('cart.confirm'), class: "btn btn-success", :confirm => t('cart.confirm_message')
+        .func-btn.clearfix
+          = f.submit t('cart.confirm'), class: "btn btn-md btn-success pull-right", :confirm => t('cart.confirm_message')

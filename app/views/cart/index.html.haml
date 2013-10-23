@@ -1,4 +1,4 @@
-%table.cart_table{:align => "center", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+%table.table.table-striped.cart_table
   %thead
     %tr
       %td= t('cart.picture')
@@ -11,33 +11,31 @@
   %tbody
     - @cart_items.each_with_index do |item, i|
       %tr
-        %td{:width => "90"}
+        %td
           = link_to products_show_path(@cart_products[i].product_category.name_en, @cart_products[i]) do
             =image_tag @cart_products[i].thumb.pic_url, width: "90",border: 0
         %td
           = link_to @cart_products[i].name,products_show_path(@cart_products[i].product_category.name_en, @cart_products[i])
           = link_to remove_cart_item_cart_index_path(item_id: item.id) do
             = image_tag("fancy_close.png")
-        %td{:align => "right", :width => "90"}
+        %td
           NT$
           = item.price
-        %td{:align => "center", :width => "40"}
+        %td
           = item.product_size.locale_size(params[:locale]) if item.product_size
-        %td{:align => "center", :width => "40"}
+        %td
           = item.product_color.locale_color(params[:locale]) if item.product_color
-        %td{:align => "center", :width => "60"}
+        %td
           = form_for item, url: change_cart_item_quantity_cart_path(item) do |f|
             = f.select :quantity, get_cart_item_quantity_selector(item), selected: item.quantity
-        %td{:align => "right", :width => "90"} 
+        %td
           NT$
           = item.price * item.quantity
-    %tr{:bgcolor => "E9E4D4"}
-      %td{:align => "right", :colspan => "6"}= t('cart.sum')
-      %td{:align => "right", :style => "font-size:1.3em; font-weight:bold; color:#CC4D33"}
+    %tr
+      %td{:colspan => "6", :class => "total"}= t('cart.sum')
+      %td.total-price
         NT$
         = sum_cart_items_price @cart_items
-%p{:style => "margin:15px; padding-bottom: 25px;"}
-  %span.button{:style => "float:left;"} 
-    = link_to t('cart.continue'), ""
-  %span.button{:style => "float:right;"} 
-    = link_to t('cart.checkout'), checkout_cart_index_path
+.func-btn.clearfix
+  = link_to t('cart.continue'), "", class: "btn btn-md btn-warning pull-left"
+  = link_to t('cart.checkout'), checkout_cart_index_path, class: "btn btn-md btn-warning pull-right"

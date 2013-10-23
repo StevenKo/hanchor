@@ -86,12 +86,14 @@
       }
     }
     .pics-group {
+      width: 320px;
       img {
         width: 60px;
       }
     }
   }
   .info {
+    width: 350px;
     h2 {
       font-size: 18px;
     }
@@ -104,4 +106,29 @@
       }
     }
   }
+}
+
+.cart_table {
+  tbody > tr > td {
+    vertical-align: middle;
+  }
+  .total {
+    text-align: right;
+  }
+  .total-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #B0642D;
+  }
+}
+
+#main .func-btn {
+  padding: 4px 15px 8px 15px;
+  a {
+    color: $color-white;
+  }
+}
+
+#new_order {
+  padding: 10px 20px;
 }
