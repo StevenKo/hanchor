@@ -14,41 +14,36 @@
         = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping')
         - if @country_id == 1
           #store
-            %label= t('cart.store')
-            = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn", target: "_blank"
+            .check-store
+              %label= t('cart.store')
+              = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn btn-sm btn-warning", target: "_blank"
             = f.fields_for :store do |child_form|
-              = child_form.text_field :code, label: t('cart.num')
-              = child_form.text_field :stroe_name, label: t('cart.store_name')
+              = child_form.text_field :code, label: t('cart.num'), :class => "form-control"
+              = child_form.text_field :stroe_name, label: t('cart.store_name'), :class => "form-control"
         %fieldset
           %legend= t('cart.payment_info')
-        %p
-          %em.tw_payment{:style => "font-style: normal;"}
-            %span{:style => ""}
-            %br{:style => ""}
+        #payment
+          .tw_payment.clearfix
+            %span
+            %br
               = f.radio_button :payment, "PayPal",checked: true
               = f.label t('cart.credit_card')
-              %img{:alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
-
-              %br{:style => ""}
+              %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
               -if @country_id == 1
                 = f.radio_button :payment, t('cart.transfer')
                 = f.label t('cart.transfer_bank')
-                %span.ui-state-default.ui-corner-all{:style => "padding: 5px;"}
-                  %strong> 銀行
+                %label
+                  %strong> ，銀行
                   或
                   %strong> ATM匯款
-                  (請於匯款後點選
-                  %span.ui-button.ui-state-hover
-                    通知匯款
-                  以利盡快出貨)
+                  (請於匯款後點選通知匯款以利盡快出貨)
 
         %fieldset
           %legend= t('cart.comment')
         %p
-          = text_area_tag :memo, nil, :style => "width:500px;height:100px;"
+          = text_area_tag :memo, nil, class: "form-control", rows: "3"
         %br
-        %br
-        %span.ui-state-default.ui-corner-all{:style => "padding:5px;mpargin: 5px;"}
+        %span.ui-state-default.ui-corner-all
           = t("cart.read_shopping_gudide_message", :href => link_to(t("cart.shopping_guide"), shopping_guide_path)).html_safe
         %fieldset
           %legend= t('cart.order')

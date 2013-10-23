@@ -131,4 +131,41 @@
 
 #new_order {
   padding: 10px 20px;
+  .control-group {
+    clear: both;
+    display: table;
+    content: " ";
+    width: 100%;
+    margin-bottom: 10px;
+    label {
+      float: left;
+      width: 30%;
+      margin-right: 20px;
+      text-align: right;
+    }
+    .controls {
+      float: left;
+      width: 66%;
+    }
+  }
+}
+
+#store {
+  .check-store {
+    margin-bottom: 10px;
+    label {
+      margin-left: 24%;
+      margin-right: 20px;
+    }
+  }
+}
+
+#payment {
+  label {
+    float: left;
+    line-height: 80px;
+    input {
+      margin-top: 24px;
+    }
+  }
 }
