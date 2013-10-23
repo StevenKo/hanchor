@@ -34,6 +34,17 @@
   .margin-bottom {
     margin-bottom: 20px;
   }
+  .btn-warning {
+    color: #FFF;
+    &:hover {
+      color: #FFF;
+    }
+  }
+  .modal-body {
+    .btn-default, .btn-default:hover {
+      color: #666;
+    }
+  }
 }
 
 #product .product_thumbs {

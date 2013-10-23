@@ -1,17 +1,15 @@
-.span3
+.col-md-3
   = render partial: "account_sidemenu"
   = render partial: "products/cart_sidebar"
-.span8
+.col-md-9
   #account_main
-  %h2= t('account.order')
-  %p= t('account.message').html_safe
-    
-    
+    %h2= t('account.order')
+    %p= t('account.message').html_safe
   #last_order
     %fieldset
       %legend= t('order.history')
       %br
-    %table.table{:align => "center", :cellpadding => "3", :cellspacing => "0", :width => "100%"}
+    %table.table.table-striped
       %thead
         %tr
           %th= t('order.num')
@@ -33,6 +31,6 @@
             -if (order.is_payed)
               %td= t("order.payed")
             -else
-              %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn order_modal_link", data: {order_id: order.id}
+              %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn btn-md btn-warning", data: {order_id: order.id}
 
 = render "notify_modal"
