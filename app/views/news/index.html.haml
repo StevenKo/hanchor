@@ -3,10 +3,11 @@
     = link_to t('news_events'), news_index_path
   - @news.each_with_index do |news_item,i|
     .news_item
-      %h4.title
-        =link_to news_item.title,news_path(news_item)
-      %span.postdate
-        = news_item.created_at.strftime("%Y-%m-%d")
+      .news-head.clearfix
+        %h4.title.pull-left
+          =link_to news_item.title,news_path(news_item)
+        .postdate.pull-right
+          = news_item.created_at.strftime("%Y-%m-%d")
       .content
         -if(i==0)
           = image_tag news_item.pic
@@ -15,7 +16,7 @@
           = image_tag news_item.pic, class: "small"
           = truncate_html(news_item.content, length: 150)
           .read-more
-            = link_to "read more", news_path(news_item)
+            .btn.btn-md.btn-warning= link_to "read more", news_path(news_item)
   / = will_paginate @news
   %ul.pagination
     %li

@@ -30,3 +30,38 @@
         margin-right: 10px;
     }
 }
+
+.acc-box {
+    float: left;
+    @include border-radius(4px);
+    background-color: #f3f3f3;
+    width: 48%;
+    height: 188px;
+    margin: 0 1% 20px;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    .field {
+        margin-bottom: 10px;
+    }
+    .login-item {
+        width: 100px;
+        text-align: right;
+        margin-right: 15px;
+    }
+    .login-field {
+        width: 300px;
+    }
+    .submit {
+        padding-right: 23px;
+    }
+}
+
+.reg-field {
+    width: 450px;
+}
+
+#create_account {
+    h2.title {
+        color: #E39633;
+    }
+}
