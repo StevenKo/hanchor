@@ -15,14 +15,14 @@ class OrdersController < ApplicationController
     @order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
 
     if @order.dose_not_have_product_in_stock
-      flash[:error] = order.quantity_error_mesage(@country_id)
+      flash[:error] = @order.quantity_error_mesage(@country_id)
       redirect_to :back
     else
       if @order.save
         @order.deduct_quanitity
         @shopping_cart.delete
         session[:cart_id] = nil
-        redirect_to result_orders_url(order: order)
+        redirect_to result_orders_url(order: @order)
       else
         shipping_array = YAML::load(@cart_products[0].shipping)
         @cart_products.each do |p|

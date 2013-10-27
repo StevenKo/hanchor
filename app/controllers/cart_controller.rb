@@ -17,11 +17,10 @@ class CartController < ApplicationController
     if current_shopping_cart
       item.cart = current_shopping_cart
     else
-      cart = Cart.create_new_cart session[:user_id]
+      cart = Cart.create(user_id: session[:user_id])
       session[:cart_id] = cart.id
       item.cart = cart
     end
-
     item.save
 
     redirect_to products_show_path(product.product_category.name_en, product)
