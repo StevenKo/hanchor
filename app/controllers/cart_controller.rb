@@ -22,11 +22,7 @@ class CartController < ApplicationController
       item.cart = cart
     end
 
-    if item.save
-      flash[:notice] = "恭喜你，成功加入購物車了！"
-    else
-      flash[:error] = "對不起，無法加入購物車"
-    end
+    item.save
 
     redirect_to products_show_path(product.product_category.name_en, product)
   end
@@ -58,5 +54,9 @@ class CartController < ApplicationController
       flash[:error] = "There is nothing in shopping cart!"
       redirect_to root_path
     end
+  end
+
+  def check_out_shipping
+    @shipping = ShippingCost.find(params[:shipping_cost_id])
   end
 end

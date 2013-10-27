@@ -1,0 +1,14 @@
+%tr#shippig_cost_tr{:bgcolor => "FFF9E5"}
+  %td{:align => "right", :colspan => "6"}= t('cart.shipping_cost')
+  %td{:align => "right", :style => "font-size:1.2em; font-weight:bold"}
+    NT$
+    %span#total= shipping_cost
+%tr#subtotal_tr{:bgcolor => "FFF9E5"}
+  %td{:align => "right", :colspan => "6"}
+    = t('cart.items')
+    \:
+    = succeed "," do
+      %strong= item_num
+    = t('cart.subtotal')
+  %td{:align => "right", :style => "font-size:1.2em; font-weight:bold"}
+    NT$#{sub_total}
