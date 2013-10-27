@@ -3,7 +3,8 @@
     .span10.offset1
       = form_tag forgot_passwords_path do
         %header
-          %h1 #{t('forget_password.title')}
+          %h4
+            %strong #{t('forget_password.title')}
           %p #{t('forget_password.message')}
         %fieldset
           = label_tag :email,t('forget_password.email')

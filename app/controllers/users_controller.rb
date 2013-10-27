@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       UserMailer.register_email(@user).deliver
       flash[:notice] = "have registered"
       session[:user_id] = @user.id
-      redirect_to root_path
+      update_current_shopping_cart_user(@user.id)      
+      (params[:redirect_to_cart].present?)? redirect_to(cart_index_path) : redirect_to(root_path)
     else
       render :new
     end

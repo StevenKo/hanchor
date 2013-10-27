@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     @shopping_cart ||= Cart.find(session[:cart_id]) if session[:cart_id]
   end
 
+  def update_current_shopping_cart_user user_id
+    current_shopping_cart.update_attribute(:user_id, user_id) if current_shopping_cart
+  end
+
   def logged_in?
     !!current_user
   end

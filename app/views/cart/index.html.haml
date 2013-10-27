@@ -37,5 +37,5 @@
         NT$
         = sum_cart_items_price @cart_items
 .func-btn.clearfix
-  = link_to t('cart.continue'), "", class: "btn btn-md btn-warning pull-left"
+  = link_to t('cart.continue'), :back, class: "btn btn-md btn-warning pull-left"
   = link_to t('cart.checkout'), checkout_cart_index_path, class: "btn btn-md btn-warning pull-right"

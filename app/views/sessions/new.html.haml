@@ -5,7 +5,10 @@
     #{t('account.register_messgae')}
     %br
     %br
-    = link_to t('account.register'),register_path, class: 'btn btn-md btn-warning'
+    - if params[:cart]
+      = link_to t('account.register'),register_path(cart: "index"), class: 'btn btn-md btn-warning'
+    - else
+      = link_to t('account.register'),register_path, class: 'btn btn-md btn-warning'
   .acc-box
     %fieldset
       %legend= t('account.club_login')
@@ -16,6 +19,7 @@
       .field.clearfix
         = label_tag t('account.password'), nil, class: 'pull-left login-item'
         = password_field_tag :password, nil, class: 'form-control pull-left login-field'
+      = hidden_field_tag "redirect_to_cart", true if params[:cart]
       .submit
         = submit_tag t('sign_in'), class: 'btn btn-md btn-warning pull-right'
         = link_to t('account.forget_password'),forget_password_path, class: 'btn btn-md pull-right'

@@ -13,7 +13,7 @@
         = f.text_field :country, :class => "form-control", label: t('cart.country'), value: @current_user.country
         = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping'), prompt: "Select One"
         - if @country_id == 1
-          #store
+          #store{:style => "display: none;"}
             .check-store
               %label= t('cart.store')
               = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn btn-sm btn-warning", target: "_blank"

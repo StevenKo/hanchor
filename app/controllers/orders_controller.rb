@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     @order.memo = params[:memo]
     @order.status = "order_confirm"
     @order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
+    @order.shipping_store = "#{params[:order][:store][:code]},#{params[:order][:store][:stroe_name]}"
 
     if @order.dose_not_have_product_in_stock
       flash[:error] = @order.quantity_error_mesage(@country_id)

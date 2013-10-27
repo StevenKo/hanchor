@@ -1,9 +1,13 @@
 # encoding: utf-8
 class CartController < ApplicationController
-  before_action :require_user, only: [:index, :checkout]
+  before_action :require_user, only: [:checkout]
   before_action :get_cart_items, only: [:index,:checkout]
 
   def index
+    unless logged_in?
+      flash[:error] = "Must logged_in"
+      redirect_to login_path(cart: "index")
+    end
   end
 
   def add_item_to_cart

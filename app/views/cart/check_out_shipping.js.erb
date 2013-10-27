@@ -2,3 +2,8 @@ $("#shippig_cost_tr").remove();
 $("#subtotal_tr").remove();
 $("#order-overview tbody > tr:last").before("<%=j (render 'shipping_and_subtotal', shipping_cost: @shipping.cost, item_num: params[:item_num], sub_total: params[:sub_total])%>").slideDown();
 $("#sum").text("<%= @shipping.cost + params[:sub_total].to_i %>");
+<% if params[:shipping_cost_id] == "3" %>
+  $('#store').show();
+<% else %>
+  $('#store').hide();
+<% end %>
