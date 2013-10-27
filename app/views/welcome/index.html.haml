@@ -1,37 +1,40 @@
-.span7
-  #myCarousel.carousel.slide
-    .carousel-inner
-      - @banners.each_with_index do |banner,i|
-        - if(i == 0)
-          .item.active
-            = image_tag banner.pic_url
-        -else
-          .item
-            = image_tag banner.pic_url
-    %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
-    %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
-.span4
-  #aboutus
-    %fieldset
-      %legend= t("aboutus")
-    %p
-      = t("hanchor_info")
-      =link_to "#{t("more")}...", aboutus_path
-  #news
-    %fieldset
-      %legend= t("news_articles")
-    %p
-      -@news.each do |news|
-        = link_to "#{display_date(news.updated_at)} #{news.title}", news
-        %br
+.col-md-12
+  .col-md-7
+    #carousel-example-generic.carousel.slide
+      .carousel-inner
+        - @banners.each_with_index do |banner,i|
+          - if(i == 0)
+            .item.active
+              = image_tag banner.pic_url
+          -else
+            .item
+              = image_tag banner.pic_url
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+        %span.icon-prev
+      %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+        %span.icon-next
+  .col-md-5
+    #aboutus
+      %fieldset
+        %legend= t("aboutus")
+      %p
+        = t("hanchor_info")
+        =link_to "#{t("more")}...", aboutus_path
+    #news
+      %fieldset
+        %legend= t("news_articles")
+      %p
+        -@news.each do |news|
+          = link_to "#{display_date(news.updated_at)} #{news.title}", news
+          %br
 
-.span12
+.main-content
   #videos
-    %fieldset
+    %fieldset.clearfix
       %legend Feature Video
     %p
       -@videos.each do |video|
-        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "250", :src => "#{video.youtube_embed_link}", :title => "YouTube video player", :width => "430"}
+        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "360", :src => "#{video.youtube_embed_link}", :title => "YouTube video player", :width => "460"}
   #product
     %fieldset
       %legend Feature Product
@@ -40,26 +43,26 @@
         .product_thumbs
           %center
             =(image_tag product.thumb.pic_url) if product.thumb
-          %br
-          = product.name
-          %br
-          - unless product.special_price
-            %span.price
-              NT$
-              = product.price
-          - else
-            %span.kill_price
-              NT$
-              = product.price
-            %span.special_price
-              NT$
-              = product.special_price
-          %br
+          .p-name
+            = product.name
+          .p-price
+            - unless product.special_price
+              %span.price
+                NT$
+                = product.price
+            - else
+              %span.kill_price
+                NT$
+                = product.price
+              %span.special_price
+                NT$
+                = product.special_price
+          .p-overview
             = truncate_html(strip_tags(product.quick_overview), length: 60)
   #facebook_fan
     %fieldset
       %legend HANCHOR on Facebook
-      .fb-like-box{"data-border-color" => "#e5e5e5", "data-header" => "false", "data-height" => "300", "data-href" => "https://www.facebook.com/pages/HANCHOR/210934362319129", "data-show-faces" => "false", "data-stream" => "true", "data-width" => "980"}
+      .fb-like-box{"data-border-color" => "#e5e5e5", "data-header" => "false", "data-height" => "300", "data-href" => "https://www.facebook.com/pages/HANCHOR/210934362319129", "data-show-faces" => "false", "data-stream" => "true", "data-width" => "938"}
         
 
 

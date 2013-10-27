@@ -1,13 +1,13 @@
-.span8
-  = link_to t('news_events'), news_index_path
-
+.col-md-8
+  %h2.news-title
+    = link_to t('news_events'), news_index_path
   - @news.each_with_index do |news_item,i|
     .news_item
-      %span.title
-        =link_to news_item.title,news_path(news_item)
-      %br
-      %span.postdate
-        = news_item.created_at.strftime("%Y-%m-%d")
+      .news-head.clearfix
+        %h4.title.pull-left
+          =link_to news_item.title,news_path(news_item)
+        .postdate.pull-right
+          = news_item.created_at.strftime("%Y-%m-%d")
       .content
         -if(i==0)
           = image_tag news_item.pic
@@ -15,9 +15,24 @@
         -else
           = image_tag news_item.pic, class: "small"
           = truncate_html(news_item.content, length: 150)
-          = link_to "read more", news_path(news_item)
-  = will_paginate @news
+          .read-more
+            .btn.btn-md.btn-warning= link_to "read more", news_path(news_item)
+  / = will_paginate @news
+  %ul.pagination
+    %li
+      %a{href: "#"} &#171;
+    %li
+      %a{href: "#", :class => "active"} 1
+    %li
+      %a{href: "#"} 2
+    %li
+      %a{href: "#"} 3
+    %li
+      %a{href: "#"} 4
+    %li
+      %a{href: "#"} 5
+    %li
+      %a{href: "#"} &#187;
 
-
-.span3
+.col-md-4
   = render "sidebar", news: @news

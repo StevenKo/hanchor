@@ -1,22 +1,26 @@
 .cart
-  %ul
-    %li{:style => " background:#eee 5px 7px; padding-left:26px"}
-      =link_to t('shopping_cart_locale.cart'),cart_index_path
-    - @cart_items.each_with_index do |item,i|
-      %li
-        = image_tag @cart_products[i].thumb.pic_url, width: "40"
+  .shopping-cart
+    %i{ :class => "icons-cart" }
+    =link_to t('shopping_cart_locale.cart'),cart_index_path
+  - @cart_items.each_with_index do |item,i|
+    .shopping-items.clearfix
+      .item-img.pull-left
+        = image_tag @cart_products[i].thumb.pic_url
+      .item-name.pull-left
         = link_to @cart_products[i].name, products_show_path(@cart_products[i].product_category.name_en,@cart_products[i])
-        %br
-          %strong= item.quantity
-          x $#{item.price}
-          = link_to "",remove_cart_item_cart_index_path(item_id: item.id),class: "remove"
-          %p{:style => "clear:both"}
-    - if @cart_items.count == 0
-      %li{:style => "border-top:1px solid #fff"}
-        = t('shopping_cart_locale.empty')
-    - else
-      %li{:style => "background:#E9E4D4;border-top:1px solid #fff"}
+      .amount.clearfix
+        %strong= item.quantity
+        x $#{item.price}
+        = link_to "",remove_cart_item_cart_index_path(item_id: item.id),class: "remove"
+  - if @cart_items.count == 0
+    .shopping-count
+      = t('shopping_cart_locale.empty')
+  - else
+    .shopping-count
+      .count
         %strong= t(:item, :scope => "shopping_cart_locale", :num => @cart_items.size) 
         %br
-          %span{:style => "color:#A7440F; font-weight:bold"}=  t(:sum, :scope => "shopping_cart_locale", :price => sum_cart_items_price(@cart_items)) 
-          = link_to t("shopping_cart_locale.checkout"), cart_index_path, class: "checkout"
+          %span
+            =  t(:sum, :scope => "shopping_cart_locale", :price => sum_cart_items_price(@cart_items))
+      .checkout
+        = link_to t("shopping_cart_locale.checkout"), cart_index_path, class: "btn btn-warning"

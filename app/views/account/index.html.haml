@@ -1,35 +1,39 @@
-.span3
+.col-md-3
   = render partial: "account_sidemenu"
   = render partial: "products/cart_sidebar"
-.span8
+.col-md-9
   #account_main
-  %h2= t('account.my_account')
-  %p
-    = t('account.message').html_safe
-    
+    %h2= t('account.my_account')
+    .content
+      = t('account.message').html_safe
     #info
       %fieldset
         %legend= t('account.account_info')
-      %p
-        =  t('account.info_name')
-        = current_user.name
-        %br
-        =  t('account.info_email')
-        = current_user.email
-        %br
-        = link_to t('account.change_password'), account_info_path
+      .items.clearfix
+        .item-name.pull-left
+          = t('account.info_name')
+        .item-value.pull-left
+          = current_user.name
+      .items.clearfix
+        .item-name.pull-left
+          = t('account.info_email')
+        .item-value.pull-left
+          = current_user.email
+      .items
+        = link_to t('account.change_password'), account_info_path, class: "btn btn-md btn-warning"
     #shipping_address
       %fieldset
         %legend= t('account.address')
-      %p
-        = current_user.shipping_address
-        %br
-        = link_to "Edit Address", account_info_path
+      .items
+        .item-value
+          = current_user.shipping_address
+      .items
+        = link_to "Edit Address", account_info_path, class: "btn btn-md btn-warning"
     #last_order
       %fieldset
         %legend= t('order.history')
         %br
-      %table.table
+      %table.table.table-striped
         %thead
           %tr
             %th= t('order.num')
@@ -52,7 +56,7 @@
               -if (order.is_payed)
                 %td= t("order.payed")
               -else
-                %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn order_modal_link", data: {order_id: order.id}
-      = link_to t("more"), account_orders_path
+                %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn btn-md btn-warning", data: {order_id: order.id}
+      = link_to t("more"), account_orders_path, class: "btn btn-md btn-warning"
 
 = render "notify_modal"

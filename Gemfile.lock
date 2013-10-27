@@ -53,6 +53,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    chunky_png (1.2.9)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -61,6 +62,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (2.0.alpha.0)
+      compass (>= 0.12.2, < 0.14)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
@@ -71,6 +78,7 @@ GEM
       railties (>= 3.1.0)
     ffi (1.9.0)
     formatador (0.2.4)
+    fssm (0.2.10)
     guard (1.8.3)
       formatador (>= 0.2.4)
       listen (~> 1.3)
@@ -205,6 +213,7 @@ DEPENDENCIES
   carrierwave
   ckeditor!
   coffee-rails (~> 4.0.0)
+  compass-rails (~> 2.0.alpha.0)
   fancybox2-rails (~> 0.2.4)
   guard-livereload
   haml-rails

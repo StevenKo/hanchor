@@ -1,20 +1,21 @@
 #account
-  %div
+  .acc-box
     %fieldset
       %legend= t('account.add_club')
     #{t('account.register_messgae')}
     %br
     %br
-    = link_to t('account.register'),register_path, class: 'button'
-  %div
+    = link_to t('account.register'),register_path, class: 'btn btn-md btn-warning'
+  .acc-box
     %fieldset
       %legend= t('account.club_login')
-    %br
     = form_tag '/login' do
-      = label_tag t('account.email')
-      = text_field_tag :username
-      = label_tag t('account.password')
-      = password_field_tag :password
-      %br
-      = submit_tag t('sign_in'), class: 'button'
-      = link_to t('account.forget_password'),forget_password_path, class: 'button'
+      .field.clearfix
+        = label_tag t('account.email'), nil, class: 'pull-left login-item'
+        = text_field_tag :username, nil, class: 'form-control pull-left login-field'
+      .field.clearfix
+        = label_tag t('account.password'), nil, class: 'pull-left login-item'
+        = password_field_tag :password, nil, class: 'form-control pull-left login-field'
+      .submit
+        = submit_tag t('sign_in'), class: 'btn btn-md btn-warning pull-right'
+        = link_to t('account.forget_password'),forget_password_path, class: 'btn btn-md pull-right'

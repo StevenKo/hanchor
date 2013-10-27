@@ -6,66 +6,21 @@
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
+ * compiled file, but it's generally better to create a new file per style scope. require_tree .
  *
  *= require_self
  *= require fancybox
- *= require_tree .
+ *
  */
 
-@import "twitter/bootstrap";
 
- .container {
-  margin-left: 135px
-}
-
-.navbar .nav > li > a.brand {
-  padding-left: 0px;
-}
-
-.quiet {
-  color: #ababab;
-}
-
-div.nav_item {
-  margin-left: 25px;
-  float: left;
-}
-
-.label  {
-  a, a:hover, a:focus {
-    color: #fff;
-    text-decoration: none;
-  }
-}
-
-div.comment_votes {
-  padding: 10px;
-}
-
-
-#product .pic {
-float: left;
-width: 360px;
-text-align: center;
-padding: 5px;
-}
-
-.pic p img{
-  width: 60px;
-}
-
-#product .info{
-  margin-left: 370px;
-  padding: 5px;
-  width: 400px;
-}
-#product .info h2{
-  padding: 0;
-  margin: 0;
-  font-size: 1.2em;
-}
-#product .info li{
-  padding: 5px;
-}
+@import "reference";
+@import "bootstrap.min";
+@import "navi";
+@import "index";
+@import "about";
+@import "news";
+@import "guide";
+@import "products";
+@import "account";
 

@@ -1,0 +1,24 @@
+#guide {
+	.content {
+		line-height: 24px;
+		margin-bottom: 20px;
+	}
+}
+
+ul.faq, ul.acc-side {
+	border: 1px solid #EEE;
+	padding: 1px;
+	li {
+		background-color: #F3F3F3;
+		list-style: none;
+		border-bottom: 1px solid #FFF;
+		a {
+			display: block;
+			padding: 10px;
+			&:hover {
+				text-decoration: none;
+				background-color: #EEE;
+			}
+		}
+	}
+}

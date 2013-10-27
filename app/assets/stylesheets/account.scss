@@ -1,80 +1,67 @@
-
-h2{
-    padding-left: 50px;
-    color:#E39633;
+#account_main {
+    h2{
+        padding-left: 10px;
+        color:#E39633;
+        font-size: 24px;
+    }
+    .content, .items, p {
+        padding: 0 80px;
+        margin-bottom: 10px;
+        line-height: 24px;
+    }
+    .item-name {
+        width: 80px;
+        color: #999;
+    }
+    .btn-warning {
+        color: #FFF;
+    }
 }
-div#create_account{
-    width:600px;
-    margin: auto;
-    padding:20px;
+
+#last_order {
     margin-bottom: 20px;
-    border: 1px solid #bbbbbb;
-    background: #FAFAFA;
-    padding-bottom: 0px;
-    font-size: 12px;
-}
-div#create_account form fieldset{
-    padding-bottom: 0px;
-}
-div#create_account form p{
-    color:#666;
-    margin-left: 20px;
-    font-weight: bold;
-    padding: 0;
-}
-.error{
-    color: #EB340A;
-}
-input.error{
-    border: 1px solid #EB340A;
-    background:#FAEBE7;
 }
 
-
-#account_main #info{
-  float: left;
-  width:339px;
-  min-height: 120px;
-}
-#account_main #shipping_address{
-  margin-left: 340px;
-  min-height: 120px;
-}
-#account_main #last_order{
-  min-height: 100px;
+.confirmed {
+    margin: 20px 0;
+    .notice {
+        color: #666;
+        line-height: 30px;
+        margin-right: 10px;
+    }
 }
 
-
-
-#account_sidemenu{
-    border: 1px solid #e5e5e5;
-    background: #f9f9f9;
-    text-shadow: 1px 0px 1px #fff;
-    padding: 0px;
-    float:right;
-    width:200px;
-    font-size: 12px;
-    margin-bottom: 15px;
-    margin-top: 25px; 
-    width:243px
+.acc-box {
+    float: left;
+    @include border-radius(4px);
+    background-color: #f3f3f3;
+    width: 48%;
+    height: 188px;
+    margin: 0 1% 20px;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    .field {
+        margin-bottom: 10px;
+    }
+    .login-item {
+        width: 100px;
+        text-align: right;
+        margin-right: 15px;
+    }
+    .login-field {
+        width: 300px;
+    }
+    .submit {
+        padding-right: 23px;
+    }
 }
 
+.reg-field {
+    width: 450px;
+}
 
-#account_sidemenu ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-size:12px;
+#create_account {
+    h2.title {
+        color: #E39633;
+    }
 }
-#account_sidemenu ul li{
-    padding: 8px;
-    border-top: 1px solid #f9f9f9;
-    cursor: pointer;
-}
-#account_sidemenu fieldset{
-    border: 1px solid #e5e5e5;
-    background: #f9f9f9;
-    text-shadow: 1px 0px 1px #fff;
-    padding: 0px;
-    margin-top: 15px;
-}  

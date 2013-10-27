@@ -14,16 +14,13 @@
   %body
     = render "shared/facebook_script"
     %header
-      .navbar
-        .navbar-inner
-          .container
-            = render 'layouts/navigation'
+      .container
+        = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .row
-          .span12
-            #messages
-              = render 'layouts/messages'
-            = yield
+        .row.clearfix
+          #messages
+            = render 'layouts/messages'
+          = yield
     %footer
       = render 'layouts/footer'

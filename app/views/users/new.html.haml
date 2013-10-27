@@ -1,23 +1,22 @@
-%h2= t("account.register")
-
 #create_account
+  %h2.title= t("account.register")
   %fieldset
     %legend= t("account.my_info")
   = bootstrap_form_for @user do |f|
-    = f.text_field :name, label: t("account.name")
-    = f.text_field :email, label: t("account.email")
-    = f.text_field :phone, label: t("account.phone")
-    = f.text_field :zip_code, label: t("account.zip_code")
-    = f.text_field :city, label: t("account.city")
-    = f.text_field :state, label: t("account.state")
-    = f.text_field :country, label: t("account.country")
-    = f.text_field :shipping_address, label: t("account.address")
-    %legend= t("account.login_info")
-    = f.password_field :password, label: t("account.password")
-    = f.password_field :password_confirmation, label: t("account.password_confirm")
-
-    %p{:style => "text-align:right;border-top:1px solid #bbb; margin-top: 10px; padding-top:5px;"}
-      %span.error= t("account.required")
-      %br
-        = f.submit "Submit", style: "border:1px solid #E39633; background: #E39633; color:#fff; padding:3px;"
-        = link_to t("back"), login_path, :style => "float:left"
+    .form-set
+      = f.text_field :name, label: t("account.name"), :class => "form-control reg-field"
+      = f.text_field :email, label: t("account.email"), :class => "form-control reg-field"
+      = f.text_field :phone, label: t("account.phone"), :class => "form-control reg-field"
+      = f.text_field :zip_code, label: t("account.zip_code"), :class => "form-control reg-field"
+      = f.text_field :city, label: t("account.city"), :class => "form-control reg-field"
+      = f.text_field :state, label: t("account.state"), :class => "form-control reg-field"
+      = f.text_field :country, label: t("account.country"), :class => "form-control reg-field"
+      = f.text_field :shipping_address, label: t("account.address"), :class => "form-control reg-field"
+    %fieldset
+      %legend= t("account.login_info")
+    = f.password_field :password, label: t("account.password"), :class => "form-control reg-field"
+    = f.password_field :password_confirmation, label: t("account.password_confirm"), :class => "form-control reg-field"
+    .confirmed.clearfix
+      = link_to t("back"), login_path, class: "btn btn-sm btn-warning pull-left"
+      = f.submit "Submit", class: "btn btn-md btn-warning pull-right"
+      .notice.pull-right= t("account.required")
