@@ -2,14 +2,17 @@ class ProductsController < ApplicationController
   before_action :get_cart_items
 
   def index
+    page_size = 9
+    page_size = 100 if params[:all]
+
     @base_category = ProductCategory.find_by(name_en: params[:category])
     select_ids = @base_category.child_category_ids << [@base_category.id]
 
     @sub_category = ProductCategory.find_by(name_en: params[:sub]) if params[:sub]
     if params[:sub]
-      @products = Product.includes(:thumb).joins(:product_infos).where("product_infos.country_id = #{@country_id} and product_category_id = #{@sub_category.id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => 9)
+      @products = Product.includes(:thumb).joins(:product_infos).where("product_infos.country_id = #{@country_id} and product_category_id = #{@sub_category.id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
     else
-      @products = Product.includes(:thumb).joins(:product_infos).where("product_category_id in (#{select_ids.join(",")}) and product_infos.country_id = #{@country_id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => 9)
+      @products = Product.includes(:thumb).joins(:product_infos).where("product_category_id in (#{select_ids.join(",")}) and product_infos.country_id = #{@country_id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
     end
   end
 

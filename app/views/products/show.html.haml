@@ -24,19 +24,22 @@
       %h2= @product.name
       = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
         %ul
-          %li 
-            #{t('product.weight')} 
-            #{@product.weight}
-          %li
-            #{t('product.dimension')}
-            #{@product.capacity}
+          - if @product.weight.present?
+            %li
+              #{t('product.weight')} 
+              #{@product.weight}
+          - if @product.capacity.present?
+            %li
+              #{t('product.dimension')}
+              #{@product.capacity}
           - if @product_size_selector.present?
             %li
               #{t('product.size')}
               = f.select :product_size_id, @product_size_selector
-          %li
-            #{t('product.material')}
-            #{@product.material}
+          - if @product.material.present?
+            %li
+              #{t('product.material')}
+              #{@product.material}
           - if @product_color_selector.present?
             %li
               #{t('product.color')}

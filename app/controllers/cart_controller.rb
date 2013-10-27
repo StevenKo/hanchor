@@ -1,9 +1,13 @@
 # encoding: utf-8
 class CartController < ApplicationController
-  before_action :require_user, only: [:index, :checkout]
+  before_action :require_user, only: [:checkout]
   before_action :get_cart_items, only: [:index,:checkout]
 
   def index
+    unless logged_in?
+      flash[:error] = "Must logged_in"
+      redirect_to login_path(cart: "index")
+    end
   end
 
   def add_item_to_cart
@@ -17,16 +21,11 @@ class CartController < ApplicationController
     if current_shopping_cart
       item.cart = current_shopping_cart
     else
-      cart = Cart.create_new_cart session[:user_id]
+      cart = Cart.create(user_id: session[:user_id])
       session[:cart_id] = cart.id
       item.cart = cart
     end
-
-    if item.save
-      flash[:notice] = "恭喜你，成功加入購物車了！"
-    else
-      flash[:error] = "對不起，無法加入購物車"
-    end
+    item.save
 
     redirect_to products_show_path(product.product_category.name_en, product)
   end
@@ -58,5 +57,9 @@ class CartController < ApplicationController
       flash[:error] = "There is nothing in shopping cart!"
       redirect_to root_path
     end
+  end
+
+  def check_out_shipping
+    @shipping = ShippingCost.find(params[:shipping_cost_id])
   end
 end

@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :shipping_cost
   has_many :order_items
+  validates_presence_of :shipping_cost_id
 
   def dose_not_have_product_in_stock
     order_items.each do |item|

@@ -16,8 +16,8 @@ zh-TW:
   news_articles: "部落格文章"
   required: "*必填項目 "
   aboutus_message: |
-    <h3>
-    Light Weight, Functional, Urban Outdoor Style</h3>
+    <h3><strong>
+    Light Weight, Functional, Urban Outdoor Style</strong></h3>
     <p>
       The HANCHOR brand was created in Taipei, Taiwan in 2012. We have been designing and hand making bags for outdoor adventures since 2010, and our logo symbolizes a chalked hand with a solid grip on a hold. HANCHOR = Hand+Anchor, both of which keep us on the wall when we climb, and our mission is to design innovative, simple, and high-quality bags to hold your stuff for all your adventures.
     </p>
@@ -27,6 +27,8 @@ zh-TW:
   back: "<<回上頁"
   confirm: "確定"
   cancel: "取消"
+  my_account: "我的帳號"
+  logout: "登出" 
 
 
   news:
@@ -34,19 +36,19 @@ zh-TW:
     more_article: "更多文章"
 
   account:
-    name: "姓名(Full Name)*"
-    email: "電子郵件*"
-    phone: "電話(Phone)*"
-    zip_code: "郵遞區號(Zip Code)*"
-    city: "城市(City)*"
-    state: "州(State)若無則填城市*"
-    country:  "國家(Country)*"
-    address:  "寄送地址(Shipping Address)"
-    password: "密碼*"
-    password_confirm: "密碼確認*"
-    my_account: "我的帳號(My account)"
-    info: "我的資料(Personal Information)"
-    order: "我的訂單(My Orders)"
+    name: "姓名"
+    email: "電子郵件"
+    phone: "電話"
+    zip_code: "郵遞區號"
+    city: "城市"
+    state: "州(若無則填城市)"
+    country:  "國家"
+    address:  "寄送地址"
+    password: "密碼"
+    password_confirm: "密碼確認"
+    my_account: "我的帳號"
+    info: "我的資料"
+    order: "我的訂單"
     change_password: "修改密碼"
     message: |
       此處可修改個人資料及追蹤訂單狀態，若使用ATM繳款方式訂購請於匯款後請點選該筆訂單中的
@@ -137,6 +139,9 @@ zh-TW:
     confirm_message: "已詳細閱讀購買說明，並確認訂單內容及資料填寫無誤?"
     read_shopping_gudide_message: "購買前請詳細閱讀 %{href} "
     shopping_guide: "購買說明"
+    shipping_cost: "運費"
+    items: "商品總數"
+    subtotal: "小計"
 
   order:
     history: "訂單紀錄"
@@ -178,7 +183,208 @@ zh-TW:
     send: "寄送密碼信"
     send_message: "我們已寄出重設密碼的電子郵件，謝謝"
 
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    -
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大約一小時
+        other: 大約 %{count} 小時
+      about_x_months:
+        one: 大約一個月
+        other: 大約 %{count} 個月
+      about_x_years:
+        one: 大約一年
+        other: 大約 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分鐘
+      less_than_x_minutes:
+        one: 不到一分鐘
+        other: 不到 %{count} 分鐘
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: ! '%{count} 年多'
+      x_days:
+        one: 一天
+        other: ! '%{count} 天'
+      x_minutes:
+        one: 一分鐘
+        other: ! '%{count} 分鐘'
+      x_months:
+        one: 一個月
+        other: ! '%{count} 個月'
+      x_seconds:
+        one: 一秒
+        other: ! '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: 必須是可被接受的
+      blank: 不能是空白
+      confirmation: 不符合確認值
+      empty: 不能留空
+      equal_to: 必須等於 %{count}
+      even: 必須是偶數
+      exclusion: 是被保留的關鍵字
+      greater_than: 必須大於 %{count}
+      greater_than_or_equal_to: 必須大於或等於 %{count}
+      inclusion: 沒有包含在列表中
+      invalid: 是無效的
+      less_than: 必須小於 %{count}
+      less_than_or_equal_to: 必須小於或等於 %{count}
+      not_a_number: 不是數字
+      not_an_integer: 必須是整數
+      odd: 必須是奇數
+      record_invalid: ! '校驗失敗: %{errors}'
+      restrict_dependent_destroy: 因還有需要此記錄的其他記錄, 所以無法移除記錄
+      taken: 已經被使用
+      too_long: 過長（最長是 %{count} 個字）
+      too_short: 過短（最短是 %{count} 個字）
+      wrong_length: 字數錯誤（必須是 %{count} 個字）
+    template:
+      body: 以下欄位發生問題：
+      header:
+        one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
+        other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
+  helpers:
+    select:
+      prompt: 請選擇
+    submit:
+      create: 新增%{model}
+      submit: 儲存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: NT$
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十億
+          million: 百萬
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte: 位元組
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      long: ! '%Y年%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
 
+  will_paginate:
+    previous_label: "上一頁"
+    next_label: "下一頁"
+    page_gap: "&hellip;"
 
 
 

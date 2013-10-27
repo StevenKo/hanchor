@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome, logged in"
-      redirect_to root_path
+      update_current_shopping_cart_user(user.id)
+      (params[:redirect_to_cart].present?)? redirect_to(cart_index_path) : redirect_to(root_path)
     else
-      flash[:error] = "something wrong"
-      redirect_to login_path
+      flash[:error] = "Something wrong, login fail!"
+      redirect_to :back
     end
   end
   

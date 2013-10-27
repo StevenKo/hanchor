@@ -1,0 +1,14 @@
+$ ->
+  $("#order_shipping_cost_id").change ->
+    shipping_cost_id = $("#order_shipping_cost_id :selected").val()
+    sub_total = $("#order_sub_total").val()
+    item_num = $("#order_item_num").val()
+    locale = $("#locale").val()
+    $.ajax
+      url: "/cart/check_out_shipping"
+      type: "get"
+      data:
+        shipping_cost_id: shipping_cost_id
+        sub_total: sub_total
+        item_num: item_num
+        locale: locale

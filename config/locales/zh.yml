@@ -16,8 +16,8 @@ zh:
   news_articles: "部落格文章"
   required: "*必填項目 "
   aboutus_message: |
-    <h3>
-    Light Weight, Functional, Urban Outdoor Style</h3>
+    <h3><strong>
+    Light Weight, Functional, Urban Outdoor Style</strong></h3>
     <p>
       The HANCHOR brand was created in Taipei, Taiwan in 2012. We have been designing and hand making bags for outdoor adventures since 2010, and our logo symbolizes a chalked hand with a solid grip on a hold. HANCHOR = Hand+Anchor, both of which keep us on the wall when we climb, and our mission is to design innovative, simple, and high-quality bags to hold your stuff for all your adventures.
     </p>
@@ -27,6 +27,8 @@ zh:
   back: "<<回上頁"
   confirm: "確定"
   cancel: "取消"
+  my_account: "我的帳號"
+  logout: "登出" 
 
 
   news:
@@ -34,19 +36,19 @@ zh:
     more_article: "更多文章"
 
   account:
-    name: "姓名(Full Name)*"
-    email: "電子郵件*"
-    phone: "電話(Phone)*"
-    zip_code: "郵遞區號(Zip Code)*"
-    city: "城市(City)*"
-    state: "州(State)若無則填城市*"
-    country:  "國家(Country)*"
-    address:  "寄送地址(Shipping Address)"
-    password: "密碼*"
-    password_confirm: "密碼確認*"
-    my_account: "我的帳號(My account)"
-    info: "我的資料(Personal Information)"
-    order: "我的訂單(My Orders)"
+    name: "姓名"
+    email: "電子郵件"
+    phone: "電話"
+    zip_code: "郵遞區號"
+    city: "城市"
+    state: "州(若無則填城市)"
+    country:  "國家"
+    address:  "寄送地址"
+    password: "密碼"
+    password_confirm: "密碼確認"
+    my_account: "我的帳號"
+    info: "我的資料"
+    order: "我的訂單"
     change_password: "修改密碼"
     message: |
       此處可修改個人資料及追蹤訂單狀態，若使用ATM繳款方式訂購請於匯款後請點選該筆訂單中的
@@ -137,6 +139,9 @@ zh:
     confirm_message: "已詳細閱讀購買說明，並確認訂單內容及資料填寫無誤?"
     read_shopping_gudide_message: "購買前請詳細閱讀 %{href} "
     shopping_guide: "購買說明"
+    shipping_cost: "運費"
+    items: "商品總數"
+    subtotal: "小計"
 
   order:
     history: "訂單紀錄"
@@ -180,6 +185,9 @@ zh:
 
 
 
-
+  will_paginate:
+    previous_label: "上一頁"
+    next_label: "下一頁"
+    page_gap: "&hellip;"
 
 

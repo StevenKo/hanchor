@@ -11,9 +11,9 @@
         = f.text_field :city, :class => "form-control", label: t('cart.city'), value: @current_user.city
         = f.text_field :state, :class => "form-control", label: t('cart.state'), value: @current_user.state
         = f.text_field :country, :class => "form-control", label: t('cart.country'), value: @current_user.country
-        = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping')
+        = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping'), prompt: "Select One"
         - if @country_id == 1
-          #store
+          #store{:style => "display: none;"}
             .check-store
               %label= t('cart.store')
               = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn btn-sm btn-warning", target: "_blank"
@@ -84,6 +84,10 @@
                 %td{:colspan => "6", :class => "total"}= t('cart.sum')
                 %td.total-price
                   NT$
-                  = sum_cart_items_price @cart_items
+                  %span#sum
+                    = sum_cart_items_price @cart_items
+        = f.hidden_field :sub_total, value: sum_cart_items_price(@cart_items)
+        = f.hidden_field :item_num, value: @cart_items.size
+        = hidden_field_tag :locale, params[:locale]
         .func-btn.clearfix
-          = f.submit t('cart.confirm'), class: "btn btn-md btn-success pull-right", :confirm => t('cart.confirm_message')
+          = f.submit t('cart.confirm'), class: "btn btn-md btn-success pull-right", data: { confirm: t('cart.confirm_message') } 

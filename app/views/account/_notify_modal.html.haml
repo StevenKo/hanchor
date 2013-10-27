@@ -20,4 +20,4 @@
           = hidden_field_tag :order_id, ""
           %br
           = submit_tag t('confirm'), class: "btn btn-md btn-warning"
-          = link_to t('cancel'),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn btn-md btn-default"
+          = link_to t('cancel'),"", data: { dismiss: "modal"}, class: "btn btn-md btn-default"

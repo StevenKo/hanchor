@@ -16,6 +16,7 @@
       %legend= t("account.login_info")
     = f.password_field :password, label: t("account.password"), :class => "form-control reg-field"
     = f.password_field :password_confirmation, label: t("account.password_confirm"), :class => "form-control reg-field"
+    = hidden_field_tag "redirect_to_cart", true if params[:cart]
     .confirmed.clearfix
       = link_to t("back"), login_path, class: "btn btn-sm btn-warning pull-left"
       = f.submit "Submit", class: "btn btn-md btn-warning pull-right"
