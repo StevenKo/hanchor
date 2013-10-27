@@ -183,6 +183,9 @@ zh:
 
 
 
-
+  will_paginate:
+    previous_label: "上一頁"
+    next_label: "下一頁"
+    page_gap: "&hellip;"
 
 

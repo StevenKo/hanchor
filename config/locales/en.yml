@@ -159,6 +159,8 @@ en:
     send: "Send Email"
     send_message: "We have send an email with instruction to reset your password. Thanks!"
 
-
-
+  will_paginate:
+    previous_label: "Previous"
+    next_label: "Next"
+    page_gap: "&hellip;"
 
