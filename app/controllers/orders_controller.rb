@@ -23,8 +23,9 @@ class OrdersController < ApplicationController
         @order.deduct_quanitity
         if(@order.payment == "PayPal")
           return_url = result_orders_url(order: @order)
-          redirect_to current_shopping_cart.paypal_url(return_url,params[:locale],payment_notifications_url,@order.id)
+          redirect_to current_shopping_cart.paypal_url(return_url,params[:locale],payment_notifications_url,@order.id,ShippingCost.find(params[:order][:shipping_cost_id]))
         else
+          @order.update_attribute("is_show",true)
           redirect_to result_orders_url(order: @order)
         end
       else

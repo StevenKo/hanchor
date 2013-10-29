@@ -2,7 +2,7 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :cart_items
 
-  def paypal_url(return_url,locale,notify_url,order_id)
+  def paypal_url(return_url,locale,notify_url,order_id,shipping_cost)
     values = {
       :business => 'chunyuko85-facilitator@gmail.com',
       :cmd => '_cart',
@@ -17,10 +17,14 @@ class Cart < ActiveRecord::Base
       values.merge!({
         "amount_#{index+1}" => locale_price(item.price,locale),
         "item_name_#{index+1}" => item.product.product_infos.first.name,
-        "item_number_#{index+1}" => item.id,
         "quantity_#{index+1}" => item.quantity
       })
     end
+    values.merge!({
+      "amount_#{cart_items.size+1}" => locale_price(shipping_cost.cost,locale),
+      "item_name_#{cart_items.size+1}" => shipping_cost.description,
+      "quantity_#{cart_items.size+1}" => 1
+    })
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
   end
 

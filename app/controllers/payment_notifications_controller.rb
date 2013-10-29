@@ -4,7 +4,10 @@ class PaymentNotificationsController < ApplicationController
   def create
     Rails.logger.info("PARAMS: #{params.inspect}")
     if (params[:payment_status] == "Completed")
-      Order.find(params[:invoice]).update_attribute(:status,"pay_confirm")
+      order = Order.find(params[:invoice])
+      order.status = "pay_confirm"
+      order.is_show = true
+      order.save
     elsif(params[:payment_status] == "Canceled_Reversal" || params[:payment_status] == "Denied")
       Order.destroy(params[:invoice])
     end
