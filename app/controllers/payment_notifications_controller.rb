@@ -7,6 +7,7 @@ class PaymentNotificationsController < ApplicationController
       order = Order.find(params[:invoice])
       order.status = "pay_confirm"
       order.is_show = true
+      order.is_payed = true
       order.save
     elsif(params[:payment_status] == "Canceled_Reversal" || params[:payment_status] == "Denied")
       Order.destroy(params[:invoice])
