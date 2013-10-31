@@ -4,14 +4,15 @@ class Cart < ActiveRecord::Base
 
   def paypal_url(return_url,locale,notify_url,order_id,shipping_cost)
     values = {
-      :business => 'chunyuko85-facilitator@gmail.com',
+      :business => 'JQP4PTRJQ8KHY',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
       :invoice => order_id,
       :lc => locale,
       :currency_code => currency_code(locale),
-      :notify_url => notify_url
+      :notify_url => notify_url,
+      :charset => 'utf-8'
     }
     cart_items.each_with_index do |item, index|
       values.merge!({
@@ -25,7 +26,7 @@ class Cart < ActiveRecord::Base
       "item_name_#{cart_items.size+1}" => shipping_cost.description,
       "quantity_#{cart_items.size+1}" => 1
     })
-    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+    "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
   end
 
   def currency_code(locale)
