@@ -9,6 +9,8 @@ Hanchor::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  resources :payment_notifications, only: [:create]
+
   resources :users, only: [:create,:update]
 
   resources :news do

@@ -4,24 +4,24 @@
       %fieldset
         %legend= t('cart.info')
       = bootstrap_form_for @order, url: orders_path, role: "form" do |f|
-        = f.text_field :shipping_name, :class => "form-control", label: t('cart.user_name'), value: @current_user.name
-        = f.text_field :phone, :class => "form-control", label: t('cart.phone'), value: @current_user.phone
-        = f.text_field :shipping_address, :class => "form-control", label: t('cart.address'), value: @current_user.shipping_address
-        = f.text_field :zip_code, :class => "form-control", label: t('cart.zip_code'), value: @current_user.zip_code
-        = f.text_field :city, :class => "form-control", label: t('cart.city'), value: @current_user.city
-        = f.text_field :state, :class => "form-control", label: t('cart.state'), value: @current_user.state
-        = f.text_field :country, :class => "form-control", label: t('cart.country'), value: @current_user.country
-        = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping'), prompt: "Select One"
+        = f.text_field :shipping_name, :class => "form-control", label: t('cart.user_name').html_safe, value: @current_user.name
+        = f.text_field :phone, :class => "form-control", label: t('cart.phone').html_safe, value: @current_user.phone
+        = f.text_field :shipping_address, :class => "form-control", label: t('cart.address').html_safe, value: @current_user.shipping_address
+        = f.text_field :zip_code, :class => "form-control", label: t('cart.zip_code').html_safe, value: @current_user.zip_code
+        = f.text_field :city, :class => "form-control", label: t('cart.city').html_safe, value: @current_user.city
+        = f.text_field :state, :class => "form-control", label: t('cart.state').html_safe, value: @current_user.state
+        = f.text_field :country, :class => "form-control", label: t('cart.country').html_safe, value: @current_user.country
+        = f.select  :shipping_cost_id, @shippings_selector, label: t('cart.shipping').html_safe, prompt: "Select One"
         - if @country_id == 1
           #store{:style => "display: none;"}
             .check-store
               %label= t('cart.store')
               = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn btn-sm btn-warning", target: "_blank"
             = f.fields_for :store do |child_form|
-              = child_form.text_field :code, label: t('cart.num'), :class => "form-control"
-              = child_form.text_field :stroe_name, label: t('cart.store_name'), :class => "form-control"
+              = child_form.text_field :code, label: t('cart.num').html_safe, :class => "form-control"
+              = child_form.text_field :stroe_name, label: t('cart.store_name').html_safe, :class => "form-control"
         %fieldset
-          %legend= t('cart.payment_info')
+          %legend= t('cart.payment_info').html_safe
         #payment
           .tw_payment.clearfix
             %span

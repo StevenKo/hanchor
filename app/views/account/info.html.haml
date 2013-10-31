@@ -7,18 +7,18 @@
       %legend= t('account.my_account')
     = bootstrap_form_for current_user do |f|
       .form-set
-        = f.text_field :name, label: t("account.name"), :class => "form-control"
-        = f.text_field :email, label: t("account.email"), :class => "form-control"
-        = f.text_field :phone, label: t("account.phone"), :class => "form-control"
-        = f.text_field :zip_code, label: t("account.zip_code"), :class => "form-control"
-        = f.text_field :city, label: t("account.city"), :class => "form-control"
-        = f.text_field :state, label: t("account.state"), :class => "form-control"
-        = f.text_field :country, label: t("account.country"), :class => "form-control"
-        = f.text_field :shipping_address, label: t("account.address"), :class => "form-control"
+        = f.text_field :name, label: t("account.name").html_safe, :class => "form-control"
+        = f.text_field :email, label: t("account.email").html_safe, :class => "form-control"
+        = f.text_field :phone, label: t("account.phone").html_safe, :class => "form-control"
+        = f.text_field :zip_code, label: t("account.zip_code").html_safe, :class => "form-control"
+        = f.text_field :city, label: t("account.city").html_safe, :class => "form-control"
+        = f.text_field :state, label: t("account.state").html_safe, :class => "form-control"
+        = f.text_field :country, label: t("account.country").html_safe, :class => "form-control"
+        = f.text_field :shipping_address, label: t("account.address").html_safe, :class => "form-control"
       %fieldset
         %legend= t('account.change_password')
-      = f.password_field :password, label: t("account.password"), :class => "form-control"
-      = f.password_field :password_confirmation, label: t("account.password_confirm"), :class => "form-control"
+      = f.password_field :password, label: t("account.password").html_safe, :class => "form-control"
+      = f.password_field :password_confirmation, label: t("account.password_confirm").html_safe, :class => "form-control"
       .confirmed.clearfix
         = link_to t('back'), account_path, class: "btn btn-sm btn-warning pull-left"
         = f.submit "Submit", class: "btn btn-md btn-warning pull-right"

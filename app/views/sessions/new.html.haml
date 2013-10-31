@@ -14,10 +14,10 @@
       %legend= t('account.club_login')
     = form_tag '/login' do
       .field.clearfix
-        = label_tag t('account.email'), nil, class: 'pull-left login-item'
+        = label_tag :user_name, t('account.email').html_safe, class: 'pull-left login-item'
         = text_field_tag :username, nil, class: 'form-control pull-left login-field'
       .field.clearfix
-        = label_tag t('account.password'), nil, class: 'pull-left login-item'
+        = label_tag :password, t('account.password').html_safe, class: 'pull-left login-item'
         = password_field_tag :password, nil, class: 'form-control pull-left login-field'
       = hidden_field_tag "redirect_to_cart", true if params[:cart]
       .submit

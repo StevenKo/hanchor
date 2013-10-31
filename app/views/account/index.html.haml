@@ -44,7 +44,7 @@
             %th= t('order.price')
             %th{:align => "center", :width => "70"}= t('order.confirm')
         %tbody
-          - current_user.orders.each do |order|
+          - current_user.orders.showed.each do |order|
             %tr.hover
               %td= format_order_id(order)
               %td= display_date(order.created_at)
