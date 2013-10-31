@@ -4,18 +4,18 @@
     %legend= t("account.my_info")
   = bootstrap_form_for @user do |f|
     .form-set
-      = f.text_field :name, label: t("account.name"), :class => "form-control reg-field"
-      = f.text_field :email, label: t("account.email"), :class => "form-control reg-field"
-      = f.text_field :phone, label: t("account.phone"), :class => "form-control reg-field"
-      = f.text_field :zip_code, label: t("account.zip_code"), :class => "form-control reg-field"
-      = f.text_field :city, label: t("account.city"), :class => "form-control reg-field"
-      = f.text_field :state, label: t("account.state"), :class => "form-control reg-field"
-      = f.text_field :country, label: t("account.country"), :class => "form-control reg-field"
-      = f.text_field :shipping_address, label: t("account.address"), :class => "form-control reg-field"
+      = f.text_field :name, label: t("account.name").html_safe, :class => "form-control reg-field"
+      = f.text_field :email, label: t("account.email").html_safe, :class => "form-control reg-field"
+      = f.text_field :phone, label: t("account.phone").html_safe, :class => "form-control reg-field"
+      = f.text_field :zip_code, label: t("account.zip_code").html_safe, :class => "form-control reg-field"
+      = f.text_field :city, label: t("account.city").html_safe, :class => "form-control reg-field"
+      = f.text_field :state, label: t("account.state").html_safe, :class => "form-control reg-field"
+      = f.text_field :country, label: t("account.country").html_safe, :class => "form-control reg-field"
+      = f.text_field :shipping_address, label: t("account.address").html_safe, :class => "form-control reg-field"
     %fieldset
       %legend= t("account.login_info")
-    = f.password_field :password, label: t("account.password"), :class => "form-control reg-field"
-    = f.password_field :password_confirmation, label: t("account.password_confirm"), :class => "form-control reg-field"
+    = f.password_field :password, label: t("account.password").html_safe, :class => "form-control reg-field"
+    = f.password_field :password_confirmation, label: t("account.password_confirm").html_safe, :class => "form-control reg-field"
     = hidden_field_tag "redirect_to_cart", true if params[:cart]
     .confirmed.clearfix
       = link_to t("back"), login_path, class: "btn btn-sm btn-warning pull-left"
