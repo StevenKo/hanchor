@@ -58,7 +58,7 @@ span.button a {
     border:1px solid #bbb;
 }
 .cart ul li a.remove{
-    background: url(asset_path('fancy_close.png'));
+    background: image-url('fancy_close.png');
     position: absolute;
     width:30px;
     height:30px;
