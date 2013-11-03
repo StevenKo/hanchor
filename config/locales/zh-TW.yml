@@ -77,6 +77,16 @@ zh-TW:
     add_club: "加入會員"
     club_login: "會員登入"
     forget_password: "忘記密碼"
+    order_detail:
+      shipping_name: "收件人"
+      phone: "聯絡電話"
+      country: "國家"
+      store: "收件門市"
+      zip_code: "郵遞區號"
+      city: "城市"
+      order_item_name: "商品名稱"
+      order_item_quantity: "數量"
+      order_item_price: "價格"
 
   product:
     home: "首頁"
@@ -142,6 +152,7 @@ zh-TW:
     shipping_cost: "運費"
     items: "商品總數"
     subtotal: "小計"
+    pay_when_shipped: "貨到付款"
 
   order:
     history: "訂單紀錄"

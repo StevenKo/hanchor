@@ -30,13 +30,18 @@
               = f.label t('cart.credit_card')
               %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
               -if @country_id == 1
-                = f.radio_button :payment, t('cart.transfer')
+                = f.radio_button :payment, "transfer"
                 = f.label t('cart.transfer_bank')
                 %label
                   %strong> ，銀行
                   或
                   %strong> ATM匯款
                   (請於匯款後點選通知匯款以利盡快出貨)
+          .pay_when_shipped{:style => "display: none;"}
+            %span
+            %br
+              = f.radio_button :payment, "pay_when_shipped"
+              = f.label t('cart.pay_when_shipped')
 
         %fieldset
           %legend= t('cart.comment')

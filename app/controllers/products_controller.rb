@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
 
     @sub_category = ProductCategory.find_by(name_en: params[:sub]) if params[:sub]
     if params[:sub]
-      @products = Product.includes(:thumb).joins(:product_infos).where("product_infos.country_id = #{@country_id} and product_category_id = #{@sub_category.id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
+      @products = Product.includes(:thumb).joins(:product_infos).where("product_infos.country_id = #{@country_id} and product_category_id = #{@sub_category.id}").visible.order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
     else
-      @products = Product.includes(:thumb).joins(:product_infos).where("product_category_id in (#{select_ids.join(",")}) and product_infos.country_id = #{@country_id}").order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
+      @products = Product.includes(:thumb).joins(:product_infos).where("product_category_id in (#{select_ids.join(",")}) and product_infos.country_id = #{@country_id}").visible.order_by_views_and_sort.select_info.paginate(:page => params[:page], :per_page => page_size)
     end
   end
 

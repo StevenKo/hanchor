@@ -11,7 +11,11 @@ class Admin::AdminController < ApplicationController
   end
 
   def require_admin
-    access_denied unless current_user && current_user.admin?
+    access_denied unless current_admin && current_admin.admin?
+  end
+
+  def current_admin
+    @current_admin ||= User.find(session[:admin_id]) if session[:admin_id]
   end
 
 end

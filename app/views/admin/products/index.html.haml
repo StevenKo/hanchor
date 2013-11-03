@@ -26,7 +26,7 @@
       %td= product.special_price
       %td= product.sort
       %td= product.views
-      %td= (product.is_visible)? "顯示" : "不顯示"
+      %td= (product.is_visible?)? "顯示" : "不顯示"
 
       %td= link_to 'Edit', edit_admin_product_path(product)
       %td= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
