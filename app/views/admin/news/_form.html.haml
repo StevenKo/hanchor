@@ -14,6 +14,10 @@
         .offset2
           = f.check_box :is_tw, :inline => true, label: "TW?"
           = f.check_box :is_en, :inline => true, label: "EN?"
+        - tags.each do |tag|
+          = tag.id
+          = "#{tag.name}(#{tag.name_en})"
+        = text_field_tag :news_tag, news.tags.map(&:id).join(",")
         %br
         .offset2
           = f.secondary "確定"

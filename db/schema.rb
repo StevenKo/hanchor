@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028093439) do
+ActiveRecord::Schema.define(version: 20131103090138) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20131028093439) do
     t.boolean  "is_en"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "news_tags", force: true do |t|
+    t.string "name"
+    t.string "name_en"
+  end
+
+  create_table "news_tags_relations", force: true do |t|
+    t.integer "news_id"
+    t.integer "news_tag_id"
   end
 
   create_table "order_items", force: true do |t|

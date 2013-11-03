@@ -6,15 +6,18 @@ class Admin::NewsController < Admin::AdminController
 
   def edit
     @news = News.find(params[:id])
+    @tags = NewsTag.all
   end
 
   def new
     @news = News.new
+    @tags = NewsTag.all
   end
 
   def create
     @news = News.new(news_param)
     if @news.save
+      create_news_tags(@news, params)
       flash[:notice] = "Create success"      
     else
       flash[:error] = "Create fail!"
@@ -25,6 +28,7 @@ class Admin::NewsController < Admin::AdminController
   def update
     @news = News.find(params[:id])
     if @news.update(news_param)
+      create_news_tags(@news, params)
       flash[:notice] = "Update success"
     else
       flash[:error] = "Update fail!"
@@ -41,6 +45,13 @@ class Admin::NewsController < Admin::AdminController
 private
   def news_param
     params.require(:news).permit(:title,:content,:pic,:sort,:sort_en,:is_tw,:is_en)
+  end
+
+  def create_news_tags(news, params)
+    NewsTagsRelation.delete_all(news_id: news.id)
+    params[:news_tag].split(",").each do |tag_id|
+      NewsTagsRelation.create(news_id: news.id, news_tag_id: tag_id)
+    end
   end
 
 end

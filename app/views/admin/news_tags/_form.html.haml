@@ -1,0 +1,11 @@
+%section.register.container
+  .row
+    .span10
+      = bootstrap_form_for tag, url: url,:html => {:class => "form-horizontal", multipart: true} do |f|
+        .offset2
+        = f.text_field :name, :class => "span7", label: "中文"
+        = f.text_field :name_en, :class => "span7", label: "英文"
+        = f.secondary "確定"
+        = link_to "返回", admin_news_tags_path, class: "btn"
+        - unless tag.new_record?
+          = link_to "刪除", admin_news_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
