@@ -2,6 +2,7 @@
   background-color: #FFF;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  padding-top: 18px;
 }
 #main {
   fieldset{
@@ -62,15 +63,6 @@
   .name {
     padding: 2px;
     font-weight: bold;
-  }
-  .kill_price {
-    color: #666;
-    text-decoration: line-through;
-  }
-  .special_price {
-    color: #cd0a0a;
-    font-weight: bold;
-    font-size: 1.3em;
   }
   a.add {
     padding: 3px;
@@ -148,7 +140,10 @@
   padding: 0 10px;
 }
 
-
+.red-star {
+  color: red;
+  margin-left: 2px;
+}
 
 /**
 * footer

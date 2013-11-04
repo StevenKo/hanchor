@@ -6,12 +6,12 @@
   .product_cate {
     margin-bottom: 10px;
     .btn-category {
-      background-color: #999;
-      color: #FFF;
+      background-color: #dcdcdc;
+      color: #333;
       margin-bottom: 3px;
       &:hover {
-        olor: #FFF;
-        background-color: #777;
+        color: #FFF;
+        background-color: #666;
       }
     }
   }
@@ -32,6 +32,7 @@
       }
     }
     .shopping-items {
+      position: relative;
       background-color: #ececec;
       @include border-radius(4px);
       margin: 2px 0px;
@@ -49,6 +50,7 @@
       .item-name {
         width: 162px;
         height: 44px;
+        padding-right: 10px;
         overflow: hidden;
       }
       .amount {
@@ -56,9 +58,24 @@
         width: 214px;
         text-align: right;
       }
+      .remove-item {
+        position: absolute;
+        display: block;
+        background-color: #333;
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 5px;
+        @include border-radius(5px);
+        text-decoration: none;
+        top: 5px;
+        right: 3px;
+      }
     }
     .shopping-count {
-      text-align: right;
+      text-align: left;
+      @include border-radius(4px);
+      background-color: #EAE4D5;
+      padding: 5px 10px;
       .count {
         margin-bottom: 10px;
         span {
@@ -171,4 +188,15 @@
       margin-top: 24px;
     }
   }
+}
+
+.kill_price {
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 3px;
+}
+.special_price {
+  color: #cd0a0a;
+  font-weight: bold;
+  font-size: 1.3em;
 }
