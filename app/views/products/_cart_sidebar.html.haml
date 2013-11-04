@@ -11,7 +11,7 @@
       .amount.clearfix
         %strong= item.quantity
         x $#{item.price}
-        = link_to "X",remove_cart_item_cart_index_path(item_id: item.id),class: "remove"
+      = link_to "X",remove_cart_item_cart_index_path(item_id: item.id),class: "remove remove-item"
   - if @cart_items.count == 0
     .shopping-count
       = t('shopping_cart_locale.empty')
