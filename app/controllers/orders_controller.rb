@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
   end
 
   def result
-    current_shopping_cart.delete
+    current_shopping_cart.delete if current_shopping_cart
     session[:cart_id] = nil
     @order = Order.find(params[:order])
   end

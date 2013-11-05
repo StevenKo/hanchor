@@ -16,6 +16,7 @@
     %th 排序
     %th 點擊次
     %th 顯示
+    %th 庫存
 
   - @products.each do |product|
     %tr
@@ -27,6 +28,7 @@
       %td= product.sort
       %td= product.views
       %td= (product.is_visible?)? "顯示" : "不顯示"
+      %td= product.product_quantities.map{ |c|  "#{c.product_color.color}/#{c.product_size.size if c.product_size}:#{c.quantity}"}.join("  ")
 
       %td= link_to 'Edit', edit_admin_product_path(product)
       %td= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
