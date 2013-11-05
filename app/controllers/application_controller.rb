@@ -53,11 +53,10 @@ private
   
   def set_locale
     if params[:locale] && ["en", "zh-TW","zh"].include?( params[:locale] )
-      I18n.locale = params[:locale] || I18n.default_locale
-    else
-      I18n.locale = extract_locale_from_accept_language_header
+      session[:locale] = params[:locale]
     end
-    ["zh-TW","zh"].include?( params[:locale] )? @country_id = 1 : @country_id = 2
+    I18n.locale = session[:locale] || extract_locale_from_accept_language_header
+    ["zh-TW","zh"].include?( I18n.locale.to_s )? @country_id = 1 : @country_id = 2
   end
 
   def extract_locale_from_accept_language_header

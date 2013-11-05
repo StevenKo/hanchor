@@ -11,7 +11,7 @@
       = @news.content.html_safe
       .fb-like{"data-href" => "http://localhost/home/news/atom/67/", "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
       .fb-comments{"data-href" => "http://hanchor.com/home/news/atom/81/", "data-width" => "470"}
-  = link_to "<< back to news", news_index_path
+  = link_to "&#171;back to news".html_safe, news_index_path
 
 .span3
   = render "sidebar", news: @recent_news
