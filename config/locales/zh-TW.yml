@@ -181,6 +181,7 @@ zh-TW:
   mail:
     register_success: "恭喜成功加入HANCHOR會員"
     reset_password: "重設密碼"
+    order: "Thanks for ordering with HANCHOR! Your Order #%{order_code}"
 
   reset_password:
     title: "重設密碼"

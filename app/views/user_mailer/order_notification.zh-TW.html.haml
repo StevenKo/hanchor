@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+  %br
+    此為系統信，勿直接回覆。若有任何問題請來信
+    = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+
+    %p
+      嗨
+      %strong #{@user.name},
+      %br
+      感謝購買HANCHOR產品
+      %br
+      您的訂單編號為 #{@order.code}, 若欲查詢訂單明細及狀態請登入網站。
+      %br
+      謝謝！
+      %br
+      HANCHOR Official Store
+      %br
+      %a{:href => "mailto:info@hanchor.com", :style => "color: rgb(17, 85, 204);", :target => "_blank"} info@hanchor.com
+      %br
+      %a{:href => "http://www.hanchor.com/", :style => "color: rgb(17, 85, 204);", :target => "_blank"} www.hanchor.com
+      %br
