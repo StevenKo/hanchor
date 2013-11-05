@@ -21,8 +21,8 @@
           %th{:align => "center", :width => "70"}= t('order.confirm')
       %tbody
         - current_user.orders.showed.each do |order|
-          %tr.hover
-            %td= format_order_id(order)
+          %tr.hover.order
+            %td= order.code
             %td= display_date(order.created_at)
             %td= t("order.#{order.status}")
             %td= order.shipping_cost.description
@@ -32,5 +32,42 @@
               %td= t("order.payed")
             -else
               %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", class: "btn btn-md btn-warning", data: {order_id: order.id}
+
+          %tr{:style => "display: none;"}
+            %td{:colspan => "7"}
+              %table.detail{:align => "center", :cellpadding => "6", :cellspacing => "0", :width => "100%"}
+                %tbody
+                  %tr
+                    %th{:width => "40%"} #{t('account.order_detail.shipping_name')}
+                    %th{:width => "30%"} #{t('account.order_detail.phone')}
+                    %th{:width => "30%"} #{t('account.order_detail.country')}
+                  %tr
+                    %td= order.shipping_name
+                    %td= order.phone
+                    %td= order.country
+                  %tr
+                    %th #{t('account.order_detail.store')}
+                    %th #{t('account.order_detail.zip_code')}
+                    %th #{t('account.order_detail.city')}
+                  %tr
+                    %td= order.shipping_store
+                    %td= order.zip_code
+                    %td= order.city
+                  %tr
+                    %th #{t('account.order_detail.order_item_name')}
+                    %th #{t('account.order_detail.order_item_quantity')}
+                    %th #{t('account.order_detail.order_item_price')}
+                  %tr
+                    -order.order_items.each do |item|
+                      %td= item.product.product_infos.where("product_infos.country_id = #{@country_id}")[0].name
+                      %td= item.quantity
+                      %td= item.price * item.quantity
+                  %tr
+                  %tr
+                    %th{:colspan => "3"} #{t('account.order_detail.notes')}
+                  %tr
+                  %tr
+                    %td{:colspan => "3"} #{order.memo}
+                  %tr
 
 = render "notify_modal"

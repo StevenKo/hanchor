@@ -1,0 +1,16 @@
+%table.table
+  %tr
+    %th 編號
+    %th 標籤名
+    %th 標籤名(英文)
+
+  - @tags.each do |tag|
+    %tr
+      %td= tag.id
+      %td= tag.name
+      %td= tag.name_en
+      %td= link_to 'Edit', edit_admin_news_tag_path(tag)
+      %td= link_to 'Destroy', admin_news_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= link_to "New", new_admin_news_tag_path, class: "btn"

@@ -46,7 +46,7 @@
         %tbody
           - current_user.orders.showed.each do |order|
             %tr.hover
-              %td= format_order_id(order)
+              %td= order.code
               %td= display_date(order.created_at)
               %td= t("order.#{order.status}")
               %td= order.shipping_cost.description

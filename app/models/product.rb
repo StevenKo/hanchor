@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   has_many :product_quantities
   has_many :product_infos
 
+  scope :visible, -> {where("product_infos.is_visible = true")}
+
   scope :select_info, -> { select(" product_infos.name,
                                     product_infos.price,
                                     product_infos.special_price,

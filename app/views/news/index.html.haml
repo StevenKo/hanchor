@@ -17,22 +17,7 @@
           = truncate_html(news_item.content, length: 150)
           .read-more
             .btn.btn-md.btn-warning= link_to "read more", news_path(news_item)
-  / = will_paginate @news
-  %ul.pagination
-    %li
-      %a{href: "#"} &#171;
-    %li
-      %a{href: "#", :class => "active"} 1
-    %li
-      %a{href: "#"} 2
-    %li
-      %a{href: "#"} 3
-    %li
-      %a{href: "#"} 4
-    %li
-      %a{href: "#"} 5
-    %li
-      %a{href: "#"} &#187;
+  = will_paginate(@news, :renderer => 'BootstrapPaginationHelper::LinkRenderer')
 
 .col-md-4
   = render "sidebar", news: @news

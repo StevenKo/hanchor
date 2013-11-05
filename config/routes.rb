@@ -85,6 +85,7 @@ Hanchor::Application.routes.draw do
         collection { post :sort }
       end
     end
+    resources :news_tags, except: [:show]
     resources :categories
     resources :news
     resources :shipping_costs, except: [:show]

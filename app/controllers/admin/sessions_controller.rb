@@ -6,7 +6,7 @@ class Admin::SessionsController < Admin::AdminController
   def create
     user = User.find_by(name: params[:session][:name])
     if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
+      session[:admin_id] = user.id
       require_admin
       flash[:notice] = "Welcome, #{user.name} logged in"
       redirect_to admin_path
@@ -17,7 +17,7 @@ class Admin::SessionsController < Admin::AdminController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:admin_id] = nil
     flash[:notice] = "logged out"
     redirect_to admin_login_path
   end

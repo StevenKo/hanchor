@@ -59,6 +59,17 @@ en:
     add_club: "Register"
     club_login: "Member Login"
     forget_password: "Forgot password"
+    order_detail:
+      shipping_name: "Consignee"
+      phone: "Mobile Number"
+      country: "Country"
+      store: "Store"
+      zip_code: "Zip Code"
+      city: "City"
+      order_item_name: "Product Name"
+      order_item_quantity: "Quantity"
+      order_item_price: "Price"
+      notes: "Memo"
 
   
   product:
@@ -120,6 +131,7 @@ en:
     shipping_cost: "Shipping Cost"
     items: "Total Items"
     subtotal: "Subtotal"
+    pay_when_shipped: "Pay When Delivered"
 
   order:
     history: "History"
