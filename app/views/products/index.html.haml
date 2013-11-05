@@ -34,11 +34,14 @@
                 = product.special_price
           .p-overview
             = truncate_html(strip_tags(product.quick_overview), length: 60)
-  = will_paginate @products
-  - if @sub_category
-    = link_to "View All",products_index_path(@sub_category.name_en,all: true)
-  - else
-    = link_to "View All",products_index_path(@base_category.name_en,all: true)
+  
+  = will_paginate(@products, :renderer => 'BootstrapPaginationHelper::LinkRenderer')
+  %ul.pagination
+    %li
+      - if @sub_category
+        = link_to "View All",products_index_path(@sub_category.name_en,all: true)
+      - else
+        = link_to "View All",products_index_path(@base_category.name_en,all: true)
 
 .col-md-3
   = render "cart_sidebar"

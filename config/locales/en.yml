@@ -69,6 +69,7 @@ en:
       order_item_name: "Product Name"
       order_item_quantity: "Quantity"
       order_item_price: "Price"
+      notes: "Memo"
 
   
   product:
