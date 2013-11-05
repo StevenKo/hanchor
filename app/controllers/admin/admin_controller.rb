@@ -1,6 +1,7 @@
 class Admin::AdminController < ApplicationController
   layout 'admin/admin'
-  before_action :require_admin, only: [:index]
+  helper_method :current_admin
+  before_action :require_admin
 
   def index
   end

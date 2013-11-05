@@ -22,9 +22,9 @@
               = link_to t('sign_in'), login_path
         %ul.nav.navbar-nav.pull-right
           %li
-            = link_to "中文", url_for(:only_path => true, locale: "zh-TW")
+            = link_to "中文", url_for(params.merge(:only_path => true, locale: "zh-TW"))
           %li
-            = link_to "English", url_for(:only_path => true, locale: "en")
+            = link_to "English", url_for(params.merge(:only_path => true, locale: "en"))
   %div
     %ul.nav.navbar-nav.main-nav
       %li.nav-blue

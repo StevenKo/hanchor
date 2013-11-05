@@ -1,6 +1,24 @@
-%ul.nav
+%ul.nav.navbar-nav.main-nav
   %li
-    = link_to image_tag("logo.png"), root_path, :class => 'brand'
+    =link_to "Members", admin_users_path
+  %li
+    =link_to "Orders", admin_orders_path
+  %li
+    =link_to "Products", admin_products_path
+  %li
+    =link_to "Categories", admin_categories_path
+  %li
+    =link_to "Shipping", admin_shipping_costs_path
+  %li
+    =link_to "News", admin_news_index_path
+  %li
+    =link_to "News' Tags", admin_news_tags_path
+  %li
+    =link_to "FAQs", admin_faqs_path
+  %li
+    =link_to "Banner", admin_banners_path
+  %li
+    =link_to "Videos", admin_videos_path
 #user_links.pull-right
-  - if current_user && current_user.admin?
+  - if current_admin && current_admin.admin?
     = link_to 'Logout', admin_logout_path
