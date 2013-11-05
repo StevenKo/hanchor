@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
           return_url = result_orders_url(order: @order)
           redirect_to current_shopping_cart.paypal_url(return_url,params[:locale],payment_notifications_url,@order.id,ShippingCost.find(params[:order][:shipping_cost_id]))
         else
+          UserMailer.order_notification(current_user,@order).deliver
           @order.update_attribute("is_show",true)
           redirect_to result_orders_url(order: @order)
         end

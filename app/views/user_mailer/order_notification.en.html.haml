@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+  %br
+    Please don’t reply this mail directly. If you have any question, please contact us at
+    = link_to "info@hanchor.com", "mailto:info@hanchor.com",:target => "_blank"
+
+    %p
+      Hi
+      %strong #{@user.name},
+      %br
+      Thank you for ordering from HANCHOR, Your order # is #{@order.code}, Please sign in website to view your order and check the order status
+      %br
+      Cheers.
+      %br
+      HANCHOR Official Store
+      %br
+      %a{:href => "mailto:info@hanchor.com", :style => "color: rgb(17, 85, 204);", :target => "_blank"} info@hanchor.com
+      %br
+      %a{:href => "http://www.hanchor.com/", :style => "color: rgb(17, 85, 204);", :target => "_blank"} www.hanchor.com
+      %br

@@ -43,6 +43,7 @@ en:
     country:  "Country<span class='red-star'>*</span>"
     address:  "Shipping Address"
     password: "Password<span class='red-star'>*</span>"
+    password_confirm: "Password Confirm<span class='red-star'>*</span>"
     my_account: "My Account"
     info: "Personal Information"
     order: "My Orders"

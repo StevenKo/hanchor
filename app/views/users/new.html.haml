@@ -20,4 +20,4 @@
     .confirmed.clearfix
       = link_to t("back"), login_path, class: "btn btn-sm btn-warning pull-left"
       = f.submit "Submit", class: "btn btn-md btn-warning pull-right"
-      .notice.pull-right= t("account.required")
+      .notice.pull-right= t("required").html_safe
