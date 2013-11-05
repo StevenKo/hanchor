@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def register_email(user)
     @user = user
-    mail(to: @user.email, subject: t('mail.register_success'))
+    mail(to: @user.email, subject: "Thanks for registering on HANCHOR")
   end
 
   def reset_password_email(user)

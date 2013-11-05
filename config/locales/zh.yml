@@ -103,7 +103,7 @@ zh:
     add_to_cart: "放進購物車"
     feature: "產品說明"
     description: "描述與使用"
-    out_of_stock: "目前已售完"
+    out_of_stock: "Out of Stock"
 
   shopping_cart_locale:
     cart: "購物車"
