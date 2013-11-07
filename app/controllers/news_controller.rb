@@ -10,6 +10,13 @@ class NewsController < ApplicationController
   end
 
   def list
-    @news = News.all.select("id, title, created_at")
+    @recent_news = News.locale(params[:locale]).limit(5)
+    if params[:news_tag_id].present?
+      news_tag = NewsTag.find(params[:news_tag_id])
+      @news = news_tag.news.locale(params[:locale]).select("news.id, title, created_at")
+    else
+      @news = News.locale(params[:locale]).select("id, title, created_at")
+    end
+    @tags_selector = NewsTag.all.map{ |tag| [tag.locale(params[:locale]),tag.id]}
   end
 end
