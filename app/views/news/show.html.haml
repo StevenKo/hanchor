@@ -1,4 +1,4 @@
-.span8
+.col-md-8
   = link_to t('news_events'), news_index_path
   .news_item
     %span.title
@@ -13,5 +13,5 @@
       .fb-comments{"data-href" => "http://hanchor.com/home/news/atom/81/", "data-width" => "470"}
   = link_to "&#171;back to news".html_safe, news_index_path
 
-.span3
+.col-md-4
   = render "sidebar", news: @recent_news
