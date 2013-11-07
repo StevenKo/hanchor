@@ -3,8 +3,8 @@
 		.postdate {
 			padding: 3px 5px;
 			margin-top: 7px;
-			background-color: #eee;
-			@include border-radius(6px);
+			// background-color: #eee;
+			// @include border-radius(6px);
 		}
 	}
 	.news-title {
@@ -31,6 +31,11 @@
 		.active {
 			background-color: #A7440F;
 			color: #FFF;
+		}
+	}
+	.news-head {
+		h4 {
+			font-size: 20px;
 		}
 	}
 }

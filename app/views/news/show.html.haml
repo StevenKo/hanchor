@@ -1,11 +1,12 @@
 .col-md-8
-  = link_to t('news_events'), news_index_path
+  %h2.news-title
+    = link_to t('news_events'), news_index_path
   .news_item
-    %span.title
-      =link_to @news.title,""
-    %br
-    %span.postdate
-      = @news.created_at.strftime("%Y-%m-%d")
+    .news-head.clearfix
+      %h4.title.pull-left
+        =link_to @news.title,""
+      .postdate.pull-right
+        = @news.created_at.strftime("%Y-%m-%d")
     .content
       = image_tag @news.pic
       = @news.content.html_safe
