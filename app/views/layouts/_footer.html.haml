@@ -1,5 +1,24 @@
 #footer_frame
   #footer.footer_tw
+    %ul#nav.clearfix
+      %li
+        = link_to t("aboutus"), aboutus_path
+      %li
+        = link_to t('news_events'), news_index_path
+      %li
+        = link_to t('packing'), products_index_path("packing")
+      %li
+        = link_to t('accessories'), products_index_path("accessories")
+      %li
+        = link_to t('apparel'), products_index_path("apparel")
+      %li
+        = link_to t('others'), products_index_path("others")
+      %li
+        = link_to t('customization'), products_index_path("customization")
+      %li
+        = link_to t('deals'), products_index_path("deal")
+      %li
+        = link_to t('q_and_a'), faq_path
     %div{:style => "position:absolute; right:10px; top:10px"}
       / PayPal Logo
       %table{:align => "center", :border => "0", :cellpadding => "5", :cellspacing => "0"}
