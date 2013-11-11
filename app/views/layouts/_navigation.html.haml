@@ -20,7 +20,7 @@
           -else
             %li
               = link_to t('sign_in'), login_path
-        %ul.nav.navbar-nav.pull-right
+        %ul.nav.navbar-nav.lang-nav.pull-left
           %li
             = link_to "中文", url_for(params.merge(:only_path => true, locale: "zh-TW"))
           %li

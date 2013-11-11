@@ -19,7 +19,7 @@
         = link_to t('deals'), products_index_path("deal")
       %li
         = link_to t('q_and_a'), faq_path
-    %div{:style => "position:absolute; right:10px; top:10px"}
+    .paypal-logo
       / PayPal Logo
       %table{:align => "center", :border => "0", :cellpadding => "5", :cellspacing => "0"}
         %tbody
@@ -30,7 +30,7 @@
               %a{:href => "http://paypal.com"}
                 %img{:alt => "Additional Options", :border => "0", :src => "https://www.paypal.com/en_US/Marketing/i/banner/bnr_accept_120x30_y.gif"}/
       / PayPal Logo
-    %p{:style => "clear:both"}
+    .copyright.clearfix
       %a{:href => "maito://info@hanchor.com"} info@hanchor.com
       %br
         Copyright 2012 ©
