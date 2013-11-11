@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    unless get_good_from_store(@order)
+      @order.store_code = 0
+      @order.store_name = "Fake Store"
+    end
     @order.user_id = current_user.id
     @cart_items.each do |cart_item|
       order_item = OrderItem.new(product_id: cart_item.product_id, quantity: cart_item.quantity, price: cart_item.price, product_size_id: cart_item.product_size_id, product_color_id: cart_item.product_color_id)
@@ -13,7 +17,7 @@ class OrdersController < ApplicationController
     @order.memo = params[:memo]
     @order.status = "order_confirm"
     @order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
-    @order.shipping_store = "#{params[:order][:store][:code]},#{params[:order][:store][:stroe_name]}" if params[:order][:store]
+    @order.shipping_store = "#{params[:order][:store_code]},#{params[:order][:store_name]}" if(params[:order][:store_code] && params[:order][:store_name])
 
     if @order.dose_not_have_product_in_stock
       flash[:error] = @order.quantity_error_mesage(@country_id)
@@ -52,8 +56,12 @@ class OrdersController < ApplicationController
 
   private
 
+  def get_good_from_store(order)
+    order.shipping_cost_id == 3
+  end
+
   def order_params
-    params.require(:order).permit(:shipping_name, :phone, :zip_code, :country, :city, :state, :shipping_address, :shipping_cost_id, :payment)
+    params.require(:order).permit(:shipping_name, :phone, :zip_code, :country, :city, :state, :shipping_address, :shipping_cost_id, :payment, :store_code, :store_name)
   end
 
   def sum_item_price order
