@@ -26,15 +26,16 @@
 }
 
 .main-nav {
-	padding-left: 12px;
+	padding-left: 3px;
 	padding-bottom: 3px;
 	li {
-		width: 100px;
+		width: 103px;
 		text-align: center;
-		margin-right: 4px;
+		margin-right: 3px;
 		background-color: shade($color-grey, 60%);
 		a {
-			padding: 8px 5px;
+			font-size: 12px;
+			padding: 4px 5px;
 		}
 	}
 }
@@ -59,10 +60,14 @@ header {
 		border-radius: 0px;
 	}
 	.func-nav {
-		width: 600px;
+		width: 300px;
 		text-align: right;
+		margin-top: 30px;
 		li {
 			float: right;
 		}
+	}
+	.lang-nav {
+		margin-top: 30px;
 	}
 }

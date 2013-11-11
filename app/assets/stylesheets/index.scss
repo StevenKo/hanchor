@@ -145,9 +145,7 @@
   margin-left: 2px;
 }
 
-/**
-* footer
-*/
+/** footer **/
 #footer_frame{
   clear: both;
   background: #000;
@@ -161,29 +159,34 @@
   text-align: center;
   color:#999;
   position: relative;
+  ul#nav{
+    width: 960px;
+    margin: 0 auto;
+    list-style: none;
+    padding-right: 0px;
+    li{
+      display: inline-block;
+      color:#fff;
+      margin: 0px 6px;
+      a{
+        color:#fff;
+        &:hover {
+          color:#ccc;
+        }
+      }
+    }
+  }
+  a{
+    color:#E0C574;
+    text-decoration: none;
+    &:hover {
+      color:#FF8B40;
+      text-decoration:underline;
+    }
+  }
 }
-#footer ul#nav{
-  width: 960px;
-  padding-left: 19%;
-  margin: 0 auto;
-  list-style: none;
-}
-#footer ul#nav li{
-  color:#fff;
-  float: left;
-  margin: 0px 6px;
-}
-#footer ul#nav li a{
-  color:#fff;
-}
-#footer ul#nav li a:hover{
-  color:#ccc;
-}
-#footer a{
-  color:#E0C574;
-  text-decoration: none;
-}
-#footer a:hover{
-  color:#FF8B40;
-  text-decoration:underline;
+.paypal-logo {
+  position:absolute;
+  right:10px;
+  top:10px
 }
