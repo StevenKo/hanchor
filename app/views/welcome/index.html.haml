@@ -25,7 +25,7 @@
         %legend= t("news_articles")
       %p
         -@news.each do |news|
-          = link_to "#{display_date(news.updated_at)} #{news.title}", news
+          = link_to "#{display_date(news.created_at)} #{news.title}", news
           %br
 
 .main-content
