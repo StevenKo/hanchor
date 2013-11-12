@@ -37,4 +37,9 @@ class Order < ActiveRecord::Base
 
   end
 
+  def fill_fake_attribute
+    self.store_code = "fake"
+    self.store_name = "fake"
+  end
+
 end

@@ -101,5 +101,5 @@ Hanchor::Application.configure do
   #   password:             ENV["GMAIL_PASSWORD"],
   #   authentication:       'plain',
   #   enable_starttls_auto: true  }
-  config.action_mailer.default_url_options = { host: '106.186.113.25' }
+  config.action_mailer.default_url_options = { host: 'www.hanchor.com' }
 end

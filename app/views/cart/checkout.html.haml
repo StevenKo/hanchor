@@ -40,7 +40,7 @@
           .pay_when_shipped{:style => "display: none;"}
             %span
             %br
-              = f.radio_button :payment, "pay_when_shipped"
+              = f.radio_button :payment, t('cart.pay_when_shipped')
               = f.label t('cart.pay_when_shipped')
 
         %fieldset
