@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103090138) do
+ActiveRecord::Schema.define(version: 20131112113501) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(version: 20131103090138) do
     t.datetime "updated_at"
     t.integer  "sort",                default: 0
     t.integer  "views",               default: 0
+    t.boolean  "is_show_at_index",    default: false
   end
 
   add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
