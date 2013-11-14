@@ -16,6 +16,7 @@ Hanchor::Application.routes.draw do
   resources :news do
     collection do
       get "list"
+      post "list"
     end
   end
 

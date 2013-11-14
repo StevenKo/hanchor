@@ -1,4 +1,7 @@
 .col-md-8
+  = form_tag list_news_index_path do |f|
+    = label_tag :news_tag_id, "分類:"
+    = select_tag :news_tag_id, options_for_select(@tags_selector, params[:news_tag_id]), prompt: "All"
   %table#news_list{:border => "0", :cellpadding => "5", :cellspacing => "0"}
     %tbody
       - @news.each do |news_item|
@@ -8,4 +11,4 @@
           %td
             = link_to news_item.title, news_path(news_item)
 .col-md-4
-  = render "sidebar", news: @news
+  = render "sidebar", news: @recent_news

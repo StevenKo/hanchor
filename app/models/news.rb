@@ -6,7 +6,7 @@ class News < ActiveRecord::Base
   default_scope {order('sort DESC')}
   
   scope :locale, lambda { |locale|
-    if locale == "zh-TW"
+    if (["zh-TW","zh"].include? locale)
       where(is_tw: true)
     else
       where(is_en: true)

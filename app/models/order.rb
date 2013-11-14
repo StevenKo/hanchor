@@ -5,6 +5,9 @@ class Order < ActiveRecord::Base
   has_many :order_items
   validates_presence_of :shipping_cost_id
 
+  attr_accessor :store_code, :store_name
+  validates_presence_of :store_code, :store_name
+
   scope :showed, -> {where(is_show: true)}
 
   def dose_not_have_product_in_stock
@@ -32,6 +35,11 @@ class Order < ActiveRecord::Base
       q.update_attribute(:quantity, q.quantity-item.quantity)
     end
 
+  end
+
+  def fill_fake_attribute
+    self.store_code = "fake"
+    self.store_name = "fake"
   end
 
 end

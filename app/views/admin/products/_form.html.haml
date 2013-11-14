@@ -7,6 +7,7 @@
           = product.views
         = f.text_field :sort
         = f.text_field :no, :class => "span3", label: "產品編號"
+        = f.check_box :is_show_at_index, :inline => true, label: "首頁是否顯示"
         = f.select :product_category_id, category_selection,label: "分類"
         = f.control_group "", label: { text: '顏色' } do
           - if product.new_record?

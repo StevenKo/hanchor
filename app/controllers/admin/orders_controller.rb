@@ -11,6 +11,7 @@ class Admin::OrdersController < Admin::AdminController
   def change_status
     @order = Order.find(params[:id])
     @order.status = params[:value]
+    @order.fill_fake_attribute
     if @order.save
       flash[:notice] = "successful change status"
     else

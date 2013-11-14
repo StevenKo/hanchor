@@ -8,6 +8,7 @@ class PaymentNotificationsController < ApplicationController
       order.status = "pay_confirm"
       order.is_show = true
       order.is_payed = true
+      order.fill_fake_attribute
       order.save
       UserMailer.order_notification(order.user,order).deliver
     elsif(params[:payment_status] == "Canceled_Reversal" || params[:payment_status] == "Denied")

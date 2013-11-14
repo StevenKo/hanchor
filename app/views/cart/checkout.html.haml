@@ -18,8 +18,8 @@
               %label= t('cart.store')
               = link_to t('cart.search_store'),'http://map.ezship.com.tw/', class: "btn btn-sm btn-warning", target: "_blank"
             = f.fields_for :store do |child_form|
-              = child_form.text_field :code, label: t('cart.num').html_safe, :class => "form-control"
-              = child_form.text_field :stroe_name, label: t('cart.store_name').html_safe, :class => "form-control"
+              = f.text_field :store_code, label: t('cart.num').html_safe, :class => "form-control"
+              = f.text_field :store_name, label: t('cart.store_name').html_safe, :class => "form-control"
         %fieldset
           %legend= t('cart.payment_info').html_safe
         #payment
@@ -40,7 +40,7 @@
           .pay_when_shipped{:style => "display: none;"}
             %span
             %br
-              = f.radio_button :payment, "pay_when_shipped"
+              = f.radio_button :payment, t('cart.pay_when_shipped')
               = f.label t('cart.pay_when_shipped')
 
         %fieldset
