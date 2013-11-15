@@ -1,4 +1,4 @@
-.col-md-9
+.main-product.pull-left
   %ul.breadcrumb
     %li
       = link_to t('product.home'), root_path 
@@ -43,6 +43,6 @@
       - else
         = link_to "View All",products_index_path(@base_category.name_en,all: true)
 
-.col-md-3
+.sidebar-product.pull-left
   = render "cart_sidebar"
 

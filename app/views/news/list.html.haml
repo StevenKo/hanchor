@@ -1,4 +1,4 @@
-.col-md-8
+.main-content.pull-left
   = form_tag list_news_index_path do |f|
     = label_tag :news_tag_id, "分類:"
     = select_tag :news_tag_id, options_for_select(@tags_selector, params[:news_tag_id]), prompt: "All"
@@ -10,5 +10,5 @@
             = news_item.created_at.strftime("%Y-%m-%d")
           %td
             = link_to news_item.title, news_path(news_item)
-.col-md-4
+.sidebar-content.pull-left
   = render "sidebar", news: @recent_news
