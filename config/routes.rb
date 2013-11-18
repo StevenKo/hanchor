@@ -94,4 +94,6 @@ Hanchor::Application.routes.draw do
     resources :banners, except: [:show]
     resources :videos, except: [:show]
   end
+
+  get "/*other" => redirect("/")
 end
