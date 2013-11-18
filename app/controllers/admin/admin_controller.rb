@@ -1,7 +1,7 @@
 class Admin::AdminController < ApplicationController
   layout 'admin/admin'
   helper_method :current_admin
-  before_action :require_admin
+  before_action :authenticate
 
   def index
   end
@@ -17,6 +17,14 @@ class Admin::AdminController < ApplicationController
 
   def current_admin
     @current_admin ||= User.find(session[:admin_id]) if session[:admin_id]
+  end
+
+  def authenticate
+    if session[:admin_id] && session[:last_seen]
+      session[:admin_id] = nil if session[:last_seen] < 2.minutes.ago
+    end
+    require_admin
+    session[:last_seen] = Time.now
   end
 
 end

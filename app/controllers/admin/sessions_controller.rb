@@ -1,6 +1,6 @@
 class Admin::SessionsController < Admin::AdminController
 
-  skip_before_action :require_admin
+  skip_before_action :authenticate
 
   def new
   end
