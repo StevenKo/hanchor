@@ -21,7 +21,7 @@ class Admin::AdminController < ApplicationController
 
   def authenticate
     if session[:admin_id] && session[:last_seen]
-      session[:admin_id] = nil if session[:last_seen] < 2.minutes.ago
+      session[:admin_id] = nil if session[:last_seen] < 1.hour.ago
     end
     require_admin
     session[:last_seen] = Time.now
