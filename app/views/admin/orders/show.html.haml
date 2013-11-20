@@ -14,7 +14,10 @@
       %td= @order.phone
     %tr
       %th 運送方式
-      %td= @order.shipping_cost.description
+      %td
+        = @order.shipping_cost.description
+        - if @order.shipping_cost.id == 3
+          = "(#{@order.shipping_store})"
     %tr
       %th 國家
       %td= @order.country
