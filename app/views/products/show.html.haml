@@ -1,4 +1,4 @@
-.col-md-9.margin-bottom
+.main-product.pull-left.margin-bottom
   %ul.breadcrumb
     %li
       = link_to t('product.home'), root_path 
@@ -72,5 +72,5 @@
       %legend= "#{t('product.description')}"
     = @product.feature.html_safe
 
-.col-md-3.offset1
+.sidebar-product.pull-left.offset1
   = render "cart_sidebar"

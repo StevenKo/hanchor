@@ -1,4 +1,4 @@
-.col-md-8
+.main-content.pull-left
   %h2.news-title
     = link_to t('news_events'), news_index_path
   - @news.each_with_index do |news_item,i|
@@ -34,5 +34,5 @@
   /     %a{href: "#"} 5
   /   %li
   /     %a{href: "#"} &#187;
-.col-md-4
+.sidebar-content.pull-left
   = render "sidebar", news: @recent_news

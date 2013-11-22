@@ -1,5 +1,5 @@
 .col-md-12
-  .col-md-7
+  .promotion.pull-left
     #carousel-example-generic.carousel.slide
       .carousel-inner
         - @banners.each_with_index do |banner,i|
@@ -13,7 +13,7 @@
         %span.icon-prev
       %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
         %span.icon-next
-  .col-md-5
+  .news-items.pull-left
     #aboutus
       %fieldset
         %legend= t("aboutus")
@@ -28,7 +28,7 @@
           = link_to "#{display_date(news.created_at)} #{news.title}", news
           %br
 
-.main-content
+.welcome
   #videos
     %fieldset.clearfix
       %legend Feature Video

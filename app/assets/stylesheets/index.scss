@@ -46,6 +46,30 @@
       color: #666;
     }
   }
+  .promotion {
+    width: 58%;
+    padding: 0 7px;
+  }
+  .news-items {
+    width: 41%;
+    padding: 0 7px;
+  }
+  .main-content {
+    width: 66%;
+    padding: 0 8px;
+  }
+  .sidebar-content {
+    width: 33%;
+    padding: 0 7px;
+  }
+  .main-product {
+    width: 75%;
+    padding: 0 7px;
+  }
+  .sidebar-product {
+    width: 25%;
+    padding: 0 7px;
+  }
 }
 
 #product .product_thumbs {
@@ -76,7 +100,7 @@
   }
 }
 
-.main-content {
+.welcome {
   margin-top: 10px;
 }
 

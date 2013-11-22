@@ -1,4 +1,4 @@
-.col-md-8
+.main-content.pull-left
   %h2.news-title
     = link_to t('news_events'), news_index_path
   .news_item
@@ -14,5 +14,5 @@
       .fb-comments{"data-href" => request.original_url, "data-width" => "470"}
   = link_to "&#171;back to news".html_safe, news_index_path
 
-.col-md-4
+.sidebar-content.pull-left
   = render "sidebar", news: @recent_news
