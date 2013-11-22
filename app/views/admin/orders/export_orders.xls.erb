@@ -18,6 +18,7 @@
         <Cell><Data ss:Type="String">郵遞區號</Data></Cell>
         <Cell><Data ss:Type="String">收件地址</Data></Cell>
         <Cell><Data ss:Type="String">收款方式</Data></Cell>
+        <Cell><Data ss:Type="String">付費資訊</Data></Cell>
         <Cell><Data ss:Type="String">總金額</Data></Cell>
         <Cell><Data ss:Type="String">意見</Data></Cell>
         <Cell><Data ss:Type="String">狀態</Data></Cell>
@@ -35,20 +36,14 @@
             <Cell><Data ss:Type="String"><%= display_date(order.created_at) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.shipping_name %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.phone %></Data></Cell>
-            <Cell>
-              <Data ss:Type="String">
-                <%= order.shipping_cost.description %>
-                <% if order.shipping_cost.id == 3 %>
-                  <%= "(#{order.shipping_store})" %>
-                <% end %>
-              </Data>
-            </Cell>
+            <Cell><Data ss:Type="String"><%= order.shipping_cost.description %><%= "(#{order.shipping_store})" if order.shipping_cost.id == 3%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.country %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.state %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.city %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.zip_code %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.shipping_address %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.payment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.bank.gsub("\n","") %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.total %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.memo %></Data></Cell>
             <Cell><Data ss:Type="String"><%= t("order.#{order.status}") %></Data></Cell>
