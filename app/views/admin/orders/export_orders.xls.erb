@@ -43,7 +43,7 @@
             <Cell><Data ss:Type="String"><%= order.zip_code %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.shipping_address %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.payment %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= order.bank.gsub("\n","") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.bank.gsub("\n","") if order.bank%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.total %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.memo %></Data></Cell>
             <Cell><Data ss:Type="String"><%= t("order.#{order.status}") %></Data></Cell>
