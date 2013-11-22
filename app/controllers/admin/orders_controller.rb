@@ -4,6 +4,13 @@ class Admin::OrdersController < Admin::AdminController
     @orders = Order.showed.paginate(:page => params[:page], :per_page => 30)
   end
 
+  def export_orders
+    @orders = Order.showed.all
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def show
     @order = Order.find(params[:id])
   end

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">出貨編號</Data></Cell>
+        <Cell><Data ss:Type="String">訂單日期</Data></Cell>
+        <Cell><Data ss:Type="String">名字</Data></Cell>
+        <Cell><Data ss:Type="String">聯絡電話</Data></Cell>
+        <Cell><Data ss:Type="String">運送方式</Data></Cell>
+        <Cell><Data ss:Type="String">國家</Data></Cell>
+        <Cell><Data ss:Type="String">洲</Data></Cell>
+        <Cell><Data ss:Type="String">城市</Data></Cell>
+        <Cell><Data ss:Type="String">郵遞區號</Data></Cell>
+        <Cell><Data ss:Type="String">收件地址</Data></Cell>
+        <Cell><Data ss:Type="String">收款方式</Data></Cell>
+        <Cell><Data ss:Type="String">總金額</Data></Cell>
+        <Cell><Data ss:Type="String">意見</Data></Cell>
+        <Cell><Data ss:Type="String">狀態</Data></Cell>
+        <Cell><Data ss:Type="String">品名</Data></Cell>
+        <Cell><Data ss:Type="String">尺寸</Data></Cell>
+        <Cell><Data ss:Type="String">顏色</Data></Cell>
+        <Cell><Data ss:Type="String">單價</Data></Cell>
+        <Cell><Data ss:Type="String">數量</Data></Cell>
+        <Cell><Data ss:Type="String">金額</Data></Cell>
+      </Row>
+      <% @orders.each do |order| %>
+        <% order.order_items.each_with_index do |order_item,index| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= order.code + (index+1).to_s.rjust(2, '0') %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= display_date(order.created_at) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.shipping_name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.phone %></Data></Cell>
+            <Cell>
+              <Data ss:Type="String">
+                <%= order.shipping_cost.description %>
+                <% if order.shipping_cost.id == 3 %>
+                  <%= "(#{order.shipping_store})" %>
+                <% end %>
+              </Data>
+            </Cell>
+            <Cell><Data ss:Type="String"><%= order.country %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.state %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.city %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.zip_code %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.shipping_address %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.payment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.total %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.memo %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= t("order.#{order.status}") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.product.product_infos.first.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.product_size.size if order_item.product_size %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.product_color.color if order_item.product_color %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.price %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.quantity %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order_item.price * order_item.quantity %></Data></Cell>
+          </Row>
+        <% end %>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
