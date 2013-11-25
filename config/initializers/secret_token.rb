@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hanchor::Application.config.secret_key_base = 'c70702e322681f5882eb152faca3c0676fd50c324ad279e396609932a878ac698c75a055c949261407ec46646a87872831350805e5c106073ec84361e7cb9ca7'
+Hanchor::Application.config.secret_key_base = ENV['SECRET_TOKEN']
