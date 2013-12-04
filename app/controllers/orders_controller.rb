@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
     @order.total = sum_item_price(@order) + ShippingCost.find(params[:order][:shipping_cost_id]).cost if params[:order][:shipping_cost_id].present?
     @order.memo = params[:memo]
     @order.status = "order_confirm"
-    @order.code = Date.today.strftime("%y%m%d") + (Order.where("created_at > ?",Date.today).size + 1).to_s.rjust(3, '0')
     @order.shipping_store = "#{params[:order][:store_code]},#{params[:order][:store_name]}" if(params[:order][:store_code] && params[:order][:store_name])
 
     if @order.dose_not_have_product_in_stock
@@ -24,6 +23,7 @@ class OrdersController < ApplicationController
       redirect_to :back
     else
       if @order.save
+        @order.update_attribute(:code, @order.created_at.strftime("%y%m%d")+ (Order.where("created_at > ?", @order.created_at.to_date).size).to_s.rjust(3, '0'))
         @order.deduct_quanitity
         if(@order.payment == "PayPal")
           return_url = result_orders_url(order: @order)
