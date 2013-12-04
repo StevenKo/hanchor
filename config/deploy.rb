@@ -51,6 +51,10 @@ namespace :carrierwave do
   after 'deploy', 'carrierwave:symlink'
 end
 
+after "deploy", "refresh_sitemaps"
+task :refresh_sitemaps do
+  run "cd #{latest_release} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
+end
 
 before "deploy:assets:precompile", "deploy:copy_config_files" # 如果將database.yml放在shared下，請打開
 after "deploy:update_code", "deploy:copy_config_files" # 如果將database.yml放在shared下，請打開

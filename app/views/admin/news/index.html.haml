@@ -11,7 +11,7 @@
 
   - @news.each do |news|
     %tr
-      %td= display_date(news.created_at)
+      %td= display_date(news.release_date)
       %td= news.id
       %td= news.title
       %td= news.sort

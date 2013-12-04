@@ -7,7 +7,7 @@
       - @news.each do |news_item|
         %tr
           %td{:width => "80"}
-            = news_item.created_at.strftime("%Y-%m-%d")
+            = news_item.release_date.strftime("%Y-%m-%d")
           %td
             = link_to news_item.title, news_path(news_item)
 .sidebar-content.pull-left

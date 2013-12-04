@@ -3,6 +3,8 @@
     .span10
       = bootstrap_form_for news, url: url,:html => {:class => "form-horizontal", multipart: true} do |f|
         = f.text_field :title, label: "標題",:class => "span7"
+        = f.date_select :release_date, label: "發表日期", :class => "span7"
+        %br
         .offset2
           = image_tag(news.pic_url, :style => 'max-height: 200px; max-width: 200px;')
         = f.file_field :pic, :class => "span7", label: "上傳圖片(圖片建議大小:570x355)"

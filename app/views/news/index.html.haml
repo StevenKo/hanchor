@@ -7,7 +7,7 @@
         %h4.title.pull-left
           =link_to news_item.title,news_path(news_item)
         .postdate.pull-right
-          = news_item.created_at.strftime("%Y-%m-%d")
+          = news_item.release_date.strftime("%Y-%m-%d")
       .content
         -if(i==0)
           = image_tag news_item.pic

@@ -44,7 +44,7 @@ class Admin::NewsController < Admin::AdminController
 
 private
   def news_param
-    params.require(:news).permit(:title,:content,:pic,:sort,:sort_en,:is_tw,:is_en)
+    params.require(:news).permit(:title,:content,:pic,:sort,:sort_en,:is_tw,:is_en,:release_date)
   end
 
   def create_news_tags(news, params)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112113501) do
+ActiveRecord::Schema.define(version: 20131204030041) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -71,7 +71,10 @@ ActiveRecord::Schema.define(version: 20131112113501) do
     t.boolean  "is_en"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "release_date"
   end
+
+  add_index "news", ["release_date"], name: "index_news_on_release_date", using: :btree
 
   create_table "news_tags", force: true do |t|
     t.string "name"

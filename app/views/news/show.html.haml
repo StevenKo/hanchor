@@ -6,7 +6,7 @@
       %h4.title.pull-left
         =link_to @news.title,""
       .postdate.pull-right
-        = @news.created_at.strftime("%Y-%m-%d")
+        = @news.release_date.strftime("%Y-%m-%d")
     .content
       = image_tag @news.pic
       = @news.content.html_safe
