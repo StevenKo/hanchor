@@ -20,6 +20,7 @@ gem "compass-rails", "~> 2.0.alpha.0"
 gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'sitemap_generator'
 
 #分頁
 gem 'will_paginate'
