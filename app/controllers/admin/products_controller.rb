@@ -18,14 +18,14 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = Product.find_by_slug(params[:id])
     @category_selection = ProductCategory.generate_category_array
     @shipping_tw = ShippingCost.where(country_id: 1)
     @shipping_en = ShippingCost.where(country_id: 2)
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.find_by_slug(params[:id])
     begin
       Product.transaction do
         @product.update(product_param)
@@ -35,6 +35,8 @@ class Admin::ProductsController < Admin::AdminController
         info_en = @product.product_infos[1]
         info_en.shipping = params[:shipping][:en] if params[:shipping]
         info_en.update(product_info_en)
+        @product.slug = @product.product_infos[1].name.to_slug
+        @product.save
       end
       flash[:notice] = "Update success"
     rescue ActiveRecord::RecordInvalid => invalid
@@ -58,6 +60,8 @@ class Admin::ProductsController < Admin::AdminController
         @product = Product.create(product_param)
         @product.product_infos << ProductInfo.create(product_info_tw)
         @product.product_infos << ProductInfo.create(product_info_en)
+        @product.slug = @product.product_infos[1].name.to_slug
+        @product.save
       end
         flash[:notice] = "Create success"
     rescue ActiveRecord::RecordInvalid => invalid   
@@ -67,7 +71,8 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def destroy
-    Product.delete(params[:id])
+    @product = Product.find_by_slug(params[:id])
+    @product.delete
     flash[:notice] = "delete success"
     redirect_to admin_products_path
   end

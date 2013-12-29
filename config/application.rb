@@ -6,6 +6,7 @@ Bundler.require(:default, Rails.env)
 
 module Hanchor
   class Application < Rails::Application
+    Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)

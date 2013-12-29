@@ -18,7 +18,8 @@ class ProductsController < ApplicationController
 
   def show
     @base_category = ProductCategory.find_by name_en: params[:category]
-    @product = Product.includes(:product_category,:product_pics).joins(:product_infos).where("product_infos.country_id = #{@country_id}").all_info.find(params[:id])
+    @product = Product.includes(:product_category,:product_pics).joins(:product_infos).where("product_infos.country_id = #{@country_id}").all_info.find_by_slug(params[:id])
+    @product = Product.includes(:product_category,:product_pics).joins(:product_infos).where("product_infos.country_id = #{@country_id}").all_info.find(params[:id]) unless @product
     @product.update_attribute("views",@product.views+1)
     @sub_category = @product.product_category
     @item = CartItem.new

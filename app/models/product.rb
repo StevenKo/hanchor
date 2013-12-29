@@ -14,7 +14,8 @@ class Product < ActiveRecord::Base
                                     product_infos.special_price,
                                     product_infos.quick_overview, 
                                     products.id,
-                                    product_category_id"
+                                    product_category_id,
+                                    products.slug"
                         ) }
 
   scope :all_info, -> { select(" product_infos.name,
@@ -27,13 +28,15 @@ class Product < ActiveRecord::Base
                                     product_infos.feature,
                                     products.views,
                                     products.id,
-                                    product_category_id"
+                                    product_category_id,
+                                    products.slug"
                         ) }
   scope :cart_info, -> { select(" product_infos.name,
                                     product_infos.price,
                                     product_infos.shipping,
                                     products.id,
-                                    product_category_id"
+                                    product_category_id,
+                                    products.slug"
                         ) }
   scope :admin_index_info, -> { select("products.id,
                                         no,
@@ -43,10 +46,14 @@ class Product < ActiveRecord::Base
                                         product_infos.special_price,
                                         products.sort,
                                         products.views,
-                                        product_infos.is_visible"
+                                        product_infos.is_visible,
+                                        products.slug"
                               )}
   scope :order_by_views_and_sort, -> { order("sort desc,views desc")}
 
+  def to_param
+    slug
+  end
 
   def reorder_pic_sort
     product_pics.each_with_index do |pic, index|
