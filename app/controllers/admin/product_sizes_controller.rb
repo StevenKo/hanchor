@@ -1,7 +1,7 @@
 class Admin::ProductSizesController < Admin::AdminController
 
   def index
-    @product = Product.find(params[:product_id])
+    @product = Product.find_by_slug(params[:product_id])
     @sizes = @product.product_sizes
   end
 

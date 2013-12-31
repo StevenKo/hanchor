@@ -11,7 +11,7 @@ class CartController < ApplicationController
   end
 
   def add_item_to_cart
-    product = Product.find(params[:product])
+    product = Product.find_by_slug(params[:product])
     item = CartItem.new(params.require(:cart_item).permit(:product_color_id,:product_size_id))
     item.quantity = params[:quantity]
     item.product = product
