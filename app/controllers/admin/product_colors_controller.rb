@@ -14,17 +14,18 @@ class Admin::ProductColorsController < Admin::AdminController
   end
 
   def create_update
+    product = Product.find_by(slug: params[:product_id])
     params[:colors][:product_color].each do |key,param|
       if ProductColor.exists?(key)
-        product = ProductColor.find(key)
-        product.update(param)
+        product_color = ProductColor.find(key)
+        product_color.update(param)
       else
         color = ProductColor.new(param)
-        color.product_id = params[:product_id]
+        color.product_id = product.id
         color.save
       end
     end
-    ProductQuantity.create_quantiy(params[:product_id])
+    ProductQuantity.create_quantiy(product.id)
     redirect_to admin_product_product_colors_path(params[:product_id])
   end
 
