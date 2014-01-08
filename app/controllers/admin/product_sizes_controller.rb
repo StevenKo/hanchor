@@ -8,7 +8,8 @@ class Admin::ProductSizesController < Admin::AdminController
   def destroy
     ProductSize.delete(params[:id])
     ProductQuantity.delete_size_quantity(params[:id])
-    ProductQuantity.create_quantiy(params[:product_id])
+    product = Product.find_by(slug: params[:product_id])
+    ProductQuantity.create_quantiy(product.id)
     flash[:notice] = "delete success"
     redirect_to admin_product_product_sizes_path(params[:product_id])
   end
