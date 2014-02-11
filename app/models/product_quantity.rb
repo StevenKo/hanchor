@@ -5,8 +5,8 @@ class ProductQuantity < ActiveRecord::Base
 
 
   def self.create_quantiy product_id
-    colors = ProductColor.where("product_id = #{product_id}")
-    sizes = ProductSize.where("product_id = #{product_id}")
+    colors = ProductColor.where("product_id = #{product_id} and is_delete != true")
+    sizes = ProductSize.where("product_id = #{product_id} and is_delete != true")
     colors.each do |color|
       sizes.each do |size|
         quantity = ProductQuantity.where("product_color_id = #{color.id} and product_size_id = #{size.id}").first

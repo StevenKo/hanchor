@@ -2,11 +2,14 @@ class Admin::ProductColorsController < Admin::AdminController
 
   def index
     @product = Product.find_by_slug(params[:product_id])
-    @colors = @product.product_colors
+    @colors = @product.product_colors.where("is_delete != true")
   end
 
   def destroy
-    ProductColor.delete(params[:id])
+    color = ProductColor.find(params[:id])
+    color.is_delete = true
+    color.save
+
     flash[:notice] = "delete success"
     ProductQuantity.delete_color_quantity(params[:id])
     product = Product.find_by(slug: params[:product_id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229073936) do
+ActiveRecord::Schema.define(version: 20140211153646) do
 
   create_table "banners", force: true do |t|
     t.string   "pic"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20131229073936) do
     t.string   "color_en"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_delete",  default: false
   end
 
   add_index "product_colors", ["product_id"], name: "index_product_colors_on_product_id", using: :btree
@@ -198,6 +199,7 @@ ActiveRecord::Schema.define(version: 20131229073936) do
     t.string   "size_en"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_delete",  default: false
   end
 
   add_index "product_sizes", ["product_id"], name: "index_product_sizes_on_product_id", using: :btree
