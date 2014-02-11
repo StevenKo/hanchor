@@ -1,3 +1,7 @@
+= content_for :head do
+  <meta property="og:title"  content="#{@news.title}" />
+  <meta property="og:image"  content="#{image_url(@news.pic)}" />
+
 .main-content.pull-left
   %h2.news-title
     = link_to t('news_events'), news_index_path
