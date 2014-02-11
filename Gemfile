@@ -35,6 +35,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'guard-livereload'
   gem 'letter_opener'
+  gem 'capistrano-local-precompile', require: false
 end
 
 group :production do
