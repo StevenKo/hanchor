@@ -34,7 +34,7 @@ class Cart < ActiveRecord::Base
   end
 
   def locale_price(amount,locale)
-    (locale=="en")? (amount/28.0).round(2) : amount
+    (locale=="en")? (amount/29.9).round(2) : amount
   end
 
 end
