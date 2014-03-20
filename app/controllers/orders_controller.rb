@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       redirect_to :back
     else
       if @order.save
-        @order.update_attribute(:code, @order.created_at.strftime("%y%m%d")+ (Order.where("created_at > ?", @order.created_at.to_date).size).to_s.rjust(3, '0'))
+        @order.update_attribute(:code, @order.created_at.strftime("%y%m%d")+ (Order.where("created_at > ?", @order.created_at.utc.to_date).size).to_s.rjust(3, '0'))
         @order.deduct_quanitity
         if(@order.payment == "PayPal")
           return_url = result_orders_url(order: @order)
