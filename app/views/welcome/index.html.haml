@@ -5,10 +5,10 @@
         - @banners.each_with_index do |banner,i|
           - if(i == 0)
             .item.active
-              = image_tag banner.pic_url
+              = link_to image_tag(banner.pic_url), banner.link
           -else
             .item
-              = image_tag banner.pic_url
+              = link_to image_tag(banner.pic_url), banner.link
       %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
         %span.icon-prev
       %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
