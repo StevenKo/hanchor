@@ -4,13 +4,13 @@
     %meta{:charset => "utf-8"}
     / %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title Hanchor
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
-      = stylesheet_link_tag "application", :media => "all"
-      = javascript_include_tag "application"
-      = favicon_link_tag "favicon.jpg"
-      = csrf_meta_tags
-      = yield(:head)
+    %meta{:content => t('key_words'), :name => "keywords"}
+    %meta{:content => "www.hanchor.com", :name => "author"}
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = favicon_link_tag "favicon.jpg"
+    = csrf_meta_tags
+    = yield(:head)
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
