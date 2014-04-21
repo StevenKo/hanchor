@@ -1,7 +1,9 @@
+= content_for :head do
+  <meta name="description" content="#{t("qa_description")}">
 #guide
-	.sidebar-product.pull-left
-		= render partial: "faq_side"
+  .sidebar-product.pull-left
+    = render partial: "faq_side"
 
-	.main-product.pull-left
-		.content
-			= @guide.context.html_safe
+  .main-product.pull-left
+    .content
+      = @guide.context.html_safe

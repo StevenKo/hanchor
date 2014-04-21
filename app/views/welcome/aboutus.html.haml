@@ -1,7 +1,9 @@
+=content_for :head do
+  <meta name="description" content="#{t("about_description")}">
 #container
-	#main
-		#about-detail
-			.title
-				= t('aboutus_message').html_safe
-			%p{:align => "justify"}
-			= image_tag "http://106.186.113.25/uploads/aboutus.jpeg"
+  #main
+    #about-detail
+      .title
+        = t('aboutus_message').html_safe
+        %p{:align => "justify"}
+      = image_tag "http://106.186.113.25/uploads/aboutus.jpeg"

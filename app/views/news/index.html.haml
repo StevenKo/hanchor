@@ -1,3 +1,5 @@
+= content_for :head do
+  <meta name="description" content="#{t("blog_description")}">
 .main-content.pull-left
   %h2.news-title
     = link_to t('news_events'), news_index_path
