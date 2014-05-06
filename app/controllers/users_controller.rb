@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
+    @user.token = SecureRandom.urlsafe_base64
     if @user.save
       UserMailer.register_email(@user).deliver
       flash[:notice] = "have registered"
