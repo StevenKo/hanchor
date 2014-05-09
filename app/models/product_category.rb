@@ -2,6 +2,7 @@
 class ProductCategory < ActiveRecord::Base
   has_many :products
 
+  scope :visible, -> {where("is_visible = true")}
   belongs_to :parent_category, foreign_key: 'parent_id', class_name: 'ProductCategory'
   has_many :child_categories, foreign_key: 'parent_id', class_name: 'ProductCategory'
 
@@ -38,6 +39,6 @@ class ProductCategory < ActiveRecord::Base
   end
 
   def child_category_ids
-    ProductCategory.where("parent_id = #{id}").select("id").map(&:id)
+    ProductCategory.where("parent_id = #{id}").visible.select("id").map(&:id)
   end
 end

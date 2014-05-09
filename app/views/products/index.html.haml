@@ -12,7 +12,7 @@
       - if @sub_category
         = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
   .product_cate
-    - @base_category.child_categories.each do |c|
+    - @base_category.child_categories.visible.each do |c|
       = link_to c.locale(params[:locale]), products_index_path(@base_category.name_en, sub: c.name_en), class: "btn btn-sm btn-category"
   #product-list
     - @products.each do |product|
