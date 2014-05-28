@@ -1,5 +1,6 @@
 = content_for :head do
   <meta name="description" content="#{t("qa_description")}">
+  <link rel="canonical" href="#{request.url.split('?').first}">
 #guide
   .sidebar-product.pull-left
     = render partial: "faq_side"

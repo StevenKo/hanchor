@@ -1,5 +1,6 @@
 = content_for :head do
   <meta name="description" content="#{t("product_description")}">
+  <link rel="canonical" href="#{request.url.split('?').first}">
 .main-product.pull-left
   %ul.breadcrumb
     %li
