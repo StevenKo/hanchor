@@ -3,6 +3,7 @@
   <meta property="og:image"  content="#{image_url(@product.product_pics.first.pic_url)}" />
   <meta property="og:url"  content="#{request.url.split('?').first}" />
   <meta property="og:description" content="#{strip_tags(@product.quick_overview)}" />
+  <meta property="og:type" content="website" />
   <meta name="description" content="#{strip_tags(@product.quick_overview)}">
   <link rel="canonical" href="#{request.url.split('?').first}">
 
