@@ -1,6 +1,7 @@
 = content_for :head do
   <meta property="og:title"  content="#{@news.title}" />
   <meta property="og:image"  content="#{image_url(@news.pic)}" />
+  <meta property="og:url"  content="#{request.url.split('?').first}" />
   <meta name="description" content="#{@news.title}">
   <link rel="canonical" href="#{request.url.split('?').first}">
 .main-content.pull-left
