@@ -18,8 +18,8 @@
     .content
       = image_tag @news.pic
       = @news.content.html_safe
-      .fb-like{"data-href" => request.original_url, "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
-      .fb-comments{"data-href" => request.original_url, "data-width" => "470"}
+      .fb-like{"data-href" => request.url.split('?').first, "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
+      .fb-comments{"data-href" => request.url.split('?').first, "data-width" => "470"}
   = link_to "&#171;back to news".html_safe, news_index_path
 
 .sidebar-content.pull-left
