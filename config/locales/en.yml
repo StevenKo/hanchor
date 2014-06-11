@@ -151,7 +151,7 @@ en:
     confirm: "Confirmed"
     order_confirm: 'Order Confirmed'
     order_cancel: 'Order Canceled'
-    pay_confirm: 'Payed'
+    pay_confirm: 'Paid'
     shipped: "Shipped"
     not_payed: "Remitting Notice"
     payed: "Already Paid"
