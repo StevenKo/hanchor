@@ -20,7 +20,7 @@
       .product_thumbs{:itemscope => "", :itemtype => "http://data-vocabulary.org/Product"}
         %meta{:content => "HANCHOR", :itemprop => "brand"}
         %meta{:content => @base_category.locale(params[:locale]), :itemprop => "category"}
-        %meta{:content => products_show_path(product.product_category.name_en,product).split('?').first, :itemprop => "url"}
+        %meta{:content => products_show_url(product.product_category.name_en,product).split('?').first, :itemprop => "url"}
         =link_to products_show_path(product.product_category.name_en,product) do
           %p
             =(image_tag product.thumb.pic_url, :itemprop => "image") if product.thumb
