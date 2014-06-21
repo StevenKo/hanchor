@@ -20,6 +20,7 @@ gem "compass-rails", "~> 1.1.7"
 gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'sitemap_generator'
+gem 'actionview-encoded_mail_to'
 
 #分頁
 gem 'will_paginate'
