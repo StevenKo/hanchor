@@ -35,8 +35,6 @@
               %span.special_price
                 NT$
                 = product.special_price
-          %span{:itemprop => "availability"}
-            in_stock
           .p-overview{:itemprop => "description"}
             = truncate_html(strip_tags(product.quick_overview), length: 60)
   
