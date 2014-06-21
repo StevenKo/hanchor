@@ -23,20 +23,20 @@
             =(image_tag product.thumb.pic_url, :itemprop => "image") if product.thumb
           .p-name{:itemprop => "name"}
             = product.name
-          .p-price
+          .p-price{:itemprop => "price"}
             - unless product.special_price
               %span.price
                 NT$
-                %span{:itemprop => "price"}
-                  = product.price
+                = product.price
             - else
               %span.kill_price
                 NT$
                 = product.price
               %span.special_price
                 NT$
-                %span{:itemprop => "price"}
-                  = product.special_price
+                = product.special_price
+          %span{:itemprop => "availability"}
+            in_stock
           .p-overview{:itemprop => "description"}
             = truncate_html(strip_tags(product.quick_overview), length: 60)
   
