@@ -7,22 +7,23 @@
   <meta name="description" content="#{strip_tags(@product.quick_overview)}">
   <link rel="canonical" href="#{request.url.split('?').first}">
 
-.main-product.pull-left.margin-bottom
+.main-product.pull-left.margin-bottom{:itemscope => "", :itemtype => "http://schema.org/Product"}
   %ul.breadcrumb
     %li
       = link_to t('product.home'), root_path 
     %li.active
       = t("product.product")
     %li
-      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
+      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en), :itemprop => "category"
     %li
       - if @sub_category != @base_category
         = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
 
   #product
+    %span.product-brand{:itemprop => "brand"} HANCHOR
     .pic.pull-left
       .pic-img
-        =link_to image_tag(@product.product_pics.first.pic_url),@product.product_pics.first.pic_url, rel: "group"
+        =link_to image_tag(@product.product_pics.first.pic_url, :itemprop => "image"),@product.product_pics.first.pic_url, rel: "group"
       %fieldset
         %legend= t('product.more_views')
       .pics-group
@@ -30,7 +31,7 @@
           = link_to image_tag(pic.pic_url),pic.pic_url, rel: "group" if index >0
         
     .info.pull-left
-      %h2= @product.name
+      %h2{:itemprop => "name"}= @product.name
       = form_for @item, url: add_item_to_cart_cart_index_path(product: @product) do |f|
         %ul
           - if @product.weight.present?
@@ -71,7 +72,7 @@
         - if @product.sum_quantities > 0    
           = f.submit t('product.add_to_cart'), class: "btn btn-warning"
   .clearfix
-  .features
+  .features{:itemprop => "description"}
     %fieldset
       %legend= "#{t('product.feature')}"
     %p
