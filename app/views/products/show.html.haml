@@ -6,7 +6,44 @@
   <meta property="og:type" content="website" />
   <meta name="description" content="#{strip_tags(@product.quick_overview)}">
   <link rel="canonical" href="#{request.url.split('?').first}">
-
+%div{:itemscope => "", :itemtype => "http://data-vocabulary.org/Product"}
+  %span{:itemprop => "brand"} ACME
+  %span{:itemprop => "name"}
+    Executive
+    Anvil
+  %img{:itemprop => "image", :src => "anvil_executive.jpg"}/
+  %span{:itemprop => "description"}
+    Sleeker than ACME's Classic Anvil, the
+    Executive Anvil is perfect for the business traveler
+    looking for something to drop from a height.
+  Category:
+  %span{:content => "Hardware > Tools > Anvils", :itemprop => "category"} Anvils
+  Product #:
+  %span{:content => "mpn:925872", :itemprop => "identifier"}
+    925872
+  %span{:itemprop => "review", :itemscope => "", :itemtype => "http://data-vocabulary.org/Review-aggregate"}
+    %span{:itemprop => "rating"} 4.4
+    stars, based on
+    %span{:itemprop => "count"}
+      89
+    reviews
+  %span{:itemprop => "offerDetails", :itemscope => "", :itemtype => "http://data-vocabulary.org/Offer"}
+    Regular price: $179.99
+    %meta{:content => "USD", :itemprop => "currency"}/
+    $
+    %span{:itemprop => "price"} 119.99
+    (Sale ends
+    = succeed ")" do
+      %time{:datetime => "2020-11-05", :itemprop => "priceValidUntil"}
+        5 November!
+    Available from:
+    %span{:itemprop => "seller"} Executive Objects
+    Condition:
+    %span{:content => "used", :itemprop => "condition"}
+      Previously owned,
+      in excellent condition
+    %span{:content => "in_stock", :itemprop => "availability"} In stock! Order now!
+    
 .main-product.pull-left.margin-bottom{:itemscope => "", :itemtype => "http://data-vocabulary.org/product"}
   %meta{:content => "HANCHOR", :itemprop => "brand"}
   %meta{:content => @base_category.locale(params[:locale]), :itemprop => "category"}
