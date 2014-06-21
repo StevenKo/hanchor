@@ -19,6 +19,7 @@
     - @products.each do |product|
       .product_thumbs{:itemscope => "", :itemtype => "http://data-vocabulary.org/Product"}
         %meta{:content => "HANCHOR", :itemprop => "brand"}
+        %meta{:content => product.price.to_f, :itemprop => "price"}
         %meta{:content => @base_category.locale(params[:locale]), :itemprop => "category"}
         %meta{:content => products_show_url(product.product_category.name_en,product).split('?').first, :itemprop => "url"}
         =link_to products_show_path(product.product_category.name_en,product) do
@@ -30,11 +31,11 @@
             %meta{:content => "in_stock", :itemprop => "availability"}
             %meta{:content => "TWD", :itemprop => "currency"}
             %meta{:content => "new", :itemprop => "condition"}
+            %meta{:content => product.price.to_f, :itemprop => "price"}
             - unless product.special_price
               %span.price
                 NT$
-                %span{:itemprop => "price"}
-                  = product.price
+                = product.price
             - else
               %span.kill_price
                 NT$
@@ -42,8 +43,7 @@
                   = product.price
               %span.special_price
                 NT$
-                %span{:itemprop => "price"}
-                  = product.special_price
+                = product.special_price
           .p-overview{:itemprop => "description"}
             = truncate_html(strip_tags(product.quick_overview), length: 60)
   
