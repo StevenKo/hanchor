@@ -14,13 +14,12 @@
     %li.active
       = t("product.product")
     %li
-      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en), :itemprop => "category"
+      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
     %li
       - if @sub_category != @base_category
         = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
 
   #product
-    %span.product-brand{:itemprop => "brand"} HANCHOR
     .pic.pull-left
       .pic-img
         =link_to image_tag(@product.product_pics.first.pic_url, :itemprop => "image"),@product.product_pics.first.pic_url, rel: "group"
