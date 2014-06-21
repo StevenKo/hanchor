@@ -7,7 +7,7 @@
   <meta name="description" content="#{strip_tags(@product.quick_overview)}">
   <link rel="canonical" href="#{request.url.split('?').first}">
 
-.main-product.pull-left.margin-bottom{:itemscope => "", :itemtype => "http://schema.org/Product"}
+.main-product.pull-left.margin-bottom{:itemscope => "", :itemtype => "http://data-vocabulary.org/product"}
   %meta{:content => "HANCHOR", :itemprop => "brand"}
   %meta{:content => @base_category.locale(params[:locale]), :itemprop => "category"}
   %meta{:content => request.url.split('?').first, :itemprop => "url"}
