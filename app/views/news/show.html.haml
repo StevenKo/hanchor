@@ -5,7 +5,7 @@
   <meta property="og:description" content="#{strip_tags(@news.content)}" />
   <meta property="og:type" content="website" />
   <meta name="description" content="#{@news.title}">
-  <link rel="canonical" href="#{request.url.split('?').first}">
+  
 .main-content.pull-left
   %h2.news-title
     = link_to t('news_events'), news_index_path

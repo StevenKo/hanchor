@@ -1,7 +1,11 @@
 <!doctype html>
-%html
+%html{lang: params[:locale]}
   %head
     %meta{:charset => "utf-8"}
+    %link{rel: "alternate", hreflang: "x-default", href: "#{request.url.split('?').first}"}
+    %link{rel: "alternate", hreflang: "en", href: url_for(params.merge(:only_path => false, locale: "en"))}
+    %link{rel: "alternate", hreflang: "zh-TW", href: url_for(params.merge(:only_path => false, locale: "zh-TW"))}
+    %link{rel: "canonical", href: "#{request.url.split('?').first}"}
     / %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title Hanchor2012年創立於台灣, 手工製作戶外用品。穩固及堅持的精神, 由攀岩概念出發,高級環保材料,並致力於輕量化兼具堅固及功能性
     %meta{:content => t('key_words'), :name => "keywords"}
