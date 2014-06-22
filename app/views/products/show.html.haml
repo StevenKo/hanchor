@@ -12,16 +12,18 @@
   %meta{:content => @base_category.locale(params[:locale]), :itemprop => "category"}
   %meta{:content => request.url.split('?').first, :itemprop => "url"}
   %ul.breadcrumb
-    %li
-      = link_to t('product.home'), root_path 
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+      = link_to root_path ,:itemprop => "url" do
+        %span{:itemprop => "title"} #{t('product.home')}
     %li.active
       = t("product.product")
-    %li
-      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
-    %li
-      - if @sub_category != @base_category
-        = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
-
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+      = link_to products_index_path(@base_category.name_en),:itemprop => "url" do
+        %span{:itemprop => "title"} #{@base_category.locale(params[:locale])}
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+      - if @sub_category
+        = link_to products_index_path(@base_category.name_en, sub: @sub_category.name_en),:itemprop => "url" do
+          %span{:itemprop => "title"} #{@sub_category.locale(params[:locale])}
   #product
     .pic.pull-left
       .pic-img

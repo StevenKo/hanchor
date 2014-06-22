@@ -3,15 +3,18 @@
   <link rel="canonical" href="#{request.url.split('?').first}">
 .main-product.pull-left
   %ul.breadcrumb
-    %li
-      = link_to t('product.home'), root_path 
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+      = link_to root_path ,:itemprop => "url" do
+        %span{:itemprop => "title"} #{t('product.home')}
     %li.active
       = t("product.product")
-    %li
-      = link_to @base_category.locale(params[:locale]), products_index_path(@base_category.name_en)
-    %li
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+      = link_to products_index_path(@base_category.name_en),:itemprop => "url" do
+        %span{:itemprop => "title"} #{@base_category.locale(params[:locale])}
+    %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
       - if @sub_category
-        = link_to @sub_category.locale(params[:locale]), products_index_path(@base_category.name_en, sub: @sub_category.name_en)
+        = link_to products_index_path(@base_category.name_en, sub: @sub_category.name_en),:itemprop => "url" do
+          %span{:itemprop => "title"} #{@sub_category.locale(params[:locale])}
   .product_cate
     - @base_category.child_categories.visible.each do |c|
       = link_to c.locale(params[:locale]), products_index_path(@base_category.name_en, sub: c.name_en), class: "btn btn-sm btn-category"
