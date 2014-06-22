@@ -60,7 +60,7 @@ class Admin::ProductsController < Admin::AdminController
         @product = Product.create(product_param)
         @product.product_infos << ProductInfo.create(product_info_tw)
         @product.product_infos << ProductInfo.create(product_info_en)
-        @product.slug = @product.product_infos[1].name.to_slug
+        @product.slug = @product.product_infos[1].name.split(" ").join("-")
         @product.save
       end
         flash[:notice] = "Create success"
