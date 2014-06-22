@@ -5,45 +5,20 @@ SitemapGenerator::Sitemap.default_host = 'http://www.hanchor.com'
 SitemapGenerator::Sitemap.create_index = :auto
 SitemapGenerator::Sitemap.create do
   add '/aboutus', :changefreq => 'monthly'
-  add '/news',  :changefreq => 'monthly'
-  add '/products/packing',  :changefreq => 'monthly'
-  add '/products/accessories',  :changefreq => 'monthly'
-  add '/products/apparel',  :changefreq => 'monthly'
-  add '/products/others',  :changefreq => 'monthly'
-  add '/products/customization',  :changefreq => 'monthly'
+  add '/news',  :changefreq => 'monthly', :priority => 0.7
+  add '/products/packing',  :changefreq => 'monthly', :priority => 0.7
+  add '/products/accessories',  :changefreq => 'monthly', :priority => 0.7
+  add '/products/apparel',  :changefreq => 'monthly', :priority => 0.7
+  add '/products/others',  :changefreq => 'monthly', :priority => 0.7
+  add '/products/customization',  :changefreq => 'monthly', :priority => 0.7
   add '/shopping_guide', :changefreq => 'monthly'
-  add '/products/Packing/PIPE_-T1', :changefreq => 'monthly', :priority => 0.9
-  add '/products/SUL%20Series/ASH-SUL27_Backpack', :changefreq => 'monthly'
-  add '/products/SUL%20Series/ASH-SUL39_Backpack', :changefreq => 'monthly'
-  add '/products/Urban%20Climbing%20Series/KANGAROO', :changefreq => 'monthly', :priority => 0.9
-  add '/products/Urban%20Climbing%20Series/HULA', :changefreq => 'monthly', :priority => 0.9
-  add '/products/Commuter%20Series/Messenger_Bag_SCHIST_Small', :changefreq => 'monthly'
-  add '/products/Commuter%20Series/Messenger_Bag_SCHIST', :changefreq => 'monthly'
-  add '/products/Packing/Shoulder_Bag_SLATE', :changefreq => 'monthly'
-  add '/products/accessories/MICA', :changefreq => 'monthly'
-  add '/products/accessories/RIPPLE', :changefreq => 'monthly'
-  add '/products/accessories/GRANULE', :changefreq => 'monthly'
-  add '/products/accessories/Flat_Pouch', :changefreq => 'monthly'
-  add '/products/accessories/Ultrabook_Sleeve', :changefreq => 'monthly'
-  add '/products/accessories/Tablet_Sleeve', :changefreq => 'monthly'
-  add '/products/accessories/Stationery_Pocket', :changefreq => 'monthly'
-  add '/accessories/Pocket_L', :changefreq => 'monthly'
-  add '/accessories/Pocket_M', :changefreq => 'monthly'
-  add '/apparel/HANCHOR_LOGO_TSHIRT_Grey', :changefreq => 'monthly'
-  add '/apparel/HANCHOR_LOGO_TSHIRT_white', :changefreq => 'monthly'
-  add '/others/OTTOMAN_ROPE_CLIP', :changefreq => 'monthly'
-  add '/others/Two_strike_Delivery_within_Taiwan', :changefreq => 'monthly'
-  add '/others/HANCHOR_SUL_Sleeping_Pad_half_Delivery_within_Taiwan', :changefreq => 'monthly'
-  add '/others/HANCHOR_SUL_Sleeping_Pad_full_Delivery_within_Taiwan', :changefreq => 'monthly'
-  add '/others/Rock_Climbing_Taiwan_Guidebook', :changefreq => 'monthly'
-  add '/products/customization/Custom_COBBLE', :changefreq => 'monthly'
-  add '/products/customization/Custom_GRANULE', :changefreq => 'monthly'
-  add '/products/customization/Custom_PIPE', :changefreq => 'monthly'
-  add '/products/customization/Custom_MOAI', :changefreq => 'monthly'
-  add '/products/customization/Custom_DUOSCHIST', :changefreq => 'monthly'
-  add '/products/customization/Custom_DUOSCHIST_Small', :changefreq => 'monthly'
-  add '/products/customization/Custom_CHAMBER_MINI', :changefreq => 'monthly'
-  add '/products/customization/Custom_SLATE', :changefreq => 'monthly'
-  add '/products/deal/iPhone_Sleeve_special_edition', :changefreq => 'monthly'
+  News.find_each do |news|
+    add news_path(news), lastmod: news.updated_at, changefreq: 'monthly'
+  end
+
+  Product.find_each do |product|
+    add products_show_path(product.product_category.name_en,product)
+  end
+
 end
 SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake tasks
