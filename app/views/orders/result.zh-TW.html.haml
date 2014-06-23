@@ -1,3 +1,7 @@
+= content_for :head do
+  <meta name="description" content="Order Success">
+  <title>HANCHOR｜#{t("cart.confirm")}</title>
+
 .result{:style => "padding-left:25px;"}
   = "Dear #{current_user.name}"
   - if @order.payment == "PayPal"
