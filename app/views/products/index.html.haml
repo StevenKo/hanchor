@@ -1,5 +1,5 @@
 = content_for :head do
-  <meta name="description" content="#{t("product_description")}">
+  <meta name="description" content="#{@base_category.locale(params[:locale])}|#{@sub_category.locale(params[:locale]) if @sub_category}|#{t("product_description")}">
   <title>HANCHOR｜#{@base_category.locale(params[:locale])}</title>
   
 .main-product.pull-left
