@@ -30,7 +30,7 @@
             %td= order.total
             -if (order.is_payed)
               %td= t("order.payed")
-            -else
+            -elsif order.payment != "貨到付款"
               %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", id: "order_modal_link", class: "btn btn-md btn-warning", data: {order_id: order.id}
 
           %tr{:style => "display: none;"}
@@ -50,22 +50,24 @@
                     %th #{t('account.order_detail.zip_code')}
                     %th #{t('account.order_detail.city')}
                   %tr
-                    %td= order.shipping_store
+                    %td= order.ship_store_display
                     %td= order.zip_code
                     %td= order.city
                   %tr
                     %th #{t('account.order_detail.order_item_name')}
                     %th #{t('account.order_detail.order_item_quantity')}
                     %th #{t('account.order_detail.order_item_price')}
-                  %tr
-                    -order.order_items.each do |item|
-                      %td= item.product.product_infos.where("product_infos.country_id = #{@country_id}")[0].name
+                  -order.order_items.each do |item|
+                    %tr
+                      %td= item.display_name(@country_id,params[:locale])
                       %td= item.quantity
                       %td= item.price * item.quantity
                   %tr
+                    %th{:colspan => "3"} #{t('account.address')}
+                  %tr
+                    %td{:colspan => "3"} #{order.shipping_address} 
                   %tr
                     %th{:colspan => "3"} #{t('account.order_detail.notes')}
-                  %tr
                   %tr
                     %td{:colspan => "3"} #{order.memo}
                   %tr

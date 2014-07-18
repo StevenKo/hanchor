@@ -42,4 +42,12 @@ class Order < ActiveRecord::Base
     self.store_name = "fake"
   end
 
+  def pay_by_paypal_or_transfer
+    (payment == "PayPal" || payment == "貨到付款") ? true : false 
+  end
+
+  def ship_store_display
+    (shipping_store.blank? || shipping_store == ",") ? "N/A" : shipping_store
+  end
+
 end

@@ -4,7 +4,7 @@
 
 .result{:style => "padding-left:25px;"}
   = "Dear #{current_user.name}"
-  - if @order.payment == "PayPal"
+  - if (@order.pay_by_paypal_or_transfer)
     %p
     您的訂單已完成，HANCHOR將於確認訂單後立刻處理並寄出您的商品，亦可隨時至
     = link_to "我的訂單(My Orders)", account_orders_path

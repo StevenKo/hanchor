@@ -55,7 +55,7 @@
               %td.green{:align => "center"}= (order.is_payed) ? t("order.payed") : t("order.not_payed")
               -if (order.is_payed)
                 %td= t("order.payed")
-              -else
+              -elsif order.payment != "貨到付款"
                 %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", id: "order_modal_link", class: "btn btn-md btn-warning", data: {order_id: order.id}
       = link_to t("more"), account_orders_path, class: "btn btn-md btn-warning"
 
