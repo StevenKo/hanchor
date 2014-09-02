@@ -13,13 +13,13 @@
           - if product.new_record?
             請先新增product，再修改
           - else
-            = product.product_colors.map{ |c|  "#{c.color}/#{c.color_en}"}.join(" ")
+            = product.product_colors.not_deleted.map{ |c|  "#{c.color}/#{c.color_en}"}.join(" ")
             = link_to "修改or增加顏色", admin_product_product_colors_path(product), class: "btn"
         = f.control_group "", label: { text: '尺寸' } do
           - if product.new_record?
             請先新增product，再修改
           - else
-            = product.product_sizes.map{ |c|  "#{c.size}/#{c.size_en}"}.join(" ")
+            = product.product_sizes.not_deleted.map{ |c|  "#{c.size}/#{c.size_en}"}.join(" ")
             = link_to "修改or增加尺寸", admin_product_product_sizes_path(product), class: "btn"
         = f.control_group "", label: { text: '數量' } do
           - if product.new_record?
