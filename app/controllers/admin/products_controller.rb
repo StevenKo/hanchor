@@ -61,7 +61,7 @@ class Admin::ProductsController < Admin::AdminController
         @product.product_infos << ProductInfo.create(product_info_tw)
         @product.product_infos << ProductInfo.create(product_info_en)
         @product.slug = @product.product_infos[1].name.split(" ").join("-")
-        binding.pry
+        @product.slug = @product.id if @product.slug.blank?
         @product.save
       end
         flash[:notice] = "Create success"
