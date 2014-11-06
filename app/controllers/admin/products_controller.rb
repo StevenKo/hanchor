@@ -35,7 +35,6 @@ class Admin::ProductsController < Admin::AdminController
         info_en = @product.product_infos[1]
         info_en.shipping = params[:shipping][:en] if params[:shipping]
         info_en.update(product_info_en)
-        @product.slug = @product.product_infos[1].name.to_slug
         @product.save
       end
       flash[:notice] = "Update success"
@@ -60,7 +59,7 @@ class Admin::ProductsController < Admin::AdminController
         @product = Product.create(product_param)
         @product.product_infos << ProductInfo.create(product_info_tw)
         @product.product_infos << ProductInfo.create(product_info_en)
-        @product.slug = @product.product_infos[1].name.split(" ").join("-")
+        @product.slug = @product.product_infos[1].name.to_slug.to_s
         @product.slug = @product.id if @product.slug.blank?
         @product.save
       end

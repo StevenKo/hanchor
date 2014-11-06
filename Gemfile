@@ -25,6 +25,8 @@ gem 'actionview-encoded_mail_to'
 #分頁
 gem 'will_paginate'
 
+gem 'babosa'
+
 group :doc do
   gem 'sdoc', require: false
 end
