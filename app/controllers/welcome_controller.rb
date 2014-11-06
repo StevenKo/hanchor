@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
 
   def faq
     @faq = Faq.find_by(country_id: @country_id, purpose: "faq")
+    redirect_to :shopping_guide if @country_id == 2
   end
 
   def shopping_guide
