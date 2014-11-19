@@ -10,7 +10,7 @@ class Cart < ActiveRecord::Base
       :return => return_url,
       :invoice => order_id,
       :lc => locale,
-      :currency_code => currency_code(locale),
+      :currency_code => "TWD",
       :notify_url => notify_url,
       :charset => 'utf-8'
     }
@@ -27,10 +27,6 @@ class Cart < ActiveRecord::Base
       "quantity_#{cart_items.size+1}" => 1
     })
     "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
-  end
-
-  def currency_code(locale)
-    (locale=="en")? "USD" : "TWD"
   end
 
   def locale_price(amount,locale)
