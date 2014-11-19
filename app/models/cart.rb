@@ -16,21 +16,17 @@ class Cart < ActiveRecord::Base
     }
     cart_items.each_with_index do |item, index|
       values.merge!({
-        "amount_#{index+1}" => locale_price(item.price,locale),
+        "amount_#{index+1}" => item.price,
         "item_name_#{index+1}" => item.product.product_infos.first.name,
         "quantity_#{index+1}" => item.quantity
       })
     end
     values.merge!({
-      "amount_#{cart_items.size+1}" => locale_price(shipping_cost.cost,locale),
+      "amount_#{cart_items.size+1}" => shipping_cost.cost,
       "item_name_#{cart_items.size+1}" => shipping_cost.description,
       "quantity_#{cart_items.size+1}" => 1
     })
     "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
-  end
-
-  def locale_price(amount,locale)
-    (locale=="en")? (amount/29.9).round(2) : amount
   end
 
 end
