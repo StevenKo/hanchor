@@ -19,7 +19,12 @@ class CartController < ApplicationController
     (info.special_price.present?) ?  item.price = info.special_price : item.price = info.price
     
     if current_shopping_cart
-      item.cart = current_shopping_cart
+      if current_shopping_cart.cart_items.select("product_id").map{|c| c.product_id}.include?(product.id)
+        item = current_shopping_cart.cart_items.find_by(product_id: product.id)
+        item.quantity = params[:quantity]
+      else
+        item.cart = current_shopping_cart
+      end 
     else
       cart = Cart.create(user_id: session[:user_id])
       session[:cart_id] = cart.id
