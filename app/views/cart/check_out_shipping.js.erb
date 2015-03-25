@@ -10,9 +10,9 @@ $("#sum").text("<%= @shipping.cost + params[:sub_total].to_i %>");
 <% if params[:shipping_cost_id] == "6" %>
   $('.pay_when_shipped').show();
   $('.tw_payment').hide();
-  $('#order_payment_pay_when_shipped').prop('checked', true);
+  $('#order_payment_').prop('checked', true);
 <% else %>
   $('.tw_payment').show();
   $('.pay_when_shipped').hide();
-  $('#order_payment_pay_when_shipped').prop('checked', false);
+  $('#order_payment_paypal').prop('checked', true);
 <% end %>
