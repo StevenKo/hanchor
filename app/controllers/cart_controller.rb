@@ -20,8 +20,7 @@ class CartController < ApplicationController
     
     if current_shopping_cart
       if current_shopping_cart.cart_items.select("product_id").map{|c| c.product_id}.include?(product.id)
-        item = current_shopping_cart.cart_items.find_by(product_id: product.id)
-        item.quantity = params[:quantity]
+        item = set_item_by_check_item_color_size(current_shopping_cart,product,item)
       else
         item.cart = current_shopping_cart
       end 
@@ -33,6 +32,17 @@ class CartController < ApplicationController
     item.save
 
     redirect_to products_show_path(product.product_category.name_en, product)
+  end
+
+  def set_item_by_check_item_color_size(current_shopping_cart,product,item)
+    cart_item = current_shopping_cart.cart_items.find_by(product_id: product.id)
+    if (cart_item.product_color_id == item.product_color_id && cart_item.product_size_id == item.product_size_id)
+      item = cart_item
+      item.quantity = params[:quantity]
+    else
+      item.cart = current_shopping_cart
+    end
+    item
   end
 
   def remove_cart_item
