@@ -3,6 +3,6 @@ class Video < ActiveRecord::Base
 
   def youtube_embed_link
     /v=(.{11})/ =~ link
-    "http://www.youtube.com/embed/#{$1}"
+    "https://www.youtube.com/embed/#{$1}"
   end
 end
