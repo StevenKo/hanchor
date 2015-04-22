@@ -8,7 +8,7 @@
       %td= display_date(@order.created_at)
     %tr
       %th 名字
-      %td= @order.shipping_name
+      %td= link_to  @order.shipping_name, admin_user_path(@order.user_id)
     %tr
       %th 聯絡電話
       %td= @order.phone
