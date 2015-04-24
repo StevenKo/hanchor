@@ -1,7 +1,7 @@
 = content_for :head do
   <meta property="og:title"  content="#{@news.title}" />
   <meta property="og:image"  content="#{image_url(@news.pic)}" />
-  <meta property="og:url"  content="#{request.url.split('?').first.gsub("https","http")}" />
+  <meta property="og:url"  content="#{request.url.split('?').first}" />
   <meta property="og:description" content="#{truncate(strip_tags(@news.content), length: 200)}" />
   <meta property="og:type" content="website" />
   <meta name="description" content="#{truncate(strip_tags(@news.content), length: 200)}">
