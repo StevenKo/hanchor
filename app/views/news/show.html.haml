@@ -1,7 +1,7 @@
 = content_for :head do
   <meta property="og:title"  content="#{@news.title}" />
   <meta property="og:image"  content="#{image_url(@news.pic)}" />
-  <meta property="og:url"  content="#{request.url.split('?').first}" />
+  <meta property="og:url"  content="#{request.url.split('?').first.gsub("https","http")}" />
   <meta property="og:description" content="#{truncate(strip_tags(@news.content), length: 200)}" />
   <meta property="og:type" content="website" />
   <meta name="description" content="#{truncate(strip_tags(@news.content), length: 200)}">
@@ -19,8 +19,8 @@
     .content
       = image_tag @news.pic
       = @news.content.html_safe
-      .fb-like{"data-href" => request.url.split('?').first, "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
-      .fb-comments{"data-href" => request.url.split('?').first, "data-width" => "470"}
+      .fb-like{"data-href" => request.url.split('?').first.gsub("https","http"), "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
+      .fb-comments{"data-href" => request.url.split('?').first.gsub("https","http"), "data-width" => "470"}
   = link_to "&#171;back to news".html_safe, news_index_path
 
 .sidebar-content.pull-left
