@@ -5,11 +5,12 @@
     %link{rel: "alternate", hreflang: "x-default", href: "#{request.url.split('?').first}"}
     %link{rel: "alternate", hreflang: "en", href: url_for(params.merge(:only_path => false, locale: "en"))}
     %link{rel: "alternate", hreflang: "zh-TW", href: url_for(params.merge(:only_path => false, locale: "zh-TW"))}
-    %link{rel: "canonical", href: "#{request.url.split('?').first.gsub("https","http")}"}
+    %link{rel: "canonical", href: "#{request.url.split('?').first}"}
     / %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %meta{:content => t('key_words'), :name => "keywords"}
     %meta{:content => "www.hanchor.com", :name => "author"}
     %meta{:content => "356939360986455", :property => "fb:app_id"}
+    %meta{:content => "10200244467143624", :property => "fb:admins"}
     %meta{content: "B8bPUVgj7JcuDMB3rFWoL-RvX3g1hnX6xWG0lfAl7fs", name: "google-site-verification"}/
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
