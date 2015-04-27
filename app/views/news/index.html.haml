@@ -2,41 +2,16 @@
   <meta name="description" content="#{t("blog_description")}">
   <title>HANCHOR｜#{t("news_events")}</title>
   
-.main-content.pull-left
-  %h2.news-title
-    = link_to t('news_events'), news_index_path
-  - @news.each_with_index do |news_item,i|
-    .news_item
-      .news-head.clearfix
-        %h4.title.pull-left
-          =link_to news_item.title,news_path(news_item)
-        .postdate.pull-right
-          = news_item.release_date.strftime("%Y-%m-%d")
-      .content
-        -if(i==0)
-          = image_tag news_item.pic
-          = news_item.content.html_safe
-        -else
-          = image_tag news_item.pic, class: "small"
-          = truncate_html(news_item.content, length: 150)
-          .read-more
-            = link_to "read more", news_path(news_item)
+%ul.nav.nav-pills.news
+  %li#news-all= link_to "全部報導",news_index_path,class: "nav-news"
+  - @tags_selector.each do |tag|
+    %li= link_to tag.locale(params[:locale]), list_news_index_path(news_tag_id: tag), { data: { tag_id: tag.id },class: "nav-news" } 
+
+#news
+  = render @news
+
+#with-button
   = will_paginate(@news, :renderer => 'BootstrapPaginationHelper::LinkRenderer')
-  / = will_paginate @news
-  / %ul.pagination
-  /   %li
-  /     %a{href: "#"} &#171;
-  /   %li
-  /     %a{href: "#", :class => "active"} 1
-  /   %li
-  /     %a{href: "#"} 2
-  /   %li
-  /     %a{href: "#"} 3
-  /   %li
-  /     %a{href: "#"} 4
-  /   %li
-  /     %a{href: "#"} 5
-  /   %li
-  /     %a{href: "#"} &#187;
-.sidebar-content.pull-left
-  = render "sidebar", news: @recent_news
+.center-div
+  - if @news.next_page 
+    #load-more-btn.btn.btn-primary.btn-lg.load-more 更多文章

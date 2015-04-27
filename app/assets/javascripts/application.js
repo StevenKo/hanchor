@@ -17,6 +17,9 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require ckeditor/init
+//= require imagesloaded.pkgd.min
+//= require masonry.pkgd.min
+//= require history.jquery
 //= require_tree .
 //= require twitter/bootstrap
 

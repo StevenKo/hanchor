@@ -38,4 +38,81 @@
 			font-size: 20px;
 		}
 	}
+
+	.product_thumbs {
+    background: none repeat scroll 0 0 #F6F7F9;
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    height: 370px;
+    margin: 6px 3px;
+    padding: 10px;
+    vertical-align: top;
+    width: 225px;
+    img {
+      width: 205px;
+    }
+    .p-name {
+      padding: 8px 0;
+      font-weight: bold;
+    }
+    .p-price {
+      padding-bottom: 8px;
+      color: #333;
+    }
+    .p-overview {
+      line-height: 20px;
+      color: #333;
+    }
+  }
+
+	#news .news_thumbs {
+
+		background: none repeat scroll 0 0 #F6F7F9;
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px 3px;
+    padding: 10px;
+    vertical-align: top;
+    width: 225px;
+    img {
+      width: 100%;
+    }
+    .title {
+      padding: 8px 0;
+      font-weight: bold;
+      color: black;
+    }
+	}
+
+  #with-button{
+    display: none;
+  }
+
+  .center-div{
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+
+    .load-more{
+      margin-bottom: 30px;
+    }
+  }
+
+  .nav-pills.news li a {
+    border-radius: 0px;
+    color: white;
+    margin: 6px 3px;
+  }
+
+  .nav-news {
+    background-color: #B4D4F0;
+  }
+
+  li.active .nav-news {
+    background-color: #428bca;
+  }
 }

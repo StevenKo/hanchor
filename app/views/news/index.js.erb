@@ -1,0 +1,21 @@
+$container = $('#news');
+$container.append('<%= j render @news %>').masonry( 'reloadItems' );
+
+reload_masonry = function() {
+  $container.imagesLoaded(function() {
+    $container.masonry({
+      itemSelector: ".news_thumbs"
+    });
+  });
+};
+
+
+window.setTimeout(reload_masonry, 100);
+
+<% if @news.next_page %>
+  $('.pagination').replaceWith("<%= j will_paginate(@news, :renderer => 'BootstrapPaginationHelper::LinkRenderer') %>");
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+  $('#load-more-btn').remove();
+<% end %>
