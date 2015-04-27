@@ -20,10 +20,10 @@ $ ->
 
 
 $ ->
-  page_regexp = /\d+$/
+  page_regexp = /news_tag_id=(\d+).*page=(\d+)/
 
-  pushPage = (page) ->
-    History.pushState null, "InfiniteScrolling | Page " + page, "?page=" + page
+  pushPage = (news_tag_id,page) ->
+    History.pushState null, "Hanchor | Page " + page, "?news_tag_id="+ news_tag_id + "&page=" + page
     return
 
   hash = window.location.hash
@@ -46,7 +46,11 @@ $ ->
         $this.html('<img src="' + $gif + '" alt="Loading..." title="Loading..." />').addClass('disabled')
         $.getScript more_posts_url, ->
           $this.text(more_text).removeClass('disabled') if $this
-          pushPage(more_posts_url.match(page_regexp)[0])
+          if more_posts_url.match(page_regexp)
+            pushPage(more_posts_url.match(page_regexp)[1],more_posts_url.match(page_regexp)[2])
+          else
+            pushPage(0,more_posts_url.match(/page=(\d+)/)[1])
+
           loading_posts = false
       return
     

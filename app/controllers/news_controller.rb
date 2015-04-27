@@ -16,7 +16,7 @@ class NewsController < ApplicationController
 
   def list
     @tags_selector = NewsTag.all.map{ |tag| [tag.locale(params[:locale]),tag.id]}
-    if params[:news_tag_id].present?
+    if params[:news_tag_id].present? && params[:news_tag_id] != "0"
       news_tag = NewsTag.find(params[:news_tag_id])
       @news = news_tag.news.locale(params[:locale]).select("news.id, title, release_date,pic").paginate(:page => params[:page], :per_page => 10).order("news.release_date DESC")
     else
