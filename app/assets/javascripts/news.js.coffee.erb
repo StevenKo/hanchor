@@ -38,24 +38,15 @@ $ ->
     loading_posts = false
  
     $('#load-more-btn').show().click ->
+      more_text = $('#load-more-btn').text()
       unless loading_posts
         loading_posts = true
         more_posts_url = $('.pagination a.next').attr('href')
         $this = $(this)
         $this.html('<img src="' + $gif + '" alt="Loading..." title="Loading..." />').addClass('disabled')
         $.getScript more_posts_url, ->
-          $this.text('更多文章').removeClass('disabled') if $this
+          $this.text(more_text).removeClass('disabled') if $this
           pushPage(more_posts_url.match(page_regexp)[0])
           loading_posts = false
       return
-
-
-$ ->
-  url = window.location.href;
-  tag_regexp = /news_tag_id=(\d+)/
-  try
-    tag_id = url.match(tag_regexp)[1]
-    $("a[data-tag-id=" + tag_id + "\]").parent().addClass('active');
-  catch err
-    $("#news-all").addClass('active');
     

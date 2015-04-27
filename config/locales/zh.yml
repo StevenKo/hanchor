@@ -40,6 +40,7 @@ zh:
   news:
     new_article: "最新文章"
     more_article: "更多文章"
+    category: "文章類別:"
 
   account:
     name: "姓名<span class='red-star'>*</span>"

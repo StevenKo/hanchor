@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
   def index
     @news = News.locale(params[:locale]).select("news.id, title, release_date,pic").paginate(:page => params[:page], :per_page => 10).order("release_date DESC")
-    @tags_selector = NewsTag.all
+    @tags_selector = NewsTag.all.map{ |tag| [tag.locale(params[:locale]),tag.id]}
     respond_to do |format|
       format.html
       format.js
@@ -15,7 +15,7 @@ class NewsController < ApplicationController
   end
 
   def list
-    @tags_selector = NewsTag.all
+    @tags_selector = NewsTag.all.map{ |tag| [tag.locale(params[:locale]),tag.id]}
     if params[:news_tag_id].present?
       news_tag = NewsTag.find(params[:news_tag_id])
       @news = news_tag.news.locale(params[:locale]).select("news.id, title, release_date,pic").paginate(:page => params[:page], :per_page => 10).order("news.release_date DESC")

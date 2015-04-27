@@ -88,10 +88,6 @@
     }
 	}
 
-  #with-button{
-    display: none;
-  }
-
   .center-div{
     text-align: center;
     width: 100%;
@@ -102,17 +98,7 @@
     }
   }
 
-  .nav-pills.news li a {
-    border-radius: 0px;
-    color: white;
+  .select_category{
     margin: 6px 3px;
-  }
-
-  .nav-news {
-    background-color: #B4D4F0;
-  }
-
-  li.active .nav-news {
-    background-color: #428bca;
   }
 }

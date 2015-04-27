@@ -38,6 +38,7 @@ en:
   news:
     new_article: "Recent Posts"
     more_article: "More"
+    category: "Categories:"
 
   account:
     name: "Full Name<span class='red-star'>*</span>"

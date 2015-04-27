@@ -1,11 +1,11 @@
 = content_for :head do
   <meta name="description" content="#{t("blog_description")}">
   <title>HANCHOR｜#{t("news_events")}</title>
-  
-%ul.nav.nav-pills.news
-  %li#news-all= link_to "全部報導",news_index_path,class: "nav-news"
-  - @tags_selector.each do |tag|
-    %li= link_to tag.locale(params[:locale]), list_news_index_path(news_tag_id: tag), { data: { tag_id: tag.id },class: "nav-news" } 
+
+.select_category
+  = form_tag(list_news_index_path,method: :get) do |f|
+    = label_tag :news_tag_id, t('news.category')
+    = select_tag :news_tag_id, options_for_select(@tags_selector, params[:news_tag_id]), prompt: "All"
 
 #news
   = render @news
@@ -14,4 +14,4 @@
   = will_paginate(@news, :renderer => 'BootstrapPaginationHelper::LinkRenderer')
 .center-div
   - if @news.next_page 
-    #load-more-btn.btn.btn-primary.btn-lg.load-more 更多文章
+    #load-more-btn.btn.btn-primary.btn-lg.load-more #{t('news.more_article')}
