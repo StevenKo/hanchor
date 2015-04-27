@@ -4,6 +4,7 @@
 
 .select_category
   = form_tag(list_news_index_path,method: :get) do |f|
+    = hidden_field_tag :locale , params[:locale]
     = label_tag :news_tag_id, t('news.category')
     = select_tag :news_tag_id, options_for_select(@tags_selector, params[:news_tag_id]), prompt: "All"
 
