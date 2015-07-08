@@ -20,16 +20,16 @@
       %li
         = link_to t('q_and_a'), shopping_guide_path
     .paypal-logo
-      / PayPal Logo
-      %table{:align => "center", :border => "0", :cellpadding => "5", :cellspacing => "0"}
-        %tbody
-          %tr
-            %td{:align => "center"}
-          %tr
-            %td{:align => "center"}
-              %a{:href => "http://paypal.com"}
-                %img{:alt => "Additional Options", :border => "0", :src => "https://www.paypal.com/en_US/Marketing/i/banner/bnr_accept_120x30_y.gif"}/
-      / PayPal Logo
+      = link_to image_tag('https://www.paypal.com/en_US/Marketing/i/banner/bnr_accept_120x30_y.gif'),"http://paypal.com", target: "_blank"
+    .facebook-page
+      = link_to image_tag('fb-f-logo.png'),"https://www.facebook.com/HANCHORSTUDIO", target: "_blank"
+    .twitter-page
+      = link_to image_tag('twitter-logo.png'),"https://twitter.com/HANCHORSTUDIO", target: "_blank"
+    .pinterest-page
+      = link_to image_tag('Pinterest_Badge_Red.png'),"https://www.pinterest.com/hanchorproduct/", target: "_blank"
+    .istagram-page
+      = link_to image_tag('Instagram_Icon.png'),"https://instagram.com/hanchor_studio/", target: "_blank"
+
     .copyright.clearfix
       =mail_to "info@hanchor.com", "info@hanchor.com", encode: "hex"
       %br
