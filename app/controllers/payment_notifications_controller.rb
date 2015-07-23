@@ -12,7 +12,9 @@ class PaymentNotificationsController < ApplicationController
       order.save
       UserMailer.order_notification(order.user,order).deliver
     elsif(params[:payment_status] == "Canceled_Reversal" || params[:payment_status] == "Denied")
-      Order.destroy(params[:invoice])
+      order = Order.find(params[:invoice])
+      order.is_show = false
+      order.save
     end
     render :nothing => true
   end
