@@ -51,7 +51,9 @@ class OrdersController < ApplicationController
   def result
     current_shopping_cart.delete if current_shopping_cart
     session[:cart_id] = nil
-    @order = Order.find(params[:order])
+    @order = Order.find_by(id: params[:order], user_id: current_user.id)
+
+    redirect_to root_path if @order.nil?
   end
 
   private
