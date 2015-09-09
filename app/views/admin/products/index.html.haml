@@ -21,7 +21,7 @@
   - @products.each do |product|
     %tr
       %td= product.no
-      %td= product.product_category.name
+      %td= (product.product_category.present?) ? product.product_category.name : "none"
       %td= product.name
       %td= product.price
       %td= product.special_price
