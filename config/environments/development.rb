@@ -29,4 +29,8 @@ Hanchor::Application.configure do
 
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.integration_mode = :development
+  end
 end

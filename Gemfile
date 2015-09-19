@@ -22,6 +22,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'sitemap_generator'
 gem 'actionview-encoded_mail_to'
 
+gem 'activemerchant'
+gem 'active_merchant_allpay'
+
 #分頁
 gem 'will_paginate'
 

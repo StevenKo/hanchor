@@ -9,7 +9,11 @@ Hanchor::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :payment_notifications, only: [:create]
+  resources :payment_notifications, only: [:create] do
+    collection do
+      post :allpay
+    end
+  end
 
   resources :users, only: [:create,:update]
 
@@ -55,6 +59,7 @@ Hanchor::Application.routes.draw do
   resources :orders, only: [:create] do
     collection do
       get 'result'
+      get 'pay_with_credit_card'
     end
   end
 

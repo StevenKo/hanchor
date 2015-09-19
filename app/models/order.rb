@@ -50,4 +50,12 @@ class Order < ActiveRecord::Base
     (shipping_store.blank? || shipping_store == ",") ? "N/A" : shipping_store
   end
 
+  def sum_item_price
+    sum = 0
+    order_items.each do |item|
+      sum += (item.price * item.quantity)
+    end
+    sum
+  end
+
 end

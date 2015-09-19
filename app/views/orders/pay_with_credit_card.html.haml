@@ -1,0 +1,110 @@
+%h2
+  = t('cart.info')
+#payment_user_info
+  %table.table.table-bordered
+    %tbody
+      %tr
+        %td=t('cart.user_name').html_safe
+        %td= @order.shipping_name
+      %tr
+        %td= t('cart.phone').html_safe
+        %td= @order.phone
+      %tr
+        %td= t('cart.address').html_safe
+        %td= @order.shipping_address
+      %tr
+        %td= t('cart.zip_code').html_safe
+        %td= @order.zip_code
+      %tr
+        %td= t('cart.city').html_safe
+        %td= @order.city
+      %tr
+        %td= t('cart.state').html_safe
+        %td= @order.state
+      %tr
+        %td= t('cart.country').html_safe
+        %td= @order.country
+      %tr
+        %td= t('cart.shipping').html_safe
+        %td= @order.shipping_cost.description
+
+%h2
+  = t('cart.comment')
+
+%table.table.table-bordered
+  %tbody
+    %tr
+      %td= @order.memo
+
+
+%h2
+  = t('cart.order')
+
+#order-overview
+  %table.table.table-bordered.cart_table
+    %thead
+      %tr
+        %td= t('cart.picture')
+        %td= t('cart.name')
+        %td= t('cart.unit_price')
+        %td= t('cart.size')
+        %td= t('cart.color')
+        %td= t('cart.quantity')
+        %td= t('cart.subtotal')
+    %tbody
+      - @order.order_items.each_with_index do |item, i|
+        %tr
+          %td
+            =image_tag @order_products[i].thumb.pic_url, width: "90",border: 0
+          %td
+            = @order_products[i].name
+          %td
+            NT$
+            = item.price
+          %td
+            = item.product_size.locale_size(params[:locale]) if item.product_size
+          %td
+            = item.product_color.locale_color(params[:locale]) if item.product_color
+          %td
+            = item.quantity
+          %td
+            NT$
+            = item.price * item.quantity
+      %tr#shippig_cost_tr{:bgcolor => "FFF9E5"}
+        %td{:align => "right", :colspan => "6"}= t('cart.shipping_cost')
+        %td{:align => "right", :style => "font-size:1.2em; font-weight:bold"}
+          NT$
+          %span#total= @order.shipping_cost.cost
+      %tr#subtotal_tr{:bgcolor => "FFF9E5"}
+        %td{:align => "right", :colspan => "6"}
+          = t('cart.items')
+          \:
+          = succeed "," do
+            %strong= @order.order_items.size
+          = t('cart.subtotal')
+        %td{:align => "right", :style => "font-size:1.2em; font-weight:bold"}
+          NT$#{@order.sum_item_price}
+      %tr
+        %td{:colspan => "6", :class => "total"}= t('cart.sum')
+        %td.total-price
+          NT$
+          %span#sum
+            = @order.total
+
+.center-div.allpay_btn
+  - payment_service_for  @order,current_user.email,:service => :allpay,:html    => { :id => 'allpay-atm-form', :method => :post } do |service|
+    - service.merchant_trade_no @order.code
+    - service.merchant_trade_date @order.created_at
+    - service.total_amount @order.total
+    - service.description "HANCHOR CO., LTD"
+    - service.item_name @order_products.map(&:name).join(",")
+    - service.choose_payment ActiveMerchant::Billing::Integrations::Allpay::PAYMENT_CREDIT_CARD
+    - service.return_url result_orders_url(order: @order)
+    - service.notify_url allpay_payment_notifications_url
+    - service.encrypted_data
+    = submit_tag t('cart.pay_by_credit_card'),class: "btn btn-md btn-primary"
+
+:javascript
+  $("input[name=utf8]").remove();
+  $("input[name=authenticity_token]").remove();
+  $("input[name=commit]").removeAttr("name");

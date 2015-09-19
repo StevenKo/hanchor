@@ -127,9 +127,9 @@ en:
     state: "State<span class='red-star'>*</span>"
     country: "Country<span class='red-star'>*</span>"
     shipping: "Shipping<span class='red-star'>*</span>: "
-
     payment_info: "Payment Information<span class='red-star'>*</span>"
     credit_card: "PayPal"
+    pay_by_credit_card: "Pay by Credit Card"
     comment: "Comment"
     order: "Order Detail"
     confirm: "Confirm"
