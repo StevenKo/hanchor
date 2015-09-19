@@ -26,14 +26,7 @@ class OrdersController < ApplicationController
         @order.update_attribute(:code, @order.created_at.utc.strftime("%y%m%d")+ (Order.where("created_at > ?", @order.created_at.utc.to_date).size).to_s.rjust(3, '0'))
         @order.deduct_quanitity
         if(@order.payment == "PayPal" && ["zh-TW","zh"].include?( params[:locale] ))
-          product_ids = @order.order_items.map(&:product_id)
-          products = Product.includes(:thumb,:product_category).joins(:product_infos).where("product_infos.country_id = #{@country_id} and products.id in (#{product_ids.join(",")})").cart_info
-          product_infos = {}
-          products.each {|product| product_infos[product.id] = product}
-          @order_products = []
-          product_ids.each { |id| @order_products << product_infos[id] }
-
-          render :pay_with_credit_card
+          redirect_to pay_with_credit_card_orders_path(order: @order)
         elsif(@order.payment == "PayPal")
           return_url = result_orders_url(order: @order)
           redirect_to current_shopping_cart.paypal_url(return_url,params[:locale],payment_notifications_url,@order.id,ShippingCost.find(params[:order][:shipping_cost_id]))
@@ -58,6 +51,13 @@ class OrdersController < ApplicationController
   end
 
   def pay_with_credit_card
+    @order = Order.find(params[:order])
+    product_ids = @order.order_items.map(&:product_id)
+    products = Product.includes(:thumb,:product_category).joins(:product_infos).where("product_infos.country_id = #{@country_id} and products.id in (#{product_ids.join(",")})").cart_info
+    product_infos = {}
+    products.each {|product| product_infos[product.id] = product}
+    @order_products = []
+    product_ids.each { |id| @order_products << product_infos[id] }
   end
 
   def result

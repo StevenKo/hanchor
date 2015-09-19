@@ -102,7 +102,7 @@
     - service.return_url result_orders_url(order: @order)
     - service.notify_url allpay_payment_notifications_url
     - service.encrypted_data
-    = submit_tag t('cart.pay_by_credit_card'),class: "btn btn-md btn-primary"
+    = submit_tag t('cart.pay_by_credit_card'),class: "btn btn-lg btn-primary"
 
 :javascript
   $("input[name=utf8]").remove();
