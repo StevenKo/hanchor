@@ -104,7 +104,7 @@ Hanchor::Application.configure do
   config.action_mailer.default_url_options = { host: 'www.hanchor.com' }
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.integration_mode = :development
+    ActiveMerchant::Billing::Base.integration_mode = :production
   end
 
 end
