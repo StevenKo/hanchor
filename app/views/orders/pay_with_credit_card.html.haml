@@ -92,7 +92,7 @@
             = @order.total
 
 .center-div.allpay_btn
-  - payment_service_for  @order,current_user.email,:service => :allpay,:html    => { :id => 'allpay-atm-form', :method => :post } do |service|
+  - payment_service_for  @order,current_user.email,:service => :allpay,:html    => { :id => 'allpay-credit-form', :method => :post } do |service|
     - service.merchant_trade_no @order.code
     - service.merchant_trade_date @order.created_at
     - service.total_amount @order.total
