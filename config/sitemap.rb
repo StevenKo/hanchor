@@ -17,7 +17,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Product.find_each do |product|
-    add products_show_path(product.product_category.name_en,product)
+    add products_show_path(product.product_category.name_en,product) if product.product_category.present?
   end
 
 end

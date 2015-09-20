@@ -15,9 +15,13 @@ set :deploy_to, "/home/apps/hanchor"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
+
 role :web, "106.186.113.25"
 role :app, "106.186.113.25"
 role :db,  "106.186.113.25", :primary => true
+# role :web, "139.162.23.149"
+# role :app, "139.162.23.149"
+# role :db,  "139.162.23.149", :primary => true
 
 set :bundle_cmd, "RAILS_ENV=production bundle"
 
