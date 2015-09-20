@@ -27,8 +27,12 @@
             %span
             %br
               = f.radio_button :payment, "PayPal",checked: true
-              = f.label t('cart.credit_card')
-              %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
+              - if (["zh-TW","zh"].include?( params[:locale]))
+                = f.label :payment,t('cart.allpay_credit_card')
+                %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.allpay.com.tw/Content/Themes/WebStyle20131201/images/header_logo.png"}
+              - else
+                = f.label :payment,t('cart.credit_card')
+                %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
               -if @country_id == 1
                 = f.radio_button :payment, "transfer"
                 = f.label t('cart.transfer_bank')

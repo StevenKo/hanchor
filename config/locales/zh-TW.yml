@@ -149,6 +149,7 @@ zh-TW:
     store_name: "門市名稱<span class='red-star'>*</span>:"
     payment_info: "付款資訊(Payment Information)<span class='red-star'>*</span>"
     credit_card: "信用卡(經由PayPal系統)"
+    allpay_credit_card: "信用卡(經由AllPay系統)"
     pay_by_credit_card: "信用卡付款"
     transfer_bank: "銀行或ATM匯款"
     transfer: "匯款"

@@ -129,6 +129,7 @@ en:
     shipping: "Shipping<span class='red-star'>*</span>: "
     payment_info: "Payment Information<span class='red-star'>*</span>"
     credit_card: "PayPal"
+    allpay_credit_card: "Allpay"
     pay_by_credit_card: "Pay by Credit Card"
     comment: "Comment"
     order: "Order Detail"
