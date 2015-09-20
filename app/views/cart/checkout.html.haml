@@ -35,12 +35,7 @@
                 %img{:class => "pull-left", :alt => "Solution Graphics", :border => "0", :src => "https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif"}
               -if @country_id == 1
                 = f.radio_button :payment, "transfer"
-                = f.label t('cart.transfer_bank')
-                %label
-                  %strong> ，銀行
-                  或
-                  %strong> ATM匯款
-                  (請於匯款後點選通知匯款以利盡快出貨)
+                = f.label :payment,t('cart.transfer_bank')
           .pay_when_shipped{:style => "display: none;"}
             %span
             %br
