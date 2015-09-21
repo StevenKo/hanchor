@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
       if @order.save
         @order.update_attribute(:code, @order.created_at.utc.strftime("%y%m%d")+ (Order.where("created_at > ?", @order.created_at.utc.to_date).size).to_s.rjust(3, '0'))
         @order.deduct_quanitity
-        if(@order.payment == "PayPal" && (["zh-TW","zh"].include?( params[:locale]) || ["Taiwan","TW","tw","taiwan"].include?(@order.country)))
+        if(@order.payment == "AllPay")
           redirect_to pay_with_credit_card_orders_path(order: @order)
         elsif(@order.payment == "PayPal")
           return_url = result_orders_url(order: @order)

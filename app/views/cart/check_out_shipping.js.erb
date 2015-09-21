@@ -15,4 +15,5 @@ $("#sum").text("<%= @shipping.cost + params[:sub_total].to_i %>");
   $('.tw_payment').show();
   $('.pay_when_shipped').hide();
   $('#order_payment_paypal').prop('checked', true);
+  $('#order_payment_allpay').prop('checked', true);
 <% end %>

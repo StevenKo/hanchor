@@ -32,6 +32,8 @@
               %td= t("order.payed")
             -elsif order.payment != "貨到付款"
               %td= link_to t("notify.notify"),"","data-toggle" => "modal", 'data-target' => "#myModal", id: "order_modal_link", class: "btn btn-md btn-warning", data: {order_id: order.id}
+            -else
+              %td
 
           %tr{:style => "display: none;"}
             %td{:colspan => "7"}

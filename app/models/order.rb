@@ -42,8 +42,8 @@ class Order < ActiveRecord::Base
     self.store_name = "fake"
   end
 
-  def pay_by_paypal_or_transfer
-    (payment == "PayPal" || payment == "貨到付款") ? true : false 
+  def pay_by_paypal_or_allpay_or_delivery
+    (payment == "PayPal" || payment == "AllPay" || payment == "貨到付款") ? true : false 
   end
 
   def ship_store_display
