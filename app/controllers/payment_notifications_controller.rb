@@ -23,6 +23,7 @@ class PaymentNotificationsController < ApplicationController
     Rails.logger.info("PARAMS: #{params.inspect}")
     if (params[:RtnCode] == "1")
       order = Order.find_by(code: params[:MerchantTradeNo])
+      break if order.is_payed == true
       order.status = "pay_confirm"
       order.is_show = true
       order.is_payed = true
