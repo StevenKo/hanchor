@@ -23,13 +23,14 @@ class PaymentNotificationsController < ApplicationController
     Rails.logger.info("PARAMS: #{params.inspect}")
     if (params[:RtnCode] == "1")
       order = Order.find_by(code: params[:MerchantTradeNo])
-      break if order.is_payed == true
-      order.status = "pay_confirm"
-      order.is_show = true
-      order.is_payed = true
-      order.fill_fake_attribute
-      order.save
-      UserMailer.order_notification(order.user,order).deliver
+      if order.is_payed == false
+        order.status = "pay_confirm"
+        order.is_show = true
+        order.is_payed = true
+        order.fill_fake_attribute
+        order.save
+        UserMailer.order_notification(order.user,order).deliver
+      end
     elsif(params[:RtnCode] != "1")
       order = Order.find_by(code: params[:MerchantTradeNo])
       order.is_show = false
