@@ -31,11 +31,12 @@ class PaymentNotificationsController < ApplicationController
         order.save
         UserMailer.order_notification(order.user,order).deliver
       end
+      render :text => "1|OK"
     elsif(params[:RtnCode] != "1")
       order = Order.find_by(code: params[:MerchantTradeNo])
       order.is_show = false
       order.save
+      render :text => "0|訂單失敗"
     end
-    render :nothing => true
   end
 end
