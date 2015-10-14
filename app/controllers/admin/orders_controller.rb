@@ -28,7 +28,9 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def destroy
-    Order.delete(params[:id])
+    order = Order.find(params[:id])
+    order.update_attribute(:is_show, false)
+
     flash[:notice] = "delete success"
     redirect_to admin_orders_path
   end
