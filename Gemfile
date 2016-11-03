@@ -10,7 +10,7 @@ gem 'bcrypt-ruby', '=3.0.1'
 gem 'haml-rails'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'truncate_html'
-gem 'bootstrap_form', '2.4.0'
+gem 'bootstrap_form', '2.5.2'
 gem "ckeditor", :git => "https://github.com/adamico/ckeditor.git", :branch => "rails-4-compatibility"
 gem "carrierwave"
 gem "mini_magick"
