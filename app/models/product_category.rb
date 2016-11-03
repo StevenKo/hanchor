@@ -2,7 +2,7 @@
 class ProductCategory < ActiveRecord::Base
   has_many :products
 
-  scope :visible, -> {where("is_visible = true")}
+  scope :visible, -> {where("is_visible = true").order(sort: :asc)}
   belongs_to :parent_category, foreign_key: 'parent_id', class_name: 'ProductCategory'
   has_many :child_categories, foreign_key: 'parent_id', class_name: 'ProductCategory'
 
