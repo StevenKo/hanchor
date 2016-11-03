@@ -251,7 +251,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails (~> 3.0.0.3)
   babosa
   bcrypt-ruby (= 3.0.1)
-  bootstrap_form
+  bootstrap_form (= 2.4.0)
   capistrano
   capistrano-local-precompile
   carrierwave
